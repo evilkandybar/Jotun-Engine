@@ -1,0 +1,7 @@
+Shader 1 (Diffuse.vert) compile error: No errors.
+
+Shader 2 (Diffuse.frag) compile error: No errors.
+
+Program 3 link error: No errors.
+
+Program number 3, name Diffuse, is a valid shader

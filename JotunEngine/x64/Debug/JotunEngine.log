@@ -1,0 +1,47 @@
+﻿Build started 8/30/2013 11:02:26 AM.
+     1>Project "C:\Users\DAVID\Documents\Programs\JotunEngine\JotunEngine\JotunEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\JotunEngine.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt JotunEngine.cpp
+         JotunEngine.cpp
+     1>JotunEngine.cpp(154): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(155): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(156): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(157): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(164): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(165): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(166): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(167): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(174): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(175): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(176): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(177): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>JotunEngine.cpp(244): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>JotunEngine.cpp(604): warning C4244: 'argument' : conversion from 'WPARAM' to 'int', possible loss of data
+     1>JotunEngine.cpp(608): warning C4244: 'argument' : conversion from 'WPARAM' to 'int', possible loss of data
+     1>JotunEngine.cpp(576): warning C4101: 'ps' : unreferenced local variable
+     1>JotunEngine.cpp(577): warning C4101: 'hdc' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DAVID\Documents\Programs\JotunEngine\x64\Debug\JotunEngine.exe" /INCREMENTAL /NOLOGO glew32.lib assimp.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DAVID\Documents\Programs\JotunEngine\x64\Debug\JotunEngine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DAVID\Documents\Programs\JotunEngine\x64\Debug\JotunEngine.lib" /MACHINE:X64 x64\Debug\JotunEngine.res
+         x64\Debug\Camera.obj
+         x64\Debug\Color.obj
+         x64\Debug\Input.obj
+         x64\Debug\JotunEngine.obj
+         x64\Debug\Light.obj
+         x64\Debug\Material.obj
+         x64\Debug\Mesh.obj
+         x64\Debug\Meshes.obj
+         x64\Debug\RenderMesh.obj
+         x64\Debug\RenderObject.obj
+         x64\Debug\Shader.obj
+         x64\Debug\Shaders.obj
+         x64\Debug\stdafx.obj
+         x64\Debug\Time.obj
+         x64\Debug\Transform.obj
+         x64\Debug\Utility.obj
+         x64\Debug\Vector3.obj
+         JotunEngine.vcxproj -> C:\Users\DAVID\Documents\Programs\JotunEngine\x64\Debug\JotunEngine.exe
+     1>Done Building Project "C:\Users\DAVID\Documents\Programs\JotunEngine\JotunEngine\JotunEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:37.20
