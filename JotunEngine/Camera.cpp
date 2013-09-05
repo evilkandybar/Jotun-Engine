@@ -100,6 +100,8 @@ void Camera::genMatrixes() {
 void Camera::setMatricies() {
 	glMatrixMode( GL_MODELVIEW );
 	glLoadMatrixf( matrixToFloats( viewMatrix ) );
+	glMatrixMode( GL_PROJECTION );
+	glLoadMatrixf( matrixToFloats( projectionMatrix ) );
 }
 
 void Camera::setActive() {

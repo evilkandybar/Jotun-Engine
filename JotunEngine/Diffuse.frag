@@ -38,17 +38,17 @@ void main()
 	//shadow calaulations
 	vec4 shadowCoordWDivide = shadowCoord / shadowCoord.w;
 	//add a slight bias to avoid bleh lines
-	shadowCoordWDivide.z += 0.0005;
+	shadowCoordWDivide.z += 0.005;
 	float distFromLight = texture2D( shadowMap, shadowCoordWDivide.st ).z;
 	float shadow = 1.0;
 	if( shadowCoord.w > 0.0 ) {
-		shadow = distFromLight < shadowCoordWDivide.z ? 0.5 : 1.0;
+		shadow = distFromLight < shadowCoordWDivide.z ? 0.5 : 1;
 	}
 
 	//if( shadow < 0.9 ) {
-	//	gl_FragColor = vec4( 1, 0, 0, 1 );
+	//	gl_FragColor = vec4( distFromLight, 0, 0, 1 );
 	//} else {
-	//	gl_FragColor = vec4( 0, 1, 0, 1 );
+	//	gl_FragColor = vec4( 0, distFromLight, 0, 1 );
 	//}
-    gl_FragColor = vec4( 1, 0, 0, 1 ) * shadow;// * color;
+    gl_FragColor = vec4( shadowCoordWDivide.r, 0, shadowCoordWDivide.b, 1 );// * distFromLight;// * color;
 }

@@ -155,5 +155,11 @@
     <None Include="Diffuse.vert">
       <Filter>Vertex Shaders</Filter>
     </None>
+    <None Include="Shadow.vert">
+      <Filter>Vertex Shaders</Filter>
+    </None>
+    <None Include="Shadow.frag">
+      <Filter>Fragment Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

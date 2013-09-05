@@ -24,12 +24,16 @@ public:
 	void genMatrixes();
 	void setMatricies();
 	void setActive();
-	void prepare();
 	void update();
+	void prepare();
 	Transform& getTransform();
 	aiMatrix4x4& getProjectionMatrix();
 	aiMatrix4x4& getViewMatrix();
 protected:
+	enum MODE {
+		PERSPECTIVE = 0,
+		ORTHOGRAPHIC = 1,
+	} projMode;
 	float fov, nearClip, farClip, aspectRatio;
 	int screenX, screenY;
 	aiMatrix4x4 projectionMatrix, viewMatrix;

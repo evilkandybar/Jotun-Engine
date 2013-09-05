@@ -47,12 +47,12 @@ void init() {
 	makeFullscreen();
 	initOpenGL();
 	genShadowMap();
-	mainCamera.setActive();
 	mainCamera.setPosition( 0, 0, -10 );
 	mainLight.enable();
 	mainLight.getCamera().genMatrixes();
 	Time::init();
 	RenderMesh *rm = new RenderMesh( "HumanTransport.obj", "Diffuse" );
+	Shaders::loadShader( "Shadow" );
 	objects.push_back( rm );
 	out<<"Initialized stuff\n";
 }
@@ -122,7 +122,7 @@ void genTextureMatrix() {
 		0.5, 0.0, 0.0, 0.0, 
 		0.0, 0.5, 0.0, 0.0,
 		0.0, 0.0, 0.5, 0.0,
-	0.5, 0.5, 0.5, 1.0};
+		0.5, 0.5, 0.5, 1.0};
 	
 	// Grab modelview and transformation matrices
 	glGetDoublev(GL_MODELVIEW_MATRIX, modelView);
@@ -193,14 +193,10 @@ void draw() {
 								   0.0f, 0.5f, 0.0f, 0.0f,
 								   0.0f, 0.0f, 0.5f, 0.0f,
 								   0.5f, 0.5f, 0.5f, 1.0f );
-	mainLight.update();
 	mainLight.prepareShadowCam();
 	mainCamera.genMatrixes();
-	glCullFace( GL_FRONT );
-	glShadeModel( GL_FLAT );
-	glColorMask( 0, 0, 0, 0 );
 	for( RenderMesh *rm : objects ) {
-		rm->setShader( 0 );
+		//rm->setShader( 0 );
 		rm->draw();
 	}
 	glBegin( GL_QUADS );
@@ -226,7 +222,6 @@ void draw() {
 	glBindTexture( GL_TEXTURE_2D, shadowMapGLID );
 
 	mainCamera.setActive();
-	mainCamera.prepare();
 
 	mainLight.update();
 

@@ -9,6 +9,7 @@ Light::Light(void) : shadowCam( 45, 512, 512, position, Vector3( 0, 0, 0 ) ) {
 	if( glNameCounter > GL_LIGHT7 ) {
 		glNameCounter = GL_LIGHT0;
 	}
+	shadowCam.setFarClip( 100 );
 }
 
 Light::Light( float newX, float newY, float newZ, 
@@ -20,6 +21,7 @@ Light::Light( float newX, float newY, float newZ,
 	if( glNameCounter > GL_LIGHT7 ) {
 		glNameCounter = GL_LIGHT0;
 	}
+	shadowCam.setFarClip( 100 );
 }
 
 Light::~Light(void) {}
@@ -78,9 +80,14 @@ void Light::setColor( float *data ) {
 
 void Light::prepareShadowCam() {
 	shadowCam.setPosition( position );
+	//shadowCam.lookAt( Vector3( 0, 0, 0 ) );
+	//shadowCam.setActive();
+	//shadowCam.prepare();
 	shadowCam.setMatricies();
 	glViewport( 0, 0, 512, 512 );	//512 by 512 shadow map, for now. Eventually, make a global setting
 	glColorMask( 0, 0, 0, 0 );
+	glCullFace( GL_FRONT );
+	glShadeModel( GL_FLAT );
 }
 
 Camera& Light::getCamera() {
