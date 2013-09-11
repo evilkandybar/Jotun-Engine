@@ -118,17 +118,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderList.cpp" />
+    <ClCompile Include="stb_image-1.16.c" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderList.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureList.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diffuse.frag" />

@@ -1,9 +1,5 @@
 #include "ShaderList.h"
 
-ShaderList::ShaderList(void) {}
-
-ShaderList::~ShaderList(void) {}
-
 //Taken from http://www.opengl-tutorial.org/beginners-tutorials/tutorial-2-the-first-triangle/
 Shader* ShaderList::loadShader( std::string name ) {
 	Shader *ret = new Shader( name );

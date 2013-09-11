@@ -5,7 +5,9 @@
 #include "ShaderList.h"
 
 int init();
+void initOpenGL();
 int main();
+void draw();
 
 //holds the handle for the main window
 GLFWwindow *window;
@@ -43,8 +45,21 @@ int init() {
 	}
  
 	glfwSetWindowTitle( window, "Tutorial 01" );
+	initOpenGL();
 	mesh = new Mesh();
 	shader = ShaderList::loadShader( "Diffuse" );
+}
+
+void initOpenGL() {
+	glEnable( GL_DEPTH_TEST );
+	glDepthFunc( GL_LESS );
+}
+
+void draw() {
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	shader->setActive();
+	mesh->draw();
+	glfwSwapBuffers( window ); 
 }
 
 int main() {
@@ -58,10 +73,7 @@ int main() {
 	glfwSetInputMode( window, GLFW_STICKY_KEYS, GL_TRUE );
  
 	while( true ) {//glfwGetKey( window, GLFW_KEY_ESCAPE ) != GLFW_PRESS ) {
-		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-		shader->setActive();
-		mesh->draw();
-		glfwSwapBuffers( window ); 
+		draw();
 	}
 
     glfwTerminate();

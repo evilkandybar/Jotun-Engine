@@ -8,6 +8,7 @@ public:
 	~Mesh(void);
 	void draw();
 private:
+	int vertexCount;
 	GLuint vertexArrayID;
 	GLuint vertexBuffer;
 	static const GLfloat vertexArray[];

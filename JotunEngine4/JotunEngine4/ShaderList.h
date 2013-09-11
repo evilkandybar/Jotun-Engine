@@ -4,8 +4,6 @@
 class ShaderList
 {
 public:
-	ShaderList(void);
-	~ShaderList(void);
 	static Shader* loadShader( std::string name );
 };
 
