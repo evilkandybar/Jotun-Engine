@@ -1,32 +1,32 @@
-﻿Build started 9/16/2013 12:55:43 PM.
+﻿Build started 9/16/2013 1:34:48 PM.
      1>Project "D:\My Documents\Programs\JotunEngine4\JotunEngine4\JotunEngine4.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp main.cpp Mesh.cpp Shader.cpp ShaderList.cpp Texture.cpp TextureList.cpp
-         TextureList.cpp
-     1>c1xx : fatal error C1083: Cannot open source file: 'TextureList.cpp': No such file or directory
-         Texture.cpp
-     1>c1xx : fatal error C1083: Cannot open source file: 'Texture.cpp': No such file or directory
-         ShaderList.cpp
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
-     1>d:\my documents\programs\jotunengine4\jotunengine4\stdafx.h(15): fatal error C1083: Cannot open include file: 'stb_image.h': No such file or directory
-         Shader.cpp
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
-     1>d:\my documents\programs\jotunengine4\jotunengine4\stdafx.h(15): fatal error C1083: Cannot open include file: 'stb_image.h': No such file or directory
-         Mesh.cpp
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
-     1>d:\my documents\programs\jotunengine4\jotunengine4\stdafx.h(15): fatal error C1083: Cannot open include file: 'stb_image.h': No such file or directory
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Mesh.cpp Shader.cpp ShaderList.cpp Texture.cpp TextureList.cpp main.cpp
          main.cpp
      1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
-     1>d:\my documents\programs\jotunengine4\jotunengine4\stdafx.h(15): fatal error C1083: Cannot open include file: 'stb_image.h': No such file or directory
+         TextureList.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+         Texture.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+         ShaderList.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+         Shader.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+         Mesh.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
          Camera.cpp
-     1>c1xx : fatal error C1083: Cannot open source file: 'Camera.cpp': No such file or directory
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\gl\glm\gtx\string_cast.inl(30): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+     1>d:\my documents\programs\jotunengine4\jotunengine4\camera.cpp(4): warning C4305: 'argument' : truncation from 'double' to 'const float'
          Generating Code...
      1>Done Building Project "D:\My Documents\Programs\JotunEngine4\JotunEngine4\JotunEngine4.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:03.74
+Time Elapsed 00:00:04.73

@@ -1,8 +1,9 @@
-#include "stdafx.h"
 #pragma once
+#include "stdafx.h"
+#include "Texture.h"
 class TextureList
 {
 public:
-	static GLuint loadTexture( std::string name );
+	static Texture* loadTexture( std::string name );
 };
 

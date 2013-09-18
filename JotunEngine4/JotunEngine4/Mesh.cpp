@@ -52,7 +52,6 @@ Mesh::~Mesh(void) {}
 
 void Mesh::draw() {
 	// 1rst attribute buffer : vertices
-	glEnableVertexAttribArray( 0 );
 	glBindBuffer( GL_ARRAY_BUFFER, vertexBuffer );
 	glVertexAttribPointer(
 		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -65,6 +64,4 @@ void Mesh::draw() {
  
 	// Draw the triangle !
 	glDrawArrays( GL_TRIANGLES, 0, vertexCount*3 ); // Starting from vertex 0; 3 vertices total -> 1 triangle
- 
-	glDisableVertexAttribArray( 0 );
 }
