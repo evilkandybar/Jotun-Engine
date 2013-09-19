@@ -6,8 +6,13 @@
 #include <cstdio>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #include <GL/glew.h>
 #include <GL/glfw3.h>

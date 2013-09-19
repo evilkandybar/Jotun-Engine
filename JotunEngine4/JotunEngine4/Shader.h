@@ -10,7 +10,7 @@ public:
 	~Shader(void);
 	void setID( GLuint newID );
 	void setName( std::string newName );
-	void setActive();
+	void bind();
 	void uploadMatrix( glm::mat4 mvp );
 	GLuint getID();
 	std::string getName();

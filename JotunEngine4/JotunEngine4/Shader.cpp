@@ -22,7 +22,7 @@ void Shader::setName( std::string newName ) {
 	name = newName;
 }
 
-void Shader::setActive() {
+void Shader::bind() {
 	glUseProgram( glid );
 }
 

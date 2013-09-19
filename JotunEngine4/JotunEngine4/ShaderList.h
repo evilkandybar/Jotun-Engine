@@ -5,5 +5,7 @@ class ShaderList
 {
 public:
 	static Shader* loadShader( std::string name );
+private:
+	static std::vector<Shader*> shaders;
 };
 

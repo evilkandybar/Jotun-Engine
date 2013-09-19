@@ -66,7 +66,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(VCInstallDir)lib\x64;$(VCInstallDir)lib\amd64;$(VCInstallDir)atlmfc\lib\amd64;$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+    <LibraryPath>$(VCInstallDir)lib\x64\Debug;$(VCInstallDir)lib\x64;$(VCInstallDir)lib\amd64;$(VCInstallDir)atlmfc\lib\amd64;$(WindowsSDK_LibraryPath_x64);</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -86,7 +86,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp.lib;glfw3.lib;glew32.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,7 +120,8 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshList.cpp" />
+    <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderList.cpp" />
     <ClCompile Include="stb_image-1.16.c" />
@@ -129,7 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="JotunEngine4.h" />
+    <ClInclude Include="MeshList.h" />
+    <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderList.h" />

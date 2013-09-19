@@ -1,22 +1,18 @@
-#include "stdafx.h"
-
-#include "Mesh.h"
-#include "Shader.h"
-#include "ShaderList.h"
+#include "JotunEngine4.h"
 
 void errorCallback( int, const char* );
-int init();
+int initWindow();
 void initOpenGL();
+void initEngine();
 int main();
 void draw();
 
 //holds the handle for the main window
 GLFWwindow *window;
 
-Mesh *mesh;
-Shader *shader;
+MeshRenderer *mesh;
 
-int init() {
+int initWindow() {
 	glfwSetErrorCallback(errorCallback);
 	if( !glfwInit() ) {
 		fprintf( stderr, "Failed to initialize GLFW. Die.\n" );
@@ -46,11 +42,7 @@ int init() {
 	    return -1;
 	}
 
-	glEnableVertexAttribArray(0);
 	glfwSetWindowTitle( window, "Tutorial 01" );
-	initOpenGL();
-	mesh = new Mesh();
-	shader = ShaderList::loadShader( "Diffuse" );
 }
 
 void errorCallback(int err, const char* msg) {
@@ -59,22 +51,28 @@ void errorCallback(int err, const char* msg) {
 
 void initOpenGL() {
 	glEnable( GL_DEPTH_TEST );
-	glDepthFunc( GL_LESS );
+	glDepthFunc(GL_LESS);
+	glEnableVertexAttribArray(0);
+}
+
+void initEngine() {
+	mesh = new MeshRenderer("HumanTransport.obj", "Diffuse");
 }
 
 void draw() {
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	shader->setActive();
 	mesh->draw();
 	glfwSwapBuffers( window ); 
 }
 
 int main() {
-	switch( init() ) {
+	switch( initWindow() ) {
 	case -1:
 		system( "PAUSE" );
 		return -1;
 	}
+	initOpenGL();
+	initEngine();
 	
 	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode( window, GLFW_STICKY_KEYS, GL_TRUE );

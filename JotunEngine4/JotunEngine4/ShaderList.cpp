@@ -1,5 +1,7 @@
 #include "ShaderList.h"
 
+std::vector<Shader*> ShaderList::shaders;
+
 //Taken from http://www.opengl-tutorial.org/beginners-tutorials/tutorial-2-the-first-triangle/
 Shader* ShaderList::loadShader( std::string name ) {
 	Shader *ret = new Shader( name );
@@ -79,6 +81,8 @@ Shader* ShaderList::loadShader( std::string name ) {
     glDeleteShader( fragmentShaderID );
  
 	ret->setID( programID );
+
+	shaders.push_back(ret);
 
     return ret;
 }
