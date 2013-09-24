@@ -1,88 +1,59 @@
-#include "JotunEngine4.h"
+#include <GL/glfw3.h>
+#include <cstdlib>
+#include <cstdio>
 
-void errorCallback( int, const char* );
-int initWindow();
-void initOpenGL();
-void initEngine();
-int main();
-void draw();
+void onGLFWKey(GLFWwindow* window, int key, int scancode, int action, int mods);
+void onGLFWError(int error, const char *description);
 
-//holds the handle for the main window
-GLFWwindow *window;
-
-MeshRenderer *mesh;
-
-int initWindow() {
-	glfwSetErrorCallback(errorCallback);
-	if( !glfwInit() ) {
-		fprintf( stderr, "Failed to initialize GLFW. Die.\n" );
-		return -1;
+int main(void)
+{
+	GLFWwindow* window;
+	glfwSetErrorCallback(onGLFWError);
+	if (!glfwInit()) {
+		exit(EXIT_FAILURE);
 	}
-	glfwDefaultWindowHints();
-	//glfwWindowHint( GLFW_MSAA_SAMPLES, 4 ); // 4x antialiasing
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 ); // We want OpenGL 3.3
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3 );
-	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
- 
-	// Open a window and create its OpenGL context
-	window = glfwCreateWindow( 600, 400, "Jotun Engine 4", NULL, NULL );
-	if( window == NULL )
+	window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+	if (!window) {
+		glfwTerminate();
+		exit(EXIT_FAILURE);
+	}
+	glfwMakeContextCurrent(window);
+	glfwSetKeyCallback(window, onGLFWKey);
+	while (!glfwWindowShouldClose(window))
 	{
-		fprintf( stderr, "Failed to open GLFW window\n" );
-	    glfwTerminate();
-	    return -1;
+		float ratio;
+		int width, height;
+		glfwGetFramebufferSize(window, &width, &height);
+		ratio = width / (float) height;
+		glViewport(0, 0, width, height);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glRotatef((float) glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
+		glBegin(GL_TRIANGLES);
+		glColor3f(1.f, 0.f, 0.f);
+		glVertex3f(-0.6f, -0.4f, 0.f);
+		glColor3f(0.f, 1.f, 0.f);
+		glVertex3f(0.6f, -0.4f, 0.f);
+		glColor3f(0.f, 0.f, 1.f);
+		glVertex3f(0.f, 0.6f, 0.f);
+		glEnd();
+		glfwSwapBuffers(window);
+		glfwPollEvents();
 	}
-
-	glfwMakeContextCurrent( window );
- 
-	// Initialize GLEW
-	glewExperimental = true; // Needed in core profile
-	if( glewInit() != GLEW_OK ) {
-		fprintf( stderr, "Failed to initialize GLEW\n" );
-	    return -1;
-	}
-
-	glfwSetWindowTitle( window, "Tutorial 01" );
+	glfwDestroyWindow(window);
+	glfwTerminate();
+	exit(EXIT_SUCCESS);
 }
 
-void errorCallback(int err, const char* msg) {
-	fprintf(stderr, "Error %d: %s\n", err, msg);
+void onGLFWKey(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
-void initOpenGL() {
-	glEnable( GL_DEPTH_TEST );
-	glDepthFunc(GL_LESS);
-	glEnableVertexAttribArray(0);
+void onGLFWError(int error, const char* description) {
+	printf("ERROR %d: %s", error, description);
 }
-
-void initEngine() {
-	mesh = new MeshRenderer("HumanTransport.obj", "Diffuse");
-}
-
-void draw() {
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	mesh->draw();
-	glfwSwapBuffers( window ); 
-}
-
-int main() {
-	switch( initWindow() ) {
-	case -1:
-		system( "PAUSE" );
-		return -1;
-	}
-	initOpenGL();
-	initEngine();
-	
-	// Ensure we can capture the escape key being pressed below
-	glfwSetInputMode( window, GLFW_STICKY_KEYS, GL_TRUE );
- 
-	std::cout << "Starting main loop...\n";
-
-	do {
-		draw();
-	} while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS);
-
-    glfwTerminate();
-    return 0;
-}	
