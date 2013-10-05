@@ -13,6 +13,14 @@ Shader::Shader(std::string &sName) {
 Shader::~Shader() {
 }
 
+void Shader::bind() {
+	glUseProgram(glid);
+	if (!glIsProgram(glid)) {
+		int j;
+		j = 5;
+	}
+}
+
 int Shader::getGLID() {
 	return glid;
 }

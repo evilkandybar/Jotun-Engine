@@ -1,10 +1,43 @@
-﻿Build started 9/23/2013 9:04:18 PM.
+﻿Build started 10/1/2013 10:21:26 AM.
      1>Project "D:\My Documents\Programs\JotunEngine4\JotunEngine4\JotunEngine4.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\AMD64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt main.cpp Mesh.cpp Shader.cpp
+         Shader.cpp
+         Mesh.cpp
+     1>Mesh.cpp(48): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(49): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(51): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(52): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(55): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(56): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(57): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(60): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(63): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(64): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(65): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(68): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(69): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(71): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(72): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(73): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(75): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(76): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(77): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Mesh.cpp(87): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(91): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Mesh.cpp(92): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Mesh.cpp(95): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+         main.cpp
+         Generating Code...
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\AMD64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\JotunEngine4\x64\Debug\JotunEngine4.exe" /INCREMENTAL /NOLOGO glfw3.lib opengl32.lib glew32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\JotunEngine4\x64\Debug\JotunEngine4.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\JotunEngine4\x64\Debug\JotunEngine4.lib" /MACHINE:X64 x64\Debug\main.obj
-     1>MSVCRTD.lib(chkstk.obj) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
+         x64\Debug\Mesh.obj
+         x64\Debug\Shader.obj
+     1>msvcprtd.lib(MSVCP120D.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
      1>Done Building Project "D:\My Documents\Programs\JotunEngine4\JotunEngine4\JotunEngine4.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.13
+Time Elapsed 00:00:02.84

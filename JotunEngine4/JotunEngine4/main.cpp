@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Mesh.h"
 #include "Shader.h"
 
 int		main();
@@ -12,6 +13,7 @@ void	onGLFWError(int error, const char *description);
 
 GLFWwindow* window;
 Shader *diffuse;
+Mesh *mesh;
 
 void init() {
 	initBackend();
@@ -27,7 +29,7 @@ void initBackend() {
 	}
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
 	if (!window) {
 		std::cerr << "ERROR: Could not creat window\n";
@@ -55,10 +57,14 @@ void initOpenGL() {
 	glClearDepth(1.0);
 	glDepthFunc(GL_LESS);
 
-	glEnable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 
+	glEnable(GL_VERTEX_ARRAY);
+
 	glClearColor(1, 0, 1, 0);
+
+	glEnableVertexAttribArray(0);
 
 	float ratio;
 	int width, height;
@@ -69,25 +75,13 @@ void initOpenGL() {
 
 void initData() {
 	diffuse = new Shader("DIffuse");
+	mesh = new Mesh("HumanTransport.obj");
 }
 
 void draw() {
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	glUseProgram(diffuse->getGLID());
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(-1, 1, -1.f, 1.f, 1.f, -1.f);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glRotatef((float) glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
-	glBegin(GL_TRIANGLES);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.6f, -0.4f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.6f, -0.4f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.f, 0.6f, 0.f);
-	glEnd();
+	diffuse->bind();
+	mesh->draw();
 	glfwSwapBuffers(window);
 }
 

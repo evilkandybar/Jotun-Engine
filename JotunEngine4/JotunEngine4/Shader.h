@@ -7,6 +7,7 @@ public:
 	Shader(const char *sName);
 	Shader( std::string &sName );
 	~Shader();
+	void bind();
 	int getGLID();
 private:
 	int loadShader(std::string &name);

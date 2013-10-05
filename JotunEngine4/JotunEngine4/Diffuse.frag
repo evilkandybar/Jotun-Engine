@@ -1,3 +1,9 @@
+#version 330 core
+
+out vec3 color;
+
+varying vec3 pos;
+
 void main() {
-	gl_FragColor = vec4( 1, 0, 0, 1 );
+	color = pos;
 }

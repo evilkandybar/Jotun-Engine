@@ -1,10 +1,26 @@
-﻿Build started 9/23/2013 10:34:31 PM.
+﻿Build started 10/1/2013 10:21:38 AM.
      1>Project "D:\My Documents\Programs\JotunEngine4\JotunEngine4\JotunEngine4.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mesh.cpp Shader.cpp main.cpp
+         Mesh.cpp
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(49): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(57): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(65): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(69): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(73): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(77): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(92): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine4\jotunengine4\mesh.cpp(103): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         Compiling...
          main.cpp
+         Shader.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\JotunEngine4\Debug\JotunEngine4.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib glfw3.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\JotunEngine4\Debug\JotunEngine4.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\JotunEngine4\Debug\JotunEngine4.lib" /MACHINE:X86 Debug\main.obj
+         Debug\Mesh.obj
          Debug\Shader.obj
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          JotunEngine4.vcxproj -> D:\My Documents\Programs\JotunEngine4\Debug\JotunEngine4.exe
@@ -12,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.91
+Time Elapsed 00:00:02.52
