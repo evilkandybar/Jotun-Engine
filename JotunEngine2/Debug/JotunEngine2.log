@@ -1,0 +1,31 @@
+﻿Build started 10/3/2013 4:34:24 PM.
+     1>Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp main.cpp Mesh.cpp Shader.cpp "stb_image-1.16.cpp" Texture.cpp vboindexer.cpp
+         vboindexer.cpp
+         Texture.cpp
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\texture.cpp(19): error C2660: 'Texture::bind' : function does not take 0 arguments
+         stb_image-1.16.cpp
+         Shader.cpp
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\shader.cpp(31): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+         Mesh.cpp
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\mesh.cpp(124): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         main.cpp
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\main.cpp(3): fatal error C1083: Cannot open include file: 'common/controls.hpp': No such file or directory
+         Camera.cpp
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(13): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(29): error C2065: 'horizontalAngle' : undeclared identifier
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(30): error C2065: 'horizontalAngle' : undeclared identifier
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(31): error C2661: 'glm::detail::tvec3<glm::mediump_float>::tvec3' : no overloaded function takes 2 arguments
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(33): error C2065: 'horizontalAngle' : undeclared identifier
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(34): error C2065: 'horizontalAngle' : undeclared identifier
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(35): error C2661: 'glm::detail::tvec3<glm::mediump_float>::tvec3' : no overloaded function takes 2 arguments
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(140): error C2065: 'projMatrix' : undeclared identifier
+     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\camera.cpp(142): error C2065: 'viewMatrix' : undeclared identifier
+         Generating Code...
+     1>Done Building Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:18.94
