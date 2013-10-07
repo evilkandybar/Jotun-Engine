@@ -16,7 +16,7 @@ void Texture::loadTexture() {
 
 void Texture::makeGLTex() {
 	glGenTextures( 1, &glName );
-	bind();
+	bind( 0 );
 
 	glPixelStorei( GL_UNPACK_ALIGNMENT, 1 );
 

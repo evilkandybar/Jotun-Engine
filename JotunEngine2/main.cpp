@@ -1,6 +1,6 @@
 #include "JotunEngine2.h"
 
-#include <common/controls.hpp>
+//#include <common/controls.hpp>
 
 int		init();
 void	initOpenGL();
