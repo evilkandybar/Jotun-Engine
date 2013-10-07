@@ -1,0 +1,30 @@
+﻿Build started 10/6/2013 12:25:05 PM.
+     1>Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp InputHandler.cpp main.cpp Mesh.cpp Shader.cpp "stb_image-1.16.cpp" Texture.cpp Time.cpp vboindexer.cpp
+         vboindexer.cpp
+         Time.cpp
+     1>d:\my documents\programs\jotunengine2\time.cpp(4): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my documents\programs\jotunengine2\time.cpp(8): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Texture.cpp
+         stb_image-1.16.cpp
+         Shader.cpp
+     1>d:\my documents\programs\jotunengine2\shader.cpp(31): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+         Mesh.cpp
+         main.cpp
+     1>d:\my documents\programs\jotunengine2\main.cpp(164): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         InputHandler.cpp
+         Camera.cpp
+     1>d:\my documents\programs\jotunengine2\camera.cpp(15): warning C4305: '=' : truncation from 'double' to 'float'
+         Generating Code...
+     1>d:\my documents\programs\jotunengine2\main.cpp(62): warning C4715: 'init' : not all control paths return a value
+     1>d:\my documents\programs\jotunengine2\main.cpp(248): fatal error C1001: An internal error has occurred in the compiler.
+         (compiler file 'f:\dd\vctools\compiler\utc\src\p2\ehexcept.c', line 956)
+          To work around this problem, try simplifying or changing the program near the locations listed above.
+         Please choose the Technical Support command on the Visual C++ 
+          Help menu, or open the Technical Support help file for more information
+     1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.94
