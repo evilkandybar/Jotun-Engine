@@ -16,40 +16,132 @@ uniform sampler2D shadowMap;
 
 vec2 poissonDisk( int ind ) {
    if( ind == 0 ) {
-      return vec2( -0.94201624, -0.39906216 ); 
-   } else if( ind == 1 ) {				//20
-      return vec2( 0.94558609, -0.76890725 );	
-   } else if( ind == 2 ) {
-      return vec2( -0.094184101, -0.92938870 );			
-   } else if( ind == 3 ) {
-      return vec2( 0.34495938, 0.29387760 );			
-   } else if( ind == 4 ) {
-      return vec2( -0.91588581, 0.45771432 ); 			
-   } else if( ind == 5 ) {
-      return vec2( -0.81544232, -0.87912464 );			
-   } else if( ind == 6 ) {				//30
-      return vec2( -0.38277543, 0.27676845 );			
-   } else if( ind == 7 ) {
-      return vec2( 0.97484398, 0.75648379 );			
-   } else if( ind == 8 ) {
-      return vec2( 0.44323325, -0.97511554 );			
-   } else if( ind == 9 ) {
-      return vec2( 0.53742981, -0.47373420 );			
-   } else if( ind == 10 ) {
-      return vec2( -0.26496911, -0.41893023 ); 			
-   } else if( ind == 11 ) {				//40
-      return vec2( 0.79197514, 0.19090188 );			
-   } else if( ind == 12 ) {
-      return vec2( -0.24188840, 0.99706507 );			
-   } else if( ind == 13 ) {
-      return vec2( -0.81409955, 0.91437590 ); 			
-   } else if( ind == 14 ) {
-      return vec2( 0.19984126, 0.78641367 );			
-   } else if( ind == 15 ) {
-      return vec2( 0.14383161, -0.14100790 ); 		//50
-   }	
+	return vec2( -0.1094937f, 0.752005 );
+   } 
+   if( ind == 1 ) {				//20
+	return vec2( -0.5059697f, 0.7294227f );
+   } 
+   if( ind == 2 ) {
+	return vec2( -0.3904303f, 0.5678311f );
+   }  
+   if( ind == 3 ) {
+	return vec2( -0.3050305f, 0.7459931f );
+   }  
+   if( ind == 4 ) {
+	return vec2( -0.1725386f, 0.506364f );
+   }  
+   if( ind == 5 ) {
+	return vec2( 0.1979104f, 0.7830779f );
+   }  
+   if( ind == 6 ) {				//30
+	return vec2( 0.0663829f, 0.9336991f );
+   }  
+   if( ind == 7 ) {
+	return vec2( -0.163072f, 0.9741971f );
+   }  
+   if( ind == 8 ) {
+	return vec2( 0.1710306f, 0.5527771f );
+   }  
+   if( ind == 9 ) {
+	return vec2( 0.02903906f, 0.3999698f );
+   }  
+   if( ind == 10 ) {
+	return vec2( -0.1748933f, 0.1948632f );
+   }  
+   if( ind == 11 ) {
+	return vec2( -0.3564819f, 0.2770886f );
+   }  
+   if( ind == 12 ) {
+	return vec2( -0.4994766f, 0.4100508f );
+   }  
+   if( ind == 13 ) {
+	return vec2( -0.6305282f, 0.5586912f );
+   }  
+   if( ind == 14 ) {
+	return vec2( -0.5874177f, 0.1295959f );
+   }  
+   if( ind == 15 ) {
+	return vec2( -0.4260757f, -0.02231212f );
+   }  
+   if( ind == 16 ) {
+	return vec2( -0.8381009f, -0.1279669f );
+   }  
+   if( ind == 17 ) {
+	return vec2( -0.8977778f, 0.1717084f );
+   }  
+   if( ind == 18 ) {
+	return vec2( -0.8211543f, 0.365194f );
+   }  
+   if( ind == 19 ) {
+	return vec2( -0.6365152f, -0.229197f );
+   }  
+   if( ind == 20 ) {
+	return vec2( -0.8206947f, -0.3301564f );
+   }  
+   if( ind == 21 ) {
+	return vec2( -0.08938109f, 0.005763604f );
+   }  
+   if( ind == 22 ) {
+	return vec2( -0.3123821f, -0.2344262f );
+   }  
+   if( ind == 23 ) {
+	return vec2( 0.1038207f, 0.2167438f );
+   }  
+   if( ind == 24 ) {
+	return vec2( 0.3256707f, 0.2347208f );
+   }  
+   if( ind == 25 ) {
+	return vec2( 0.3405131f, 0.4458854f );
+   }  
+   if( ind == 16 ) {
+	return vec2( -0.6740047f, -0.4649915f );
+   }  
+   if( ind == 17 ) {
+	return vec2( -0.6670403f, -0.658087f );
+   }  
+   if( ind == 18 ) {
+	return vec2( -0.4680224f, -0.4418066f );
+   }  
+   if( ind == 19 ) {
+	return vec2( 0.09780561f, -0.1236207f );
+   }  
+   if( ind == 20 ) {
+	return vec2( 0.030519f, -0.3487186f );
+   }  
+   if( ind == 21 ) {
+	return vec2( 0.4240496f, -0.1010172f );
+   }  
+   if( ind == 22 ) {
+	return vec2(  0.3915275f, -0.333679f );
+   }  
+   if( ind == 23 ) {
+	return vec2( 0.2238118f, 0.05503683f );
+   }  
+   if( ind == 24 ) {
+	return vec2( -0.1218127f, -0.1943101f );
+   }  
+   if( ind == 25 ) {
+	return vec2( 0.6776094f, 0.5458294f );
+   }  
+   if( ind == 26 ) {
+	return vec2( 0.6469344f, 0.2682991f );
+   }  
+   if( ind == 27 ) {
+	return vec2(  0.4293563f, 0.626775f );
+   }  
+   if( ind == 28 ) {
+	return vec2( 0.4987282f, 0.1368884f );
+   }  
+   if( ind == 29 ) {
+	return vec2( 0.4230149f, 0.8571401f );
+   }  
+   if( ind == 30 ) {
+	return vec2( 0.9180746f, 0.3412085f );
+   }  
+   if( ind == 31 ) {
+	return vec2( 0.5972316f, 0.7636495f );
+   }
 }
-
 
 // Returns a random number based on a vec3 and an int.
 float random(vec3 seed, int i){
@@ -92,36 +184,39 @@ void main(){
 	
 	float visibility = 1.0;
 
-	// Fixed bias, or...
-	//float bias = 0.005;
-
-	// ...variable bias
+	 //variable bias
 	 float bias = 0.005*tan(acos(cosTheta));		//100
 	 bias = clamp(bias, 0, 0.01 );
 
 	// Distance to the light
 	float distance = (ShadowCoord.z-bias)/ShadowCoord.w;
 	float dBlocker = 0;
+	flaot penumbra = 0;
+	float wLight = 5;
 
 	// Sample the shadow map 8 times
-	int index = 0;
-	for( int i = 0; i < 8; i++ ) {
-		dBlocker += texture2D( shadowMap,  ShadowCoord.xy + poissonDisk( index ) / 100.0 ).r;	//110
+	int count = 0;
+	float temp
+	for( int i = 0; i < 32; i++ ) {
+		temp = texture2D( shadowMap,  ShadowCoord.xy + (wLight * poissonDisk( i ) / 500.0) ).r;
+		if( temp < distance ) {
+			dBlocker += temp;
+			count++;
+		}
 	}
-	dBlocker /= 8;
+	if( dBlocker != 0 ) {
+		dBlocker /= float(count);
+		penumbra = wLight * (distance - dBlocker)/distance;
+	}
 
-	float penumbra = 5 * (distance - dBlocker)/distance;
-
-	float shadowDepth;
-	for( int i = 0; i < 8; i++ ) {
-		
-		// being fully in the shadow will eat up 16*0.05 = 0.8
+	int iterations = 16;
+	float sub = 0.8f / float(iterations);
+	for( int i = 0; i < iterations; i++ ) {
 		// 0.2 potentially remain, which is quite dark.
-
-		//sample the depth of the shadow map
-		//compare it to the depth of the fragment
-		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk( i )) / 700.0 ).r < distance ) {
-			visibility -= 0.1;
+		//sample the depth of the shadow map and compare it to the depth of the fragment
+		int index =  int( 32 * random( floor( Position_worldspace.xyz * 1000.0 ), i ) ) % 32;
+		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
+			visibility -= sub;
 		}
 	}
 
