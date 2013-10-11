@@ -190,8 +190,10 @@ int main( void ) {
 	initOpenGL();
 	initData();
 
-	std::string *uniformNames = new std::string [] {"depthMVP"};
-	std::string *attribNames = new std::string [] {"vertexPosition_modelspace"};
+	std::string *uniformNames = new std::string[1]; 
+	uniformNames[0] = "depthMVP";
+	std::string *attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
 
 	depth->genUniformMap( uniformNames, 1 );
 	depth->genAttribMap( attribNames, 1 );
@@ -225,16 +227,28 @@ int main( void ) {
 		return false;
 	}
 
-	uniformNames = new std::string [] { "texture" };
-	attribNames = new std::string [] {"vertexPosition_modelspace"};
+	uniformNames = new std::string[1];
+	uniformNames[0] = "texture";
+	attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
 
 	passthrough->genAttribMap( attribNames, 1 );
 	passthrough->genUniformMap( uniformNames, 1 );
 
-	uniformNames = new std::string [] { "texture", "myTextureSampler", "MVP", "V", "M",
-		"DepthBiasMVP", "shadowMap", "LightInvDirection_modelspace" };
-	attribNames = new std::string [] { "vertexPosition_modelspace", "vertexUV",
-		"vertexNormal_modelspace" };
+	uniformNames = new std::string[8];
+	uniformNames[0] = "texture";
+	uniformNames[1] = "myTextureSampler";
+	uniformNames[2] = "MVP";
+	uniformNames[3] = "V";
+	uniformNames[4] = "M";
+	uniformNames[5] = "DepthBiasMVP";
+	uniformNames[6] = "shadowMap"; 
+	uniformNames[7] = "LightInvDirection_modelspace";
+
+	attribNames = new std::string[3];
+	attribNames[0] = "vertexPosition_modelspace";
+	attribNames[1] = "vertexUV";
+	attribNames[2] = "vertexNormal_modelspace";
 
 	diffuse->genAttribMap( attribNames, 3 );
 	diffuse->genUniformMap( uniformNames, 8 );

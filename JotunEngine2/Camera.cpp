@@ -8,6 +8,8 @@ Camera::Camera( glm::vec3 initPos ) : position( initPos ) {
 	init();
 }
 
+Camera::~Camera() {}
+
 void Camera::init() {
 	fov = 60;
 	aspectRatio = .75f;

@@ -1,30 +1,27 @@
-﻿Build started 10/6/2013 12:25:05 PM.
+﻿Build started 10/11/2013 10:46:40 AM.
      1>Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp InputHandler.cpp main.cpp Mesh.cpp Shader.cpp "stb_image-1.16.cpp" Texture.cpp Time.cpp vboindexer.cpp
-         vboindexer.cpp
+         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Time.cpp
          Time.cpp
-     1>d:\my documents\programs\jotunengine2\time.cpp(4): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>d:\my documents\programs\jotunengine2\time.cpp(8): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         Texture.cpp
-         stb_image-1.16.cpp
-         Shader.cpp
-     1>d:\my documents\programs\jotunengine2\shader.cpp(31): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
-         Mesh.cpp
-         main.cpp
-     1>d:\my documents\programs\jotunengine2\main.cpp(164): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         InputHandler.cpp
+     1>d:\my documents\programs\jotunengine2\time.cpp(12): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          Camera.cpp
-     1>d:\my documents\programs\jotunengine2\camera.cpp(15): warning C4305: '=' : truncation from 'double' to 'float'
+     1>d:\my documents\programs\jotunengine2\camera.cpp(17): warning C4305: '=' : truncation from 'double' to 'float'
          Generating Code...
-     1>d:\my documents\programs\jotunengine2\main.cpp(62): warning C4715: 'init' : not all control paths return a value
-     1>d:\my documents\programs\jotunengine2\main.cpp(248): fatal error C1001: An internal error has occurred in the compiler.
-         (compiler file 'f:\dd\vctools\compiler\utc\src\p2\ehexcept.c', line 956)
-          To work around this problem, try simplifying or changing the program near the locations listed above.
-         Please choose the Technical Support command on the Visual C++ 
-          Help menu, or open the Technical Support help file for more information
-     1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         D:\Programs Overflow\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\Debug\JotunEngine2.exe" /INCREMENTAL /NOLOGO glfw3.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\Debug\JotunEngine2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\Debug\JotunEngine2.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\InputHandler.obj
+         Debug\main.obj
+         Debug\Mesh.obj
+         Debug\Shader.obj
+         "Debug\stb_image-1.16.obj"
+         Debug\Texture.obj
+         Debug\Time.obj
+         Debug\vboindexer.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         JotunEngine2.vcxproj -> D:\My Documents\Programs\Debug\JotunEngine2.exe
+     1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:04.94
+Time Elapsed 00:00:01.84
