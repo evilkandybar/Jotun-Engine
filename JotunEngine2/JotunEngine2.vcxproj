@@ -69,6 +69,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -76,10 +77,12 @@
     <ClCompile Include="stb_image-1.16.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Transformable.cpp" />
     <ClCompile Include="vboindexer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="JotunEngine2.h" />
     <ClInclude Include="Mesh.h" />
@@ -88,7 +91,18 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Transformable.h" />
     <ClInclude Include="vboindexer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Depth.frag" />
+    <None Include="Depth.vert" />
+    <None Include="Diffuse.frag" />
+    <None Include="Diffuse.vert" />
+    <None Include="Diffuse_Simple.frag" />
+    <None Include="Diffuse_Simple.vert" />
+    <None Include="Passthrough.vert" />
+    <None Include="Texture.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

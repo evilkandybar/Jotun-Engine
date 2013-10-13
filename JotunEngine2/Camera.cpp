@@ -1,10 +1,12 @@
 #include "Camera.h"
 
-Camera::Camera() : position( 0, 0, 5 ) {
+Camera::Camera() {
+	Transformable::position = glm::vec3( 0, 0, 5 );
 	init();
 }
 
-Camera::Camera( glm::vec3 initPos ) : position( initPos ) {
+Camera::Camera( glm::vec3 initPos ) {
+	Transformable::position = initPos;
 	init();
 }
 
@@ -16,6 +18,7 @@ void Camera::init() {
 	verticalAngle = 0;
 	horizontalAngle = 3.14159;
 	projMatrix = glm::perspective( fov, aspectRatio, 0.1f, 100.0f );
+	mouseSpeed = 0.0005f;
 }
 
 void Camera::setFOV( float newFOV ) {
@@ -42,31 +45,34 @@ void Camera::lookAt( glm::vec3 pos ) {
 }
 
 void Camera::update() {
+	updateTrans();
+	viewMatrix = glm::lookAt( position, position + forward, up );
+}
+
+void Camera::updateTrans() {
 	//currently just calculates the forward, up, and right vectors and the relevant matricies
 	forward = glm::vec3( cos( verticalAngle ) * sin( horizontalAngle ),
 		sin( verticalAngle ), cos( verticalAngle ) * cos( horizontalAngle ) );
 
 	right = glm::vec3( sin( horizontalAngle - 3.14f / 2.0f ),
 		0, cos( horizontalAngle - 3.14f / 2.0f ) );
-	
-	up = glm::cross( right, forward );
 
-	viewMatrix = glm::lookAt( position, position + forward, up );
+	up = glm::cross( right, forward );
 }
 
 void Camera::onKeyPress( int key ) {
 	switch( key ) {
 	case GLFW_KEY_A:
-		translate( glm::vec3( 1, 0, 0 ) * Time::getDeltaTime() );
+		translate( glm::vec3( -1, 0, 0 ) * Time::getDeltaTime() );
 		break;
 	case GLFW_KEY_D:
-		translate( glm::vec3( -1, 0, 0 ) * Time::getDeltaTime() );
+		translate( glm::vec3( 1, 0, 0 ) * Time::getDeltaTime() );
 		break; 
 	case GLFW_KEY_W:
-		translate( glm::vec3( 0, 1, 0 ) * Time::getDeltaTime() );
+		translate( glm::vec3( 0, 0, -1 ) * Time::getDeltaTime() );
 		break;
 	case GLFW_KEY_S:
-		translate( glm::vec3( 0, -1, 0 ) * Time::getDeltaTime() );
+		translate( glm::vec3( 0, 0, 1 ) * Time::getDeltaTime() );
 		break;
 	}
 }

@@ -19,7 +19,12 @@
 #include <GL/glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
+//useful includes
 #include "stb_image.h"
+#include "Input.h"
 
 //interfaces
 #include "InputHandler.h"
+#include "Transformable.h"
+
+#define _CRT_SECURE_NO_WARNINGS 1

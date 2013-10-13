@@ -1,5 +1,7 @@
 #include "JotunEngine2.h"
 
+//#include <common/controls.hpp>
+
 int		init();
 void	initOpenGL();
 void	initData();
@@ -8,6 +10,7 @@ void	draw();
 void	destroy();
 void	onGLFWError( int error, const char *description );
 void	onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods );
+void	onGLFWMouse( GLFWwindow *window, double xPos, double yPos );
 
 std::vector<InputHandler*> inputHandlers;
 
@@ -48,6 +51,8 @@ int init() {
 
 	glfwMakeContextCurrent( window );
 	glfwSetKeyCallback( window, onGLFWKey );
+	glfwSetCursorPosCallback( window, onGLFWMouse );
+
 	// Initialize GLEW
 	if( glewInit() != GLEW_OK ) {
 		fprintf( stderr, "Failed to initialize GLEW\n" );
@@ -88,6 +93,7 @@ void initData() {
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
 	depth = new Shader( "Depth.vert", "Depth.frag" );
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
+	texture = new Texture( "DiffuseTex.png" );
 	Time::init();
 }
 
@@ -124,7 +130,7 @@ void draw() {// Render to our framebuffer
 	// in the "MVP" uniform
 	depth->setUniformMat4x4( "depthMVP", &depthMVP[0][0] );
 
-	mesh->drawShadowPass( depth->getAttribute( "vertexPositino_modelspace" ) );
+	mesh->drawShadowPass( depth->getAttribute( "vertexPosition_modelspace" ) );
 
 	// Render to the screen
 	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
@@ -258,8 +264,19 @@ int main( void ) {
 		draw();
 		glfwPollEvents();
 	}
-	destroy();
-	return 0;
+	glDeleteFramebuffers( 1, &FramebufferName );
+	glDeleteTextures( 1, &depthTexture );
+	// Close OpenGL window and terminate GLFW
+	glfwTerminate();
+
+	delete mainCamera;
+	delete lightCamera;
+	delete diffuse;
+	delete depth;
+	delete passthrough;
+	delete mesh;
+	delete texture;
+	return EXIT_SUCCESS;
 }
 
 void destroy() {
@@ -286,12 +303,21 @@ static void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action,
 		glfwSetWindowShouldClose( window, GL_TRUE );
 	}
 	if( action == GLFW_PRESS ) {
+		Input::keys[key] = true;
 		for( InputHandler *ih : inputHandlers ) {
 			ih->onKeyPress( key );
 		}
 	} else if( action == GLFW_RELEASE ) {
+		Input::keys[key] = false;
 		for( InputHandler *ih : inputHandlers ) {
 			ih->onKeyRelease( key );
 		}
+	}
+}
+
+static void onGLFWMouse( GLFWwindow *window, double xPos, double yPos ) {
+	Input::updateMouse( xPos, yPos );
+	for( InputHandler *ih : inputHandlers ) {
+		ih->onMouseMove( Input::mouseDeltaX, Input::mouseDeltaY );
 	}
 }

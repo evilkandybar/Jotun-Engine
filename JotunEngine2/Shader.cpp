@@ -3,7 +3,7 @@
 
 Shader::Shader( std::string vertName, std::string fragName ) {
 	int split = fragName.find_first_of( '.' );
-	sName = vertName.substr( 0, split - 1 );
+	sName = fragName.substr( 0, split );
 	loadShader( vertName.c_str(), fragName.c_str() );
 }
 
@@ -11,19 +11,23 @@ Shader::~Shader() {
 	glDeleteProgram( glName );
 }
 
-void Shader::genAttribMap( std::string varNames [], int numElems ) {
+void Shader::genAttribMap( std::string *varNames, int numElems ) {
 	std::map<std::string, int>::iterator it = attribs.begin();
+	int attrib;
 	for( int i = 0; i < numElems; i++ ) {
+		attrib = glGetAttribLocation( glName, varNames[i].c_str() );
 		attribs.insert( it, 
-			std::pair<std::string, int>( varNames[i], glGetAttribLocation( glName, varNames[i].c_str() ) ) );
+			std::pair<std::string, int>( varNames[i], attrib ) );
 	}
 }
 
-void Shader::genUniformMap( std::string varNames [], int numElems ) {
-	std::map<std::string, int>::iterator it = attribs.begin();
+void Shader::genUniformMap( std::string *varNames, int numElems ) {
+	std::map<std::string, int>::iterator it = uniforms.begin();
+	int unif;
 	for( int i = 0; i < numElems; i++ ) {
-		attribs.insert( it,
-			std::pair<std::string, int>( varNames[i], glGetUniformLocation( glName, varNames[i].c_str() ) ) );
+		unif = glGetUniformLocation( glName, varNames[i].c_str() );
+		uniforms.insert( it,
+			std::pair<std::string, int>( varNames[i], unif ) );
 	}
 }
 

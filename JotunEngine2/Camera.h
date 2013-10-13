@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Time.h"
-class Camera : public InputHandler {
+class Camera : public InputHandler, protected Transformable {
 public:
 	Camera();
 	Camera( glm::vec3 initPos );
@@ -12,18 +12,20 @@ public:
 
 	void		setFOV( float newFOV );
 	void		setAspectRatio( float newAspectRatio );
-	void		translate( glm::vec3 dir );
 	void		rotate( float hRot, float vRot );
+
+	virtual void updateTrans();
+	virtual void translate( glm::vec3 dir );
+	virtual glm::vec3 getPosition();
+	virtual glm::vec3 getForward();
+	virtual glm::vec3 getUp();
+	virtual glm::vec3 getRight();
 
 	virtual void onKeyPress( int key );
 	virtual void onKeyRelease( int key );
 	virtual void onMouseMove( int deltaX, int deltaY );
 
 	float		getFOV();
-	glm::vec3	getPosition();
-	glm::vec3	getForward();
-	glm::vec3   getUp();
-	glm::vec3	getRight();
 	glm::mat4	getViewMatrix();
 	glm::mat4	getProjMatrix();
 private:
@@ -32,7 +34,6 @@ private:
 	//all angles are in radians
 	float fov, aspectRatio, verticalAngle, horizontalAngle;
 	float mouseSpeed;
-	glm::vec3 position, up, right, forward;
 	glm::mat4 viewMatrix, projMatrix;
 };
 

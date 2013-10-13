@@ -1,26 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="stb_image-1.16.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="vboindexer.cpp" />
-    <ClCompile Include="Time.cpp" />
-    <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image-1.16.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vboindexer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="JotunEngine2.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="vboindexer.h" />
-    <ClInclude Include="Time.h" />
-    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Camera.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="JotunEngine2.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="vboindexer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformable.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{f47d66d2-51bf-4db3-a31b-a108271afdf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c29a1df3-6964-48ec-975e-ddbeb7ccb4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{64c9d38c-8e7f-44e0-a7a1-aa819f119439}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Depth.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Diffuse.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Diffuse_Simple.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Texture.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Depth.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Diffuse.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Diffuse_Simple.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Passthrough.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
