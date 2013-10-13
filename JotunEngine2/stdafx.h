@@ -8,6 +8,11 @@
 #include <string>
 #include <vector>
 
+//include assimp
+#include <assimp/cimport.h>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 // Include GLEW
 #include <GL/glew.h>
 
