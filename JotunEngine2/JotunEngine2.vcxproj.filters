@@ -109,5 +109,11 @@
     <None Include="Passthrough.vert">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="VertexLit.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="VertexLit.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -96,7 +96,7 @@ void Mesh::bind() {
 void Mesh::draw() {
 	// Draw the triangles !
 	glDrawElements(
-			GL_TRIANGLES,      // mode
+			GL_LINES,      // mode
 			indices.size(),    // count
 			GL_UNSIGNED_SHORT, // type
 			(void*) 0           // element array buffer offset
@@ -109,7 +109,7 @@ void Mesh::disable() {
 	glDisableVertexAttribArray( norms );
 }
 
-#pragma warning( disable : 4996 )
+#pragma warning( disable : 4996 )	//freadf_s is a terrible function
 void Mesh::loadMesh(
 	std::vector<glm::vec3> & out_vertices,
 	std::vector<glm::vec2> & out_uvs,

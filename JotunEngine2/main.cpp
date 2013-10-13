@@ -21,6 +21,7 @@ Camera *mainCamera, *lightCamera;
 Shader *diffuse;
 Shader *depth;
 Shader *passthrough;
+Shader *vertexLit;
 
 Mesh *mesh;
 
@@ -84,7 +85,7 @@ void initData() {
 	// Read our .obj file
 	mesh = new Mesh( "room_thickwalls.obj" );
 
-	mainCamera = new Camera();
+	mainCamera = new Camera( glm::vec3( 7.48113, -6.50764, 5.34367 ) );
 
 	inputHandlers.push_back( mainCamera );
 
@@ -93,8 +94,29 @@ void initData() {
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
 	depth = new Shader( "Depth.vert", "Depth.frag" );
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
+	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
+
 	texture = new Texture( "DiffuseTex.png" );
 	Time::init();
+}
+
+void drawAxis( glm::mat4 MVP ) {
+	vertexLit->bind();
+	vertexLit->setUniformMat4x4( "MVP", &MVP[0][0] );
+
+	glBegin( GL_LINES );
+	glColor3f( 1, 0, 0 );
+	glVertex3f( 100, 0, 0 );
+	glVertex3f( -100, 0, 0 );
+
+	glColor3f( 0, 1, 0 );
+	glVertex3f( 0, 100, 0 );
+	glVertex3f( 0, -100, 0 );
+
+	glColor3f( 0, 0, 1 );
+	glVertex3f( 0, 0, 100 );
+	glVertex3f( 0, 0, -100 );
+	glEnd();
 }
 
 void draw() {// Render to our framebuffer
@@ -185,6 +207,8 @@ void draw() {// Render to our framebuffer
 	mesh->draw();
 	mesh->disable();
 
+	drawAxis( MVP );
+
 	// Swap buffers
 	glfwSwapBuffers( window );
 }
@@ -240,6 +264,9 @@ int main( void ) {
 
 	passthrough->genAttribMap( attribNames, 1 );
 	passthrough->genUniformMap( uniformNames, 1 );
+
+	uniformNames[0] = "MVP";
+	vertexLit->genUniformMap( uniformNames, 1 );
 
 	uniformNames = new std::string[8];
 	uniformNames[0] = "texture";
@@ -318,6 +345,6 @@ static void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action,
 static void onGLFWMouse( GLFWwindow *window, double xPos, double yPos ) {
 	Input::updateMouse( xPos, yPos );
 	for( InputHandler *ih : inputHandlers ) {
-		ih->onMouseMove( Input::mouseDeltaX, Input::mouseDeltaY );
+		ih->onMouseMove( Input::mouseX, Input::mouseY );
 	}
 }

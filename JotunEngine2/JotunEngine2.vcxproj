@@ -103,6 +103,8 @@
     <None Include="Diffuse_Simple.vert" />
     <None Include="Passthrough.vert" />
     <None Include="Texture.frag" />
+    <None Include="VertexLit.vert" />
+    <None Include="VertexLit.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

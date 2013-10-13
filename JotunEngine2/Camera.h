@@ -13,6 +13,7 @@ public:
 	void		setFOV( float newFOV );
 	void		setAspectRatio( float newAspectRatio );
 	void		rotate( float hRot, float vRot );
+	void		setRotation( float hRot, float vRot );
 
 	virtual void updateTrans();
 	virtual void translate( glm::vec3 dir );
@@ -35,5 +36,6 @@ private:
 	float fov, aspectRatio, verticalAngle, horizontalAngle;
 	float mouseSpeed;
 	glm::mat4 viewMatrix, projMatrix;
+	bool moveUp, moveDown, moveRight, moveLeft, moveForward, moveBack;
 };
 
