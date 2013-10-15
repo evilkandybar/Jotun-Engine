@@ -121,8 +121,7 @@ void Mesh::loadMesh(
 	std::vector<glm::vec2> temp_uvs;
 	std::vector<glm::vec3> temp_normals;
 
-	FILE * file;
-	fopen_s( &file, path, "r" );
+	FILE * file; fopen_s( &file, path, "r" );
 	if( file == NULL ) {
 		printf( "Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n" );
 		return;

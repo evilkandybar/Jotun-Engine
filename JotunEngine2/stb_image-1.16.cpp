@@ -169,8 +169,7 @@ static stbi_uc *hdr_to_ldr(float   *data, int x, int y, int comp);
 #ifndef STBI_NO_STDIO
 unsigned char *stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
-   FILE *f;
-   fopen_s(&f, filename, "rb");
+	FILE *f; fopen_s(&f, filename, "rb" );
    unsigned char *result;
    if (!f) return epuc("can't fopen", "Unable to open file");
    result = stbi_load_from_file(f,x,y,comp,req_comp);
@@ -236,7 +235,7 @@ unsigned char *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int
 #ifndef STBI_NO_STDIO
 float *stbi_loadf(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
-   FILE *f;  fopen_s(&f, filename, "rb");
+	FILE *f; fopen_s( &f, filename, "rb" );
    float *result;
    if (!f) return epf("can't fopen", "Unable to open file");
    result = stbi_loadf_from_file(f,x,y,comp,req_comp);
@@ -288,8 +287,7 @@ int stbi_is_hdr_from_memory(stbi_uc const *buffer, int len)
 #ifndef STBI_NO_STDIO
 extern int      stbi_is_hdr          (char const *filename)
 {
-   FILE *f; 
-   fopen_s(&f, filename, "rb");
+	FILE *f; fopen_s( &f, filename, "rb");
    int result=0;
    if (f) {
       result = stbi_is_hdr_from_file(f);
@@ -1543,7 +1541,7 @@ unsigned char *stbi_jpeg_load_from_file(FILE *f, int *x, int *y, int *comp, int 
 unsigned char *stbi_jpeg_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
    unsigned char *data;
-   FILE *f;  fopen_s(&f, filename, "rb");
+   FILE *f; fopen_s( &f, filename, "rb" );
    if (!f) return NULL;
    data = stbi_jpeg_load_from_file(f,x,y,comp,req_comp);
    fclose(f);
@@ -2380,7 +2378,7 @@ unsigned char *stbi_png_load_from_file(FILE *f, int *x, int *y, int *comp, int r
 unsigned char *stbi_png_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
    unsigned char *data;
-   FILE *f;  fopen_s(&f, filename, "rb");
+   FILE *f = fopen( filename, "rb");
    if (!f) return NULL;
    data = stbi_png_load_from_file(f,x,y,comp,req_comp);
    fclose(f);
@@ -2695,7 +2693,7 @@ static stbi_uc *bmp_load(stbi *s, int *x, int *y, int *comp, int req_comp)
 stbi_uc *stbi_bmp_load             (char const *filename,           int *x, int *y, int *comp, int req_comp)
 {
    stbi_uc *data;
-   FILE *f;  fopen_s(&f, filename, "rb");
+   FILE *f = fopen(filename, "rb");
    if (!f) return NULL;
    data = stbi_bmp_load_from_file(f, x,y,comp,req_comp);
    fclose(f);
@@ -2981,7 +2979,7 @@ static stbi_uc *tga_load(stbi *s, int *x, int *y, int *comp, int req_comp)
 stbi_uc *stbi_tga_load             (char const *filename,           int *x, int *y, int *comp, int req_comp)
 {
    stbi_uc *data;
-   FILE *f;  fopen_s(&f, filename, "rb");
+   FILE *f = fopen(filename, "rb");
    if (!f) return NULL;
    data = stbi_tga_load_from_file(f, x,y,comp,req_comp);
    fclose(f);
@@ -3195,7 +3193,7 @@ static stbi_uc *psd_load(stbi *s, int *x, int *y, int *comp, int req_comp)
 stbi_uc *stbi_psd_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
    stbi_uc *data;
-   FILE *f;  fopen_s(&f, filename, "rb");
+   FILE *f = fopen(filename, "rb");
    if (!f) return NULL;
    data = stbi_psd_load_from_file(f, x,y,comp,req_comp);
    fclose(f);
@@ -3498,8 +3496,7 @@ static void write_pixels(FILE *f, int rgb_dir, int vdir, int x, int y, int comp,
 
 static int outfile(char const *filename, int rgb_dir, int vdir, int x, int y, int comp, void *data, int alpha, int pad, char *fmt, ...)
 {
-   FILE *f;
-   fopen_s(&f, filename, "wb");
+   FILE *f = fopen(filename, "wb");
    if (f) {
       va_list v;
       va_start(v, fmt);

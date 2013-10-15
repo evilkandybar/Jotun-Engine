@@ -4,8 +4,9 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <istream>
 #include <map>
-#include <string>
+#include <cstring>
 #include <vector>
 
 // Include GLEW

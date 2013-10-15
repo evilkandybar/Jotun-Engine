@@ -35,4 +35,3 @@ private:
 	glm::vec3 position, up, right, forward;
 	glm::mat4 viewMatrix, projMatrix;
 };
-
