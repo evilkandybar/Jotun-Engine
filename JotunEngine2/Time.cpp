@@ -1,5 +1,9 @@
 #include "Time.h"
 
+float Time::lastTime = 0;
+float Time::curTime = 0;
+float Time::deltaTime = 0;
+
 void Time::init() {
 	lastTime = glfwGetTime();
 }

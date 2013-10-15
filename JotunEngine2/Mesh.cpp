@@ -46,10 +46,10 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	glDisableVertexAttribArray( verts );
 }
 
-void Mesh::enable( GLuint verts, GLuint uvs, GLuint norms ) {
-	this->verts = verts;
-	this->uvs = uvs;
-	this->norms = norms;
+void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms ) {
+	this->verts = bindVerts;
+	this->uvs = bindUvs;
+	this->norms = bindNorms;
 	glEnableVertexAttribArray( verts );
 	glEnableVertexAttribArray( uvs );
 	glEnableVertexAttribArray( norms );
@@ -114,6 +114,7 @@ void Mesh::loadMesh(
 	std::vector<glm::vec2> & out_uvs,
 	std::vector<glm::vec3> & out_normals 
 	) {
+<<<<<<< HEAD
 	const char *path = sName.c_str();
 	printf( "Loading OBJ file %s...\n", path );
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
@@ -169,28 +170,17 @@ void Mesh::loadMesh(
 			// Probably a comment, eat up the rest of the line
 			char stupidBuffer[1000];
 			fgets( stupidBuffer, 1000, file );
+=======
+		const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Quality );
+		const aiMesh *mesh = scene->mMeshes[0];
+		for( int i = 0; i < mesh->mNumVertices; i++ ) {
+			out_vertices.push_back( glm::vec3( 
+				mesh->mVertices[i][0], mesh->mVertices[i][1], mesh->mVertices[i][2] ) );
+			out_normals.push_back( glm::vec3(
+				mesh->mNormals[i][0], mesh->mNormals[i][1], mesh->mNormals[i][2] ) );
+			out_uvs.push_back( glm::vec2( mesh->mTextureCoords[0][i][0], mesh->mTextureCoords[0][i][1] ) );
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 		}
-	}
-
-	// For each vertex of each triangle
-	for( unsigned int i = 0; i < vertexIndices.size(); i++ ) {
-
-		// Get the indices of its attributes
-		unsigned int vertexIndex = vertexIndices[i];
-		unsigned int uvIndex = uvIndices[i];
-		unsigned int normalIndex = normalIndices[i];
-
-		// Get the attributes thanks to the index
-		glm::vec3 vertex = temp_vertices[vertexIndex - 1];
-		glm::vec2 uv = temp_uvs[uvIndex - 1];
-		glm::vec3 normal = temp_normals[normalIndex - 1];
-
-		// Put the attributes in buffers
-		out_vertices.push_back( vertex );
-		out_uvs.push_back( uv );
-		out_normals.push_back( normal );
-
-	}
 }
 
 void Mesh::makeGLMesh() {

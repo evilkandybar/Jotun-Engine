@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 10/10/2013 12:12:29 PM.
      1>Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -11,7 +12,33 @@
      1>c:\users\david\documents\programs\jotunengine2\jotunengine2\shader.cpp(77): error C3861: 'getline': identifier not found
          Generating Code...
      1>Done Building Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)) -- FAILED.
+=======
+﻿Build started 10/13/2013 11:30:01 AM.
+     1>Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mesh.cpp
+         Mesh.cpp
+     1>d:\my documents\programs\jotunengine2\jotunengine2\mesh.cpp(119): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         D:\Programs Overflow\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe" /INCREMENTAL /NOLOGO assimp.lib glfw3.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\Input.obj
+         Debug\InputHandler.obj
+         Debug\main.obj
+         Debug\Mesh.obj
+         Debug\Shader.obj
+         "Debug\stb_image-1.16.obj"
+         Debug\Texture.obj
+         Debug\Time.obj
+         Debug\Transformable.obj
+         Debug\vboindexer.obj
+         JotunEngine2.vcxproj -> D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe
+     1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)).
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 
-Build FAILED.
+Build succeeded.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:03.82
+=======
+Time Elapsed 00:00:01.30
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908

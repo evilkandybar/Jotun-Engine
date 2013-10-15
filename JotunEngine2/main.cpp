@@ -10,6 +10,7 @@ void	draw();
 void	destroy();
 void	onGLFWError( int error, const char *description );
 void	onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods );
+void	onGLFWMouse( GLFWwindow *window, double xPos, double yPos );
 
 std::vector<InputHandler*> inputHandlers;
 
@@ -20,6 +21,7 @@ Camera *mainCamera, *lightCamera;
 Shader *diffuse;
 Shader *depth;
 Shader *passthrough;
+Shader *vertexLit;
 
 Mesh *mesh;
 
@@ -50,6 +52,8 @@ int init() {
 
 	glfwMakeContextCurrent( window );
 	glfwSetKeyCallback( window, onGLFWKey );
+	glfwSetCursorPosCallback( window, onGLFWMouse );
+
 	// Initialize GLEW
 	if( glewInit() != GLEW_OK ) {
 		fprintf( stderr, "Failed to initialize GLEW\n" );
@@ -81,7 +85,7 @@ void initData() {
 	// Read our .obj file
 	mesh = new Mesh( "room_thickwalls.obj" );
 
-	mainCamera = new Camera();
+	mainCamera = new Camera( glm::vec3( 7.48113, -6.50764, 5.34367 ) );
 
 	inputHandlers.push_back( mainCamera );
 
@@ -90,7 +94,29 @@ void initData() {
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
 	depth = new Shader( "Depth.vert", "Depth.frag" );
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
+	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
+
+	texture = new Texture( "DiffuseTex.png" );
 	Time::init();
+}
+
+void drawAxis( glm::mat4 MVP ) {
+	vertexLit->bind();
+	vertexLit->setUniformMat4x4( "MVP", &MVP[0][0] );
+
+	glBegin( GL_LINES );
+	glColor3f( 1, 0, 0 );
+	glVertex3f( 100, 0, 0 );
+	glVertex3f( -100, 0, 0 );
+
+	glColor3f( 0, 1, 0 );
+	glVertex3f( 0, 100, 0 );
+	glVertex3f( 0, -100, 0 );
+
+	glColor3f( 0, 0, 1 );
+	glVertex3f( 0, 0, 100 );
+	glVertex3f( 0, 0, -100 );
+	glEnd();
 }
 
 void draw() {// Render to our framebuffer
@@ -126,7 +152,7 @@ void draw() {// Render to our framebuffer
 	// in the "MVP" uniform
 	depth->setUniformMat4x4( "depthMVP", &depthMVP[0][0] );
 
-	mesh->drawShadowPass( depth->getAttribute( "vertexPositino_modelspace" ) );
+	mesh->drawShadowPass( depth->getAttribute( "vertexPosition_modelspace" ) );
 
 	// Render to the screen
 	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
@@ -181,6 +207,8 @@ void draw() {// Render to our framebuffer
 	mesh->draw();
 	mesh->disable();
 
+	drawAxis( MVP );
+
 	// Swap buffers
 	glfwSwapBuffers( window );
 }
@@ -193,9 +221,15 @@ int main( void ) {
 	initData();
 
 	std::string *uniformNames = new std::string[1]; 
+<<<<<<< HEAD
     uniformNames[0] = "depthMVP";
 	std::string *attribNames = new std::string[1];
     attribNames[0] = "vertexPosition_modelspace";
+=======
+	uniformNames[0] = "depthMVP";
+	std::string *attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 
 	depth->genUniformMap( uniformNames, 1 );
 	depth->genAttribMap( attribNames, 1 );
@@ -229,14 +263,22 @@ int main( void ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	uniformNames = new std::string[1]; 
     uniformNames[0] = "texture";
 	attribNames = new std::string[1];
     attribNames[0] = "vertexPosition_modelspace";
+=======
+	uniformNames = new std::string[1];
+	uniformNames[0] = "texture";
+	attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 
 	passthrough->genAttribMap( attribNames, 1 );
 	passthrough->genUniformMap( uniformNames, 1 );
 
+<<<<<<< HEAD
 	uniformNames = new std::string[8];
     uniformNames[0] = "texture";
     uniformNames[1] = "myTextureSampler"; 
@@ -249,6 +291,24 @@ int main( void ) {
 	attribNames = new std::string[3];
     attribNames[0] = "vertexPosition_modelspace";
     attribNames[1] = "vertexUV";
+=======
+	uniformNames[0] = "MVP";
+	vertexLit->genUniformMap( uniformNames, 1 );
+
+	uniformNames = new std::string[8];
+	uniformNames[0] = "texture";
+	uniformNames[1] = "myTextureSampler";
+	uniformNames[2] = "MVP";
+	uniformNames[3] = "V";
+	uniformNames[4] = "M";
+	uniformNames[5] = "DepthBiasMVP";
+	uniformNames[6] = "shadowMap"; 
+	uniformNames[7] = "LightInvDirection_modelspace";
+
+	attribNames = new std::string[3];
+	attribNames[0] = "vertexPosition_modelspace";
+	attribNames[1] = "vertexUV";
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 	attribNames[2] = "vertexNormal_modelspace";
 
 	diffuse->genAttribMap( attribNames, 3 );
@@ -298,12 +358,30 @@ void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mo
 		glfwSetWindowShouldClose( window, GL_TRUE );
 	}
 	if( action == GLFW_PRESS ) {
+<<<<<<< HEAD
 		for( int i = 0; i < inputHandlers.size(); i++ ) {
 			inputHandlers[i]->onKeyPress( key );
 		}
 	} else if( action == GLFW_RELEASE ) {
 		for( int i = 0; i < inputHandlers.size(); i++ ) {
 			inputHandlers[i]->onKeyRelease( key );
+=======
+		Input::keys[key] = true;
+		for( InputHandler *ih : inputHandlers ) {
+			ih->onKeyPress( key );
 		}
+	} else if( action == GLFW_RELEASE ) {
+		Input::keys[key] = false;
+		for( InputHandler *ih : inputHandlers ) {
+			ih->onKeyRelease( key );
+>>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
+		}
+	}
+}
+
+static void onGLFWMouse( GLFWwindow *window, double xPos, double yPos ) {
+	Input::updateMouse( xPos, yPos );
+	for( InputHandler *ih : inputHandlers ) {
+		ih->onMouseMove( Input::mouseX, Input::mouseY );
 	}
 }

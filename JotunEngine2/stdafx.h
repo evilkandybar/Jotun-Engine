@@ -9,6 +9,11 @@
 #include <cstring>
 #include <vector>
 
+//include assimp
+#include <assimp/cimport.h>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 // Include GLEW
 #include <GL/glew.h>
 
@@ -20,7 +25,12 @@
 #include <GL/glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
+//useful includes
 #include "stb_image.h"
+#include "Input.h"
 
 //interfaces
 #include "InputHandler.h"
+#include "Transformable.h"
+
+#define _CRT_SECURE_NO_WARNINGS 1

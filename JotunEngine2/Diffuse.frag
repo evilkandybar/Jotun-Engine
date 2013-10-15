@@ -1,4 +1,5 @@
 #version 120
+#extension GL_EXT_gpu_shader4 : enable
 
 // Interpolated values from the vertex shaders
 varying vec2 UV;
@@ -191,12 +192,12 @@ void main(){
 	// Distance to the light
 	float distance = (ShadowCoord.z-bias)/ShadowCoord.w;
 	float dBlocker = 0;
-	flaot penumbra = 0;
-	float wLight = 5;
+	float penumbra = 0;
+	float wLight = 5.0;
 
 	// Sample the shadow map 8 times
 	int count = 0;
-	float temp
+	float temp;
 	for( int i = 0; i < 32; i++ ) {
 		temp = texture2D( shadowMap,  ShadowCoord.xy + (wLight * poissonDisk( i ) / 500.0) ).r;
 		if( temp < distance ) {
