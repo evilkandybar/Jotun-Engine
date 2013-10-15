@@ -83,7 +83,7 @@ void initOpenGL() {
 
 void initData() {
 	// Read our .obj file
-	mesh = new Mesh( "room_thickwalls.obj" );
+	mesh = new Mesh( "Nikky.obj" );
 
 	mainCamera = new Camera( glm::vec3( 7.48113, -6.50764, 5.34367 ) );
 
@@ -220,16 +220,10 @@ int main( void ) {
 	initOpenGL();
 	initData();
 
-	std::string *uniformNames = new std::string[1]; 
-<<<<<<< HEAD
-    uniformNames[0] = "depthMVP";
-	std::string *attribNames = new std::string[1];
-    attribNames[0] = "vertexPosition_modelspace";
-=======
+	std::string *uniformNames = new std::string[1];
 	uniformNames[0] = "depthMVP";
 	std::string *attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 
 	depth->genUniformMap( uniformNames, 1 );
 	depth->genAttribMap( attribNames, 1 );
@@ -263,35 +257,14 @@ int main( void ) {
 		return false;
 	}
 
-<<<<<<< HEAD
-	uniformNames = new std::string[1]; 
-    uniformNames[0] = "texture";
-	attribNames = new std::string[1];
-    attribNames[0] = "vertexPosition_modelspace";
-=======
 	uniformNames = new std::string[1];
 	uniformNames[0] = "texture";
 	attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 
 	passthrough->genAttribMap( attribNames, 1 );
 	passthrough->genUniformMap( uniformNames, 1 );
 
-<<<<<<< HEAD
-	uniformNames = new std::string[8];
-    uniformNames[0] = "texture";
-    uniformNames[1] = "myTextureSampler"; 
-    uniformNames[2] = "MVP";
-    uniformNames[3] = "V";
-    uniformNames[4] = "M";
-	uniformNames[5] = "DepthBiasMVP";
-    uniformNames[6] = "shadowMap";
-    uniformNames[7] = "LightInvDirection_modelspace";
-	attribNames = new std::string[3];
-    attribNames[0] = "vertexPosition_modelspace";
-    attribNames[1] = "vertexUV";
-=======
 	uniformNames[0] = "MVP";
 	vertexLit->genUniformMap( uniformNames, 1 );
 
@@ -308,7 +281,6 @@ int main( void ) {
 	attribNames = new std::string[3];
 	attribNames[0] = "vertexPosition_modelspace";
 	attribNames[1] = "vertexUV";
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 	attribNames[2] = "vertexNormal_modelspace";
 
 	diffuse->genAttribMap( attribNames, 3 );
@@ -358,14 +330,6 @@ void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mo
 		glfwSetWindowShouldClose( window, GL_TRUE );
 	}
 	if( action == GLFW_PRESS ) {
-<<<<<<< HEAD
-		for( int i = 0; i < inputHandlers.size(); i++ ) {
-			inputHandlers[i]->onKeyPress( key );
-		}
-	} else if( action == GLFW_RELEASE ) {
-		for( int i = 0; i < inputHandlers.size(); i++ ) {
-			inputHandlers[i]->onKeyRelease( key );
-=======
 		Input::keys[key] = true;
 		for( InputHandler *ih : inputHandlers ) {
 			ih->onKeyPress( key );
@@ -374,7 +338,6 @@ void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mo
 		Input::keys[key] = false;
 		for( InputHandler *ih : inputHandlers ) {
 			ih->onKeyRelease( key );
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
 		}
 	}
 }

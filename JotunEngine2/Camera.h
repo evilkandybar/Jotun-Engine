@@ -36,10 +36,6 @@ private:
 	float fov, aspectRatio, verticalAngle, horizontalAngle;
 	float mouseSpeed;
 	glm::mat4 viewMatrix, projMatrix;
-<<<<<<< HEAD
-};
-=======
 	bool moveUp, moveDown, moveRight, moveLeft, moveForward, moveBack;
 };
 
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908

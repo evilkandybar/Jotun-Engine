@@ -1,26 +1,10 @@
-<<<<<<< HEAD
-﻿Build started 10/10/2013 12:12:29 PM.
+﻿Build started 10/14/2013 10:34:22 PM.
      1>Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W2 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Shader.cpp "stb_image-1.16.cpp"
-         stb_image-1.16.cpp
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\stb_image-1.16.cpp(2381): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
-         Shader.cpp
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\shader.cpp(31): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\shader.cpp(63): error C3861: 'getline': identifier not found
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\shader.cpp(77): error C3861: 'getline': identifier not found
-         Generating Code...
-     1>Done Building Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)) -- FAILED.
-=======
-﻿Build started 10/13/2013 11:30:01 AM.
-     1>Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mesh.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W2 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mesh.cpp
          Mesh.cpp
-     1>d:\my documents\programs\jotunengine2\jotunengine2\mesh.cpp(119): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         D:\Programs Overflow\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe" /INCREMENTAL /NOLOGO assimp.lib glfw3.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.lib" /MACHINE:X86 Debug\Camera.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DAVID\Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe" /INCREMENTAL /NOLOGO assimp.lib glfw3.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DAVID\Documents\Programs\JotunEngine2\Debug\JotunEngine2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DAVID\Documents\Programs\JotunEngine2\Debug\JotunEngine2.lib" /MACHINE:X86 Debug\Camera.obj
          Debug\Input.obj
          Debug\InputHandler.obj
          Debug\main.obj
@@ -31,14 +15,9 @@
          Debug\Time.obj
          Debug\Transformable.obj
          Debug\vboindexer.obj
-         JotunEngine2.vcxproj -> D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe
-     1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)).
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
+         JotunEngine2.vcxproj -> C:\Users\DAVID\Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe
+     1>Done Building Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:03.82
-=======
-Time Elapsed 00:00:01.30
->>>>>>> cadea8e35c5ce2b1eb362201d956654713972908
+Time Elapsed 00:00:03.66

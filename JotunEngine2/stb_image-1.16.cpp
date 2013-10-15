@@ -2375,6 +2375,7 @@ unsigned char *stbi_png_load_from_file(FILE *f, int *x, int *y, int *comp, int r
    return do_png(&p, x,y,comp,req_comp);
 }
 
+#pragma warning( disable : 4996 )
 unsigned char *stbi_png_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 {
    unsigned char *data;
