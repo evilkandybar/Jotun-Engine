@@ -37,7 +37,7 @@ int init() {
 		fprintf( stderr, "Failed to initialize GLFW\n" );
 		return -1;
 	}
-
+	
 	glfwWindowHint( GLFW_SAMPLES, 4 );
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 2 );
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );

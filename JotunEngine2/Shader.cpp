@@ -1,6 +1,5 @@
 #include "Shader.h"
 
-
 Shader::Shader( std::string vertName, std::string fragName ) {
 	int split = fragName.find_first_of( '.' );
 	sName = fragName.substr( 0, split );
@@ -50,7 +49,6 @@ void Shader::bind() {
 GLuint Shader::getAttribute( std::string attrib ) {
 	return attribs[attrib];
 }
-
 
 //taken from http://www.opengl-tutorial.org/
 void Shader::loadShader( const char * vertFile, const char * fragFile ) {

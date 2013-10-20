@@ -21,16 +21,12 @@ public:
 	void		draw();
 	void		disable(); 
 private:
-	void		loadMesh( std::vector<glm::vec3>&,
-					std::vector<glm::vec2>&,
-					std::vector<glm::vec3>& );
+	void		loadMesh();
 	void		makeGLMesh();
 	std::string sName;
 	std::vector<unsigned short> indices;
-	std::vector<glm::vec3> indexed_vertices;
-	std::vector<glm::vec2> indexed_uvs;
-	std::vector<glm::vec3> indexed_normals;
-	GLuint vertexbuffer, uvbuffer, normalbuffer, elementbuffer;
+	std::vector<GLfloat> meshData;
+	GLuint glVertData, glIndexes;
 	GLuint verts, norms, uvs;
 };
 

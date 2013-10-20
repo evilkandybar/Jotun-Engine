@@ -151,8 +151,7 @@ float random(vec3 seed, int i){
 	return fract(sin(dot_product) * 43758.5453);
 }							//60
 
-void main(){
-
+void main() {
 	// Light emission properties
 	vec3 LightColor = vec3(1,1,1);
 	float LightPower = 1.0f;

@@ -3,37 +3,24 @@
 
 Mesh::Mesh( std::string name ) {
 	sName = name;
-	std::vector<glm::vec3> normals, vertexes;
-	std::vector<glm::vec2> uvs;
-	loadMesh( vertexes, uvs, normals );
-
-	indexVBO( vertexes, uvs, normals, indices, indexed_vertices, indexed_uvs, indexed_normals );
+	loadMesh();
 
 	makeGLMesh();
 }
 
 Mesh::~Mesh() {
-	glDeleteBuffers( 1, &vertexbuffer );
-	glDeleteBuffers( 1, &uvbuffer );
-	glDeleteBuffers( 1, &normalbuffer );
-	glDeleteBuffers( 1, &elementbuffer );
+	glDeleteBuffers( 1, &glIndexes );
+	glDeleteBuffers( 1, &glVertData );
 }
 
 void Mesh::drawShadowPass( GLuint verts ) {
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray( verts );
-	glBindBuffer( GL_ARRAY_BUFFER, vertexbuffer );
-	glVertexAttribPointer(
-		verts,  // The attribute we want to configure
-		3,                  // size
-		GL_FLOAT,           // type
-		GL_FALSE,           // normalized?
-		0,                  // stride
-		(void*) 0            // array buffer offset
-		);
+	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
+	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 8, (void*) 0 );
 
 	// Index buffer
-	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, elementbuffer );
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 
 	// Draw the triangles !
 	glDrawElements(
@@ -57,40 +44,17 @@ void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms ) {
 
 void Mesh::bind() {
 	// 1rst attribute buffer : vertices
-	glBindBuffer( GL_ARRAY_BUFFER, vertexbuffer );
-	glVertexAttribPointer(
-		verts,  // The attribute we want to configure
-		3,                            // size
-		GL_FLOAT,                     // type
-		GL_FALSE,                     // normalized?
-		0,                            // stride
-		(void*) 0                      // array buffer offset
-		);
+	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
+	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 8, (void*) 0 );
 
-	// 2nd attribute buffer : UVs
-	glBindBuffer( GL_ARRAY_BUFFER, uvbuffer );
-	glVertexAttribPointer(
-		uvs,                   // The attribute we want to configure
-		2,                            // size : U+V => 2
-		GL_FLOAT,                     // type
-		GL_FALSE,                     // normalized?
-		0,                            // stride
-		(void*) 0                      // array buffer offset
-		);
+	// 2nd attribute buffer : normals
+	glVertexAttribPointer( norms, 3, GL_FLOAT, GL_FALSE, 8, (void*) 3 ); 
 
-	// 3rd attribute buffer : normals
-	glBindBuffer( GL_ARRAY_BUFFER, normalbuffer );
-	glVertexAttribPointer(
-		norms,    // The attribute we want to configure
-		3,                            // size
-		GL_FLOAT,                     // type
-		GL_FALSE,                     // normalized?
-		0,                            // stride
-		(void*) 0                      // array buffer offset
-		);
+	//3rd attribute buffer : UVs
+	glVertexAttribPointer( uvs, 2, GL_FLOAT, GL_FALSE, 8, (void*) 6 );
 
 	// Index buffer
-	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, elementbuffer );
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 }
 
 void Mesh::draw() {
@@ -109,37 +73,37 @@ void Mesh::disable() {
 	glDisableVertexAttribArray( norms );
 }
 
-void Mesh::loadMesh(
-	std::vector<glm::vec3> & out_vertices,
-	std::vector<glm::vec2> & out_uvs,
-	std::vector<glm::vec3> & out_normals 
-	) {
-		const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Quality );
-		const aiMesh *mesh = scene->mMeshes[0];
-		for( int i = 0; i < mesh->mNumVertices; i++ ) {
-			out_vertices.push_back( glm::vec3( 
-				mesh->mVertices[i][0], mesh->mVertices[i][1], mesh->mVertices[i][2] ) );
-			out_normals.push_back( glm::vec3(
-				mesh->mNormals[i][0], mesh->mNormals[i][1], mesh->mNormals[i][2] ) );
-			out_uvs.push_back( glm::vec2( mesh->mTextureCoords[0][i][0], mesh->mTextureCoords[0][i][1] ) );
+void Mesh::loadMesh() {
+	std::cout << "Loading mesh " << sName << "...\n";
+	const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Quality );
+	const aiMesh *mesh = scene->mMeshes[0];
+	for( int i = 0; i < mesh->mNumVertices; i++ ) {
+		meshData.push_back( mesh->mVertices[i][0] );
+		meshData.push_back( mesh->mVertices[i][1] );
+		meshData.push_back( mesh->mVertices[i][2] );
+
+		meshData.push_back( mesh->mNormals[i][0] );
+		meshData.push_back( mesh->mNormals[i][1] );
+		meshData.push_back( mesh->mNormals[i][2] );
+
+		meshData.push_back( mesh->mTextureCoords[0][i][0] );
+		meshData.push_back( mesh->mTextureCoords[0][i][1] );
+	}
+
+	for( int i = 0; i < mesh->mNumFaces; i++ ) {
+		for( int j = 0; j < 3; j++ ) {
+			indices.push_back( mesh->mFaces[i].mIndices[j] );
 		}
+	}
 }
 
 void Mesh::makeGLMesh() {
-	glGenBuffers( 1, &vertexbuffer );
-	glBindBuffer( GL_ARRAY_BUFFER, vertexbuffer );
-	glBufferData( GL_ARRAY_BUFFER, indexed_vertices.size() * sizeof(glm::vec3), &indexed_vertices[0], GL_STATIC_DRAW );
-
-	glGenBuffers( 1, &uvbuffer );
-	glBindBuffer( GL_ARRAY_BUFFER, uvbuffer );
-	glBufferData( GL_ARRAY_BUFFER, indexed_uvs.size() * sizeof(glm::vec2), &indexed_uvs[0], GL_STATIC_DRAW );
-
-	glGenBuffers( 1, &normalbuffer );
-	glBindBuffer( GL_ARRAY_BUFFER, normalbuffer );
-	glBufferData( GL_ARRAY_BUFFER, indexed_normals.size() * sizeof(glm::vec3), &indexed_normals[0], GL_STATIC_DRAW );
+	glGenBuffers( 1, &glVertData );
+	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
+	glBufferData( GL_ARRAY_BUFFER, meshData.size() * sizeof( GLfloat ), &meshData[0], GL_STATIC_DRAW );
 
 	// Generate a buffer for the indices as well
-	glGenBuffers( 1, &elementbuffer );
-	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, elementbuffer );
+	glGenBuffers( 1, &glIndexes );
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 	glBufferData( GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0], GL_STATIC_DRAW );
 }

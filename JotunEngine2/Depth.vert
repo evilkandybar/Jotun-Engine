@@ -9,4 +9,3 @@ uniform mat4 depthMVP;
 void main(){
 	gl_Position = depthMVP * vec4(vertexPosition_modelspace,1);
 }
-

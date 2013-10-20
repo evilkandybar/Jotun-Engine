@@ -31,5 +31,3 @@ using namespace glm;
 //interfaces
 #include "InputHandler.h"
 #include "Transformable.h"
-
-#define _CRT_SECURE_NO_WARNINGS 1
