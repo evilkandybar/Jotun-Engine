@@ -1,5 +1,4 @@
 #version 120
-#extension GL_EXT_gpu_shader4 : enable
 
 // Interpolated values from the vertex shaders
 varying vec2 UV;
@@ -151,7 +150,12 @@ float random(vec3 seed, int i){
 	return fract(sin(dot_product) * 43758.5453);
 }							//60
 
-void main() {
+int mod( int a, int b ) {
+	return a - (a / b);
+}
+
+void main(){
+
 	// Light emission properties
 	vec3 LightColor = vec3(1,1,1);
 	float LightPower = 1.0f;
@@ -161,15 +165,8 @@ void main() {
 	vec3 MaterialAmbientColor = vec3( 0.1, 0.1, 0.1 ) * MaterialDiffuseColor;	//70
 	vec3 MaterialSpecularColor = vec3( 0.3, 0.3, 0.3 );
 
-	// Normal of the computed fragment, in camera space
 	vec3 n = normalize( Normal_cameraspace );
-	// Direction of the light (from the fragment to the light)
 	vec3 l = normalize( LightDirection_cameraspace );
-	// Cosine of the angle between the normal and the light direction, 
-	// clamped above 0
-	//  - light is at the vertical of the triangle -> 1
-	//  - light is perpendiular to the triangle -> 0	//80
-	//  - light is behind the triangle -> 0
 	float cosTheta = clamp( dot( n, l ), 0, 1 );
 	
 	// Eye vector (towards the camera)
@@ -214,7 +211,7 @@ void main() {
 	for( int i = 0; i < iterations; i++ ) {
 		// 0.2 potentially remain, which is quite dark.
 		//sample the depth of the shadow map and compare it to the depth of the fragment
-		int index =  int( 32 * random( floor( Position_worldspace.xyz * 1000.0 ), i ) ) % 32;
+		int index =  mod( int( 32 * random( floor( Position_worldspace.xyz * 1000.0 ), i ) ), 32 );
 		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
 			visibility -= sub;
 		}
@@ -231,6 +228,6 @@ void main() {
 		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta+
 		// Specular : reflective highlight, like a mirror
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);
-	//gl_FragColor.rgb = vec3( penumbra, penumbra, penumbra );
+	gl_FragColor.rgb = vec3( 1, 0, 0 );
 }
 							//110

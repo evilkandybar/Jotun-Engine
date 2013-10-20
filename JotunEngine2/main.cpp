@@ -83,7 +83,7 @@ void initOpenGL() {
 
 void initData() {
 	// Read our .obj file
-	mesh = new Mesh( "room_thickwalls.obj" );
+	mesh = new Mesh( "Nikky.obj" );
 
 	mainCamera = new Camera( glm::vec3( 7.48113, -6.50764, 5.34367 ) );
 
@@ -220,7 +220,7 @@ int main( void ) {
 	initOpenGL();
 	initData();
 
-	std::string *uniformNames = new std::string[1]; 
+	std::string *uniformNames = new std::string[1];
 	uniformNames[0] = "depthMVP";
 	std::string *attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
@@ -321,11 +321,11 @@ void destroy() {
 	delete texture;
 }
 
-static void onGLFWError( int error, const char *description ) {
+void onGLFWError( int error, const char *description ) {
 	printf( "Error %d: %s\n", error, description );
 }
 
-static void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods ) {
+void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods ) {
 	if( key == GLFW_KEY_ESCAPE && action == GLFW_PRESS ) {
 		glfwSetWindowShouldClose( window, GL_TRUE );
 	}

@@ -64,7 +64,7 @@ void Mesh::draw() {
 			indices.size(),    // count
 			GL_UNSIGNED_SHORT, // type
 			(void*) 0           // element array buffer offset
-		);
+			);
 }
 
 void Mesh::disable() {
