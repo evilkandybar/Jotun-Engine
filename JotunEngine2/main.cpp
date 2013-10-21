@@ -127,7 +127,7 @@ void draw() {// Render to our framebuffer
 	// which are already separated from the front faces by a small distance 
 	// (if your geometry is made this way)
 	glEnable( GL_CULL_FACE );
-	glCullFace( GL_BACK ); // Cull back-facing triangles -> draw only front-facing triangles
+	glCullFace( GL_FRONT ); // Cull back-facing triangles -> draw only front-facing triangles
 
 	// Clear the screen
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -169,7 +169,7 @@ void draw() {// Render to our framebuffer
 	mainCamera->update();
 	glm::mat4 ProjectionMatrix = mainCamera->getProjMatrix();
 	glm::mat4 ViewMatrix = mainCamera->getViewMatrix();
-	glm::mat4 ModelMatrix = glm::mat4( 1.0 );
+	glm::mat4 ModelMatrix = glm::mat4( 1.0 );	//change this per model
 	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	glm::mat4 biasMatrix(
@@ -205,7 +205,6 @@ void draw() {// Render to our framebuffer
 		diffuse->getAttribute( "vertexNormals_modelspace" ) );
 	mesh->bind();
 	mesh->draw();
-	mesh->disable();
 
 	drawAxis( MVP );
 

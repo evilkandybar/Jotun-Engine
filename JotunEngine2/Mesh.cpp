@@ -60,11 +60,11 @@ void Mesh::bind() {
 void Mesh::draw() {
 	// Draw the triangles !
 	glDrawElements(
-			GL_TRIANGLES,      // mode
-			indices.size(),    // count
-			GL_UNSIGNED_SHORT, // type
-			(void*) 0           // element array buffer offset
-			);
+		GL_LINES,      // mode
+		indices.size(),    // count
+		GL_UNSIGNED_SHORT, // type
+		(void*) 0           // element array buffer offset
+		);
 }
 
 void Mesh::disable() {

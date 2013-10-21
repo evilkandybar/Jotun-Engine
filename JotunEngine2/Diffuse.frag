@@ -156,7 +156,7 @@ int mod( int a, int b ) {
 
 void main(){
 
-	// Light emission properties
+	/*// Light emission properties
 	vec3 LightColor = vec3(1,1,1);
 	float LightPower = 1.0f;
 
@@ -178,6 +178,7 @@ void main(){
 	//  - Looking into the reflection -> 1			//90
 	//  - Looking elsewhere -> < 1
 	float cosAlpha = clamp( dot( E, R ), 0, 1 );
+	
 	
 	float visibility = 1.0;
 
@@ -227,7 +228,7 @@ void main(){
 		// Diffuse : "color" of the object
 		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta+
 		// Specular : reflective highlight, like a mirror
-		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);
-	gl_FragColor.rgb = vec3( 1, 0, 0 );
+		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);*/
+	gl_FragColor.rgb = normalize( Position_worldspace );
 }
 							//110
