@@ -23,12 +23,14 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 
 	// Draw the triangles !
-	glDrawElements(
-		GL_TRIANGLES,      // mode
-		indices.size(),    // count
-		GL_UNSIGNED_SHORT, // type
-		(void*) 0           // element array buffer offset
-		);
+	//glDrawElements( GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
+	glBegin( GL_TRIANGLES );
+	for( int i = 0; i < indices.size(); i++ ) {
+		glVertex3fv( &meshData[indices[i] * 8] );
+		glNormal3fv( &meshData[indices[i] * 8 + 3] );
+		glTexCoord2fv( &meshData[indices[i] * 8 + 6] );
+	}
+	glEnd();
 
 	glDisableVertexAttribArray( verts );
 }
@@ -59,12 +61,14 @@ void Mesh::bind() {
 
 void Mesh::draw() {
 	// Draw the triangles !
-	glDrawElements(
-		GL_LINES,      // mode
-		indices.size(),    // count
-		GL_UNSIGNED_SHORT, // type
-		(void*) 0           // element array buffer offset
-		);
+	//glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
+	glBegin( GL_TRIANGLES );
+	for( int i = 0; i < indices.size(); i++ ) {
+		glVertex3fv( &meshData[indices[i] * 8] );
+		glNormal3fv( &meshData[indices[i] * 8 + 3] );
+		glTexCoord2fv( &meshData[indices[i] * 8 + 6] );
+	}
+	glEnd();
 }
 
 void Mesh::disable() {

@@ -83,9 +83,9 @@ void initOpenGL() {
 
 void initData() {
 	// Read our .obj file
-	mesh = new Mesh( "Nikky.obj" );
+	mesh = new Mesh( "room_thickwalls.obj" );
 
-	mainCamera = new Camera( glm::vec3( 7.48113, -6.50764, 5.34367 ) );
+	mainCamera = new Camera( glm::vec3( 7.48113, 6.50764, 5.34367 ) );
 
 	inputHandlers.push_back( mainCamera );
 
@@ -206,7 +206,20 @@ void draw() {// Render to our framebuffer
 	mesh->bind();
 	mesh->draw();
 
-	drawAxis( MVP );
+	/*passthrough->bind();
+	passthrough->setUniform1i( "texture", 1 );
+	glBegin( GL_QUADS );
+	glTexCoord2i( 1, 0 );
+	glVertex3f( 1, -1, -1 );
+	glTexCoord2i( 1, 1 );
+	glVertex3f( 1, 1, -1 );
+	glTexCoord2i( -1, 1 );
+	glVertex3f( -1, 1, -1 );
+	glTexCoord2i( 0, 0 );
+	glVertex3f( -1, -1, -1 );
+	glEnd();&*/
+
+	//drawAxis( MVP );
 
 	// Swap buffers
 	glfwSwapBuffers( window );
@@ -290,6 +303,7 @@ int main( void ) {
 		draw();
 		glfwPollEvents();
 	}
+
 	glDeleteFramebuffers( 1, &FramebufferName );
 	glDeleteTextures( 1, &depthTexture );
 	// Close OpenGL window and terminate GLFW

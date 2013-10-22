@@ -156,7 +156,7 @@ int mod( int a, int b ) {
 
 void main(){
 
-	/*// Light emission properties
+	// Light emission properties
 	vec3 LightColor = vec3(1,1,1);
 	float LightPower = 1.0f;
 
@@ -195,7 +195,7 @@ void main(){
 	// Sample the shadow map 8 times
 	int count = 0;
 	float temp;
-	for( int i = 0; i < 32; i++ ) {
+	for( int i = 0; i < 1; i++ ) {
 		temp = texture2D( shadowMap,  ShadowCoord.xy + (wLight * poissonDisk( i ) / 500.0) ).r;
 		if( temp < distance ) {
 			dBlocker += temp;
@@ -207,15 +207,20 @@ void main(){
 		penumbra = wLight * (distance - dBlocker)/distance;
 	}
 
-	int iterations = 16;
+	int iterations = 1;
 	float sub = 0.8f / float(iterations);
 	for( int i = 0; i < iterations; i++ ) {
 		// 0.2 potentially remain, which is quite dark.
 		//sample the depth of the shadow map and compare it to the depth of the fragment
 		int index =  mod( int( 32 * random( floor( Position_worldspace.xyz * 1000.0 ), i ) ), 32 );
-		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
+		if( texture2D( shadowMap,  ShadowCoord.xy ).r < distance ) {
+		//if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
 			visibility -= sub;
 		}
+	}
+	visibility = 1.0;
+	if( texture2D( shadowMap,  ShadowCoord.xy ).r < distance ) {
+		visibility -= 0.8;
 	}
 
 	// For spot lights, use either one of these lines instead.
@@ -228,7 +233,8 @@ void main(){
 		// Diffuse : "color" of the object
 		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta+
 		// Specular : reflective highlight, like a mirror
-		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);*/
-	gl_FragColor.rgb = normalize( Position_worldspace );
+		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);
+	//gl_FragColor = texture2D( shadowMap, ShadowCoord.st );
+	gl_FragColor.rgb = vec3( visibility, visibility, visibility );
 }
 							//110
