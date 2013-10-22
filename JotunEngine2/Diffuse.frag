@@ -195,7 +195,7 @@ void main(){
 	// Sample the shadow map 8 times
 	float count = 0;
 	float temp;
-	for( int i = 0; i < 8; i++ ) {
+	for( int i = 0; i < 2k; i++ ) {               
 		temp = texture2D( shadowMap,  ShadowCoord.xy + (poissonDisk( i ) / 500.0) ).r;
 		if( temp < distance ) {
 			dBlocker += temp;
@@ -229,6 +229,6 @@ void main(){
 		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta; +
 		// Specular : reflective highlight, like a mirror
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
-	gl_FragColor.rgb = vec3( dBlocker, dBlocker, dBlocker );
+	//gl_FragColor.rgb = vec3( dBlocker, dBlocker, dBlocker );
 }
 							//110
