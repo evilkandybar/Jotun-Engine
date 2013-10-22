@@ -167,10 +167,10 @@ void main(){
 
 	vec3 n = normalize( Normal_cameraspace );
 	vec3 l = normalize( LightDirection_cameraspace );
-	float cosTheta = clamp( dot( n, l ), 0, 1 );
+	float cosTheta = clamp( dot( n, l ), 0.2, 1 );
 	
 	// Eye vector (towards the camera)
-	vec3 E = normalize(EyeDirection_cameraspace);
+	vec3 E = normalize( EyeDirection_cameraspace );
 	// Direction in which the triangle reflects the light
 	vec3 R = reflect( -l, n );
 	// Cosine of the angle between the Eye vector and the Reflect vector,
@@ -183,44 +183,39 @@ void main(){
 	float visibility = 1.0;
 
 	 //variable bias
-	 float bias = 0.005*tan(acos(cosTheta));		//100
+	 float bias = 0.005 * tan( acos( cosTheta ) );
 	 bias = clamp(bias, 0, 0.01 );
 
 	// Distance to the light
-	float distance = (ShadowCoord.z-bias)/ShadowCoord.w;
+	float distance = ( ShadowCoord.z-bias ) / ShadowCoord.w;
 	float dBlocker = 0;
 	float penumbra = 0;
 	float wLight = 5.0;
 
 	// Sample the shadow map 8 times
-	int count = 0;
+	float count = 0;
 	float temp;
-	for( int i = 0; i < 1; i++ ) {
-		temp = texture2D( shadowMap,  ShadowCoord.xy + (wLight * poissonDisk( i ) / 500.0) ).r;
+	for( int i = 0; i < 8; i++ ) {
+		temp = texture2D( shadowMap,  ShadowCoord.xy + (poissonDisk( i ) / 500.0) ).r;
 		if( temp < distance ) {
 			dBlocker += temp;
-			count++;
+			count += 1;
 		}
 	}
 	if( dBlocker != 0 ) {
-		dBlocker /= float(count);
+		dBlocker /= count;
 		penumbra = wLight * (distance - dBlocker)/distance;
 	}
 
-	int iterations = 1;
-	float sub = 0.8f / float(iterations);
+	float iterations = 4;
+	float sub = 0.8f / iterations;
 	for( int i = 0; i < iterations; i++ ) {
 		// 0.2 potentially remain, which is quite dark.
 		//sample the depth of the shadow map and compare it to the depth of the fragment
 		int index =  mod( int( 32 * random( floor( Position_worldspace.xyz * 1000.0 ), i ) ), 32 );
-		if( texture2D( shadowMap,  ShadowCoord.xy ).r < distance ) {
-		//if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
+		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk(index ) / 250.0) ).r < distance ) {
 			visibility -= sub;
 		}
-	}
-	visibility = 1.0;
-	if( texture2D( shadowMap,  ShadowCoord.xy ).r < distance ) {
-		visibility -= 0.8;
 	}
 
 	// For spot lights, use either one of these lines instead.
@@ -229,12 +224,11 @@ void main(){
 							//100
 	gl_FragColor.rgb = 
 		// Ambient : simulates indirect lighting
-		MaterialAmbientColor +
+		//MaterialAmbientColor; +
 		// Diffuse : "color" of the object
-		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta+
+		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta; +
 		// Specular : reflective highlight, like a mirror
-		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);
-	//gl_FragColor = texture2D( shadowMap, ShadowCoord.st );
-	gl_FragColor.rgb = vec3( visibility, visibility, visibility );
+		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
+	gl_FragColor.rgb = vec3( dBlocker, dBlocker, dBlocker );
 }
 							//110

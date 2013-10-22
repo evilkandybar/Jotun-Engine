@@ -188,8 +188,10 @@ void draw() {// Render to our framebuffer
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
 	diffuse->setUniformMat4x4( "DepthBiasMVP", &depthBiasMVP[0][0] );
 
-	diffuse->setUniform3f( "LightInvDirection_modelspace",
+	diffuse->setUniform3f( "LightInvDirection_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z );
+	
+	glCullFace( GL_BACK );
 
 	// Bind our texture in Texture Unit 0
 	texture->bind( 0 );
@@ -218,8 +220,6 @@ void draw() {// Render to our framebuffer
 	glTexCoord2i( 0, 0 );
 	glVertex3f( -1, -1, -1 );
 	glEnd();&*/
-
-	//drawAxis( MVP );
 
 	// Swap buffers
 	glfwSwapBuffers( window );
@@ -288,7 +288,7 @@ int main( void ) {
 	uniformNames[4] = "M";
 	uniformNames[5] = "DepthBiasMVP";
 	uniformNames[6] = "shadowMap"; 
-	uniformNames[7] = "LightInvDirection_modelspace";
+	uniformNames[7] = "LightInvDirection_worldspace";
 
 	attribNames = new std::string[3];
 	attribNames[0] = "vertexPosition_modelspace";

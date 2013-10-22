@@ -27,8 +27,6 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	glBegin( GL_TRIANGLES );
 	for( int i = 0; i < indices.size(); i++ ) {
 		glVertex3fv( &meshData[indices[i] * 8] );
-		glNormal3fv( &meshData[indices[i] * 8 + 3] );
-		glTexCoord2fv( &meshData[indices[i] * 8 + 6] );
 	}
 	glEnd();
 
@@ -79,7 +77,7 @@ void Mesh::disable() {
 
 void Mesh::loadMesh() {
 	std::cout << "Loading mesh " << sName << "...\n";
-	const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Quality );
+	const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Fast );
 	const aiMesh *mesh = scene->mMeshes[0];
 	for( int i = 0; i < mesh->mNumVertices; i++ ) {
 		meshData.push_back( mesh->mVertices[i][0] );
