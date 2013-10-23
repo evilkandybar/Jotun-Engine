@@ -1,5 +1,5 @@
 #include "JotunEngine2.h"
-
+//********//********//********//********//********//********//********//********
 //#include <common/controls.hpp>
 
 int		init();
@@ -9,7 +9,8 @@ int		main();
 void	draw();
 void	destroy();
 void	onGLFWError( int error, const char *description );
-void	onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods );
+void	onGLFWKey( GLFWwindow *curWindow, int key, int scancode, 
+	int action, int mods );
 void	onGLFWMouse( GLFWwindow *window, double xPos, double yPos );
 
 std::vector<InputHandler*> inputHandlers;
@@ -79,6 +80,7 @@ void initOpenGL() {
 
 	// Cull triangles which normal is not towards the camera
 	glEnable( GL_CULL_FACE );
+	glCullFace( GL_BACK );
 }
 
 void initData() {
@@ -121,13 +123,12 @@ void drawAxis( glm::mat4 MVP ) {
 
 void draw() {// Render to our framebuffer
 	glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
-	glViewport( 0, 0, 1024, 1024 ); // Render on the whole framebuffer, complete from the lower left corner to the upper right
+	glViewport( 0, 0, 1024, 1024 ); // Render on the whole framebuffer, 
+	//complete from the lower left corner to the upper right
 
 	// We don't use bias in the shader, but instead we draw back faces, 
 	// which are already separated from the front faces by a small distance 
 	// (if your geometry is made this way)
-	glEnable( GL_CULL_FACE );
-	glCullFace( GL_FRONT ); // Cull back-facing triangles -> draw only front-facing triangles
 
 	// Clear the screen
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -146,7 +147,8 @@ void draw() {// Render to our framebuffer
 	//glm::mat4 depthViewMatrix = glm::lookAt(lightPos, lightPos-lightInvDir, glm::vec3(0,1,0));
 
 	glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
-	glm::mat4 depthMVP = depthProjectionMatrix * depthViewMatrix * depthModelMatrix;
+	glm::mat4 depthMVP = depthProjectionMatrix * depthViewMatrix * 
+		depthModelMatrix;
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
@@ -157,9 +159,6 @@ void draw() {// Render to our framebuffer
 	// Render to the screen
 	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 	glViewport( 0, 0, 1024, 768 );
-
-	glEnable( GL_CULL_FACE );
-	glCullFace( GL_BACK );
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
@@ -188,6 +187,7 @@ void draw() {// Render to our framebuffer
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
 	diffuse->setUniformMat4x4( "DepthBiasMVP", &depthBiasMVP[0][0] );
 
+	//diffuse->setUniform3f( "LightPosition_worldspace",  )
 	diffuse->setUniform3f( "LightInvDirection_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z );
 	
@@ -251,13 +251,15 @@ int main( void ) {
 	// Depth texture. Slower than a depth buffer, but you can sample it later in your shader
 	glGenTextures( 1, &depthTexture );
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0 );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 
+		1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0 );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
 
-	glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTexture, 0 );
+	glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, 
+		GL_TEXTURE_2D, depthTexture, 0 );
 
 	// No color output in the bound framebuffer, only depth.
 	glDrawBuffer( GL_NONE );
@@ -338,7 +340,8 @@ void onGLFWError( int error, const char *description ) {
 	printf( "Error %d: %s\n", error, description );
 }
 
-void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, int action, int mods ) {
+void onGLFWKey( GLFWwindow *curWindow, int key, int scancode, 
+	int action, int mods ) {
 	if( key == GLFW_KEY_ESCAPE && action == GLFW_PRESS ) {
 		glfwSetWindowShouldClose( window, GL_TRUE );
 	}
