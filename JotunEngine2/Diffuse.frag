@@ -52,16 +52,16 @@ vec2 poissonDisk( int ind ) {
 	return vec2( -0.3564819f, 0.2770886f );
    }  
    if( ind == 12 ) {
-	return vec2( -0.4994766f, 0.4100508f );
+	return vec2( -0.4994766f, -0.4100508f );
    }  
    if( ind == 13 ) {
-	return vec2( -0.6305282f, 0.5586912f );
+	return vec2( 0.6305282f, -0.5586912f );
    }  
    if( ind == 14 ) {
-	return vec2( -0.5874177f, 0.1295959f );
+	return vec2( -0.5874177f, -0.1295959f );
    }  
    if( ind == 15 ) {
-	return vec2( -0.4260757f, -0.02231212f );
+	return vec2( 0.4260757f, -0.02231212f );
    }  
    if( ind == 16 ) {
 	return vec2( -0.8381009f, -0.1279669f );
@@ -70,22 +70,22 @@ vec2 poissonDisk( int ind ) {
 	return vec2( -0.8977778f, 0.1717084f );
    }  
    if( ind == 18 ) {
-	return vec2( -0.8211543f, 0.365194f );
+	return vec2( 0.8211543f, 0.365194f );
    }  
    if( ind == 19 ) {
-	return vec2( -0.6365152f, -0.229197f );
+	return vec2( 0.6365152f, -0.229197f );
    }  
    if( ind == 20 ) {
 	return vec2( -0.8206947f, -0.3301564f );
    }  
    if( ind == 21 ) {
-	return vec2( -0.08938109f, 0.005763604f );
+	return vec2( 0.08938109f, -0.005763604f );
    }  
    if( ind == 22 ) {
-	return vec2( -0.3123821f, -0.2344262f );
+	return vec2( -0.3123821f, 0.2344262f );
    }  
    if( ind == 23 ) {
-	return vec2( 0.1038207f, 0.2167438f );
+	return vec2( 0.1038207f, -0.2167438f );
    }  
    if( ind == 24 ) {
 	return vec2( 0.3256707f, 0.2347208f );
@@ -93,54 +93,24 @@ vec2 poissonDisk( int ind ) {
    if( ind == 25 ) {
 	return vec2( 0.3405131f, 0.4458854f );
    }  
-   if( ind == 16 ) {
+   if( ind == 26 ) {
 	return vec2( -0.6740047f, -0.4649915f );
    }  
-   if( ind == 17 ) {
-	return vec2( -0.6670403f, -0.658087f );
-   }  
-   if( ind == 18 ) {
-	return vec2( -0.4680224f, -0.4418066f );
-   }  
-   if( ind == 19 ) {
-	return vec2( 0.09780561f, -0.1236207f );
-   }  
-   if( ind == 20 ) {
-	return vec2( 0.030519f, -0.3487186f );
-   }  
-   if( ind == 21 ) {
-	return vec2( 0.4240496f, -0.1010172f );
-   }  
-   if( ind == 22 ) {
-	return vec2(  0.3915275f, -0.333679f );
-   }  
-   if( ind == 23 ) {
-	return vec2( 0.2238118f, 0.05503683f );
-   }  
-   if( ind == 24 ) {
-	return vec2( -0.1218127f, -0.1943101f );
-   }  
-   if( ind == 25 ) {
-	return vec2( 0.6776094f, 0.5458294f );
-   }  
-   if( ind == 26 ) {
-	return vec2( 0.6469344f, 0.2682991f );
-   }  
    if( ind == 27 ) {
-	return vec2(  0.4293563f, 0.626775f );
+	return vec2( -0.6670403f, 0.658087f );
    }  
    if( ind == 28 ) {
-	return vec2( 0.4987282f, 0.1368884f );
+	return vec2( -0.4680224f, -0.4418066f );
    }  
    if( ind == 29 ) {
-	return vec2( 0.4230149f, 0.8571401f );
+	return vec2( 0.09780561f, -0.1236207f );
    }  
    if( ind == 30 ) {
-	return vec2( 0.9180746f, 0.3412085f );
+	return vec2( -0.030519f, 0.3487186f );
    }  
    if( ind == 31 ) {
-	return vec2( 0.5972316f, 0.7636495f );
-   }
+	return vec2( 0.4240496f, -0.1010172f );
+   }  
 }
 
 // Returns a random number based on a vec3 and an int.
