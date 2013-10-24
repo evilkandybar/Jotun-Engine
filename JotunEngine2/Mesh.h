@@ -19,14 +19,13 @@ public:
 	void		enable( GLuint verts, GLuint uvs, GLuint norms );
 	void		bind();
 	void		draw();
-	void		disable(); 
+	void		unbind(); 
 private:
 	void		loadMesh();
 	void		makeGLMesh();
 	std::string sName;
 	std::vector<unsigned short> indices;
 	std::vector<GLfloat> meshData;
-	GLuint glVertData, glIndexes;
-	GLuint verts, norms, uvs;
+	GLuint		glVertData, glIndexes;
+	GLuint		verts, norms, uvs;
 };
-

@@ -32,3 +32,6 @@ using namespace glm;
 //interfaces
 #include "InputHandler.h"
 #include "Transformable.h"
+
+//other useful files
+#include "Settings.h"

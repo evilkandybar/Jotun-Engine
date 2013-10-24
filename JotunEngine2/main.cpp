@@ -121,50 +121,49 @@ void drawAxis( glm::mat4 MVP ) {
 	glEnd();
 }
 
-void draw() {// Render to our framebuffer
-	glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
-	glViewport( 0, 0, 1024, 1024 ); // Render on the whole framebuffer, 
-	//complete from the lower left corner to the upper right
-
-	// We don't use bias in the shader, but instead we draw back faces, 
-	// which are already separated from the front faces by a small distance 
-	// (if your geometry is made this way)
-
-	// Clear the screen
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-	// Use our shader
-	depth->bind();
-
+void draw() {
+	//Only render the shadow pass if we have shadows enabled
+	glm::mat4 depthMVP = glm::mat4( 1.0 );
 	glm::vec3 lightInvDir = glm::vec3( 0.5f, 2, 2 );
+	if( Settings::getShadowQuality() > 0 ) {
+		glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
+		glViewport( 0, 0, 1024, 1024 ); 
 
-	// Compute the MVP matrix from the light's point of view
-	glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
-	glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
-	// or, for spot light :
-	//glm::vec3 lightPos(5, 20, 20);
-	//glm::mat4 depthProjectionMatrix = glm::perspective<float>(45.0f, 1.0f, 2.0f, 50.0f);
-	//glm::mat4 depthViewMatrix = glm::lookAt(lightPos, lightPos-lightInvDir, glm::vec3(0,1,0));
+		// We don't use bias in the shader, but instead we draw back faces, 
+		// which are already separated from the front faces by a small distance 
+		// (if your geometry is made this way)
 
-	glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
-	glm::mat4 depthMVP = depthProjectionMatrix * depthViewMatrix * 
-		depthModelMatrix;
+		// Clear the screen
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-	// Send our transformation to the currently bound shader, 
-	// in the "MVP" uniform
-	depth->setUniformMat4x4( "depthMVP", &depthMVP[0][0] );
+		// Use our shader
+		depth->bind();
 
-	mesh->drawShadowPass( depth->getAttribute( "vertexPosition_modelspace" ) );
+		// Compute the MVP matrix from the light's point of view
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
+		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
+		// or, for spot light :
+		//glm::vec3 lightPos(5, 20, 20);
+		//glm::mat4 depthProjectionMatrix = glm::perspective<float>(45.0f, 1.0f, 2.0f, 50.0f);
+		//glm::mat4 depthViewMatrix = glm::lookAt(lightPos, lightPos-lightInvDir, glm::vec3(0,1,0));
+
+		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
+		depthMVP = depthProjectionMatrix * depthViewMatrix *
+			depthModelMatrix;
+
+		// Send our transformation to the currently bound shader, 
+		// in the "MVP" uniform
+		depth->setUniformMat4x4( "depthMVP", &depthMVP[0][0] );
+
+		mesh->drawShadowPass( depth->getAttribute( "vertexPosition_modelspace" ) );
+	}
 
 	// Render to the screen
 	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 	glViewport( 0, 0, 1024, 768 );
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-	// Use our shader
-	diffuse->bind();
-
+	
 	mainCamera->update();
 	glm::mat4 ProjectionMatrix = mainCamera->getProjMatrix();
 	glm::mat4 ViewMatrix = mainCamera->getViewMatrix();
@@ -179,6 +178,9 @@ void draw() {// Render to our framebuffer
 		);
 
 	glm::mat4 depthBiasMVP = biasMatrix*depthMVP;
+
+	// Use our shader
+	diffuse->bind();
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
@@ -202,24 +204,14 @@ void draw() {// Render to our framebuffer
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
 	diffuse->setUniform1i( "shadowMap", 1 );
 
+	diffuse->setUniform1i( "shadowLevel", 3 );
+	std::cout << glewGetErrorString( glGetError() );
+
 	mesh->enable( diffuse->getAttribute( "vertexPosition_modelspace" ),
 		diffuse->getAttribute( "vertexUV" ),
 		diffuse->getAttribute( "vertexNormals_modelspace" ) );
 	mesh->bind();
 	mesh->draw();
-
-	/*passthrough->bind();
-	passthrough->setUniform1i( "texture", 1 );
-	glBegin( GL_QUADS );
-	glTexCoord2i( 1, 0 );
-	glVertex3f( 1, -1, -1 );
-	glTexCoord2i( 1, 1 );
-	glVertex3f( 1, 1, -1 );
-	glTexCoord2i( -1, 1 );
-	glVertex3f( -1, 1, -1 );
-	glTexCoord2i( 0, 0 );
-	glVertex3f( -1, -1, -1 );
-	glEnd();&*/
 
 	// Swap buffers
 	glfwSwapBuffers( window );
@@ -282,7 +274,7 @@ int main( void ) {
 	uniformNames[0] = "MVP";
 	vertexLit->genUniformMap( uniformNames, 1 );
 
-	uniformNames = new std::string[8];
+	uniformNames = new std::string[9];
 	uniformNames[0] = "texture";
 	uniformNames[1] = "myTextureSampler";
 	uniformNames[2] = "MVP";
@@ -291,6 +283,7 @@ int main( void ) {
 	uniformNames[5] = "DepthBiasMVP";
 	uniformNames[6] = "shadowMap"; 
 	uniformNames[7] = "LightInvDirection_worldspace";
+	uniformNames[8] = "shadowLevel";
 
 	attribNames = new std::string[3];
 	attribNames[0] = "vertexPosition_modelspace";

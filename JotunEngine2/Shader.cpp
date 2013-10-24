@@ -38,6 +38,10 @@ void Shader::setUniform1i( std::string name, int v1 ) {
 	glUniform1i( uniforms[name], v1 );
 }
 
+void Shader::setUniform2i( std::string name, int v1, int v2 ) {
+	glUniform2i( uniforms[name], v1, v2 );
+}
+
 void Shader::setUniformMat4x4( std::string name, float *value ) {
 	glUniformMatrix4fv( uniforms[name], 1, GL_FALSE, value );
 }

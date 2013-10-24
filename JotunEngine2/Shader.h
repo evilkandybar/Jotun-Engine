@@ -3,11 +3,12 @@
 
 class Shader {
 public:
-	Shader( std::string vertName, std::string fragName );
-	~Shader();
+				Shader( std::string vertName, std::string fragName );
+				~Shader();
 	void		genAttribMap( std::string varNames [], int numElems );
 	void		genUniformMap( std::string varNames [], int numElems );
 	void		setUniform1i( std::string name, int v1 );
+	void		setUniform2i( std::string name, int v1, int v2 );
 	void		setUniform3f( std::string name, int v1, int v2, int v3 );
 	void		setUniformMat4x4( std::string name, float* value );
 	void		bind();

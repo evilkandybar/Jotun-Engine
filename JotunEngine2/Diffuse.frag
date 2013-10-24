@@ -1,4 +1,4 @@
-#version 120
+#version 130
 
 // Interpolated values from the vertex shaders
 varying vec2 UV;
@@ -13,6 +13,7 @@ uniform sampler2D myTextureSampler;
 uniform mat4 MV;
 uniform vec3 LightPosition_worldspace;
 uniform sampler2D shadowMap;
+//uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
 
 vec2 poissonDisk( int ind ) {
    if( ind == 0 ) {
@@ -121,22 +122,22 @@ vec2 poissonDisk( int ind ) {
 	return vec2( -0.1218127f, -0.1943101f );
    }  
    if( ind == 25 ) {
-	return vec2( 0.6776094f, 0.5458294f );
+	return vec2( -0.6776094f, 0.5458294f );
    }  
    if( ind == 26 ) {
 	return vec2( 0.6469344f, 0.2682991f );
    }  
    if( ind == 27 ) {
-	return vec2(  0.4293563f, 0.626775f );
+	return vec2( -0.4293563f, 0.626775f );
    }  
    if( ind == 28 ) {
-	return vec2( 0.4987282f, 0.1368884f );
+	return vec2( 0.4987282f, -0.1368884f );
    }  
    if( ind == 29 ) {
-	return vec2( 0.4230149f, 0.8571401f );
+	return vec2( -0.4230149f, -0.8571401f );
    }  
    if( ind == 30 ) {
-	return vec2( 0.9180746f, 0.3412085f );
+	return vec2( 0.9180746f, -0.3412085f );
    }  
    if( ind == 31 ) {
 	return vec2( 0.5972316f, 0.7636495f );
@@ -144,23 +145,24 @@ vec2 poissonDisk( int ind ) {
 }
 
 // Returns a random number based on a vec3 and an int.
-float random(vec3 seed, int i){
+float random( vec3 seed, int i ) {
 	vec4 seed4 = vec4( seed, i );			
-	float dot_product = dot(seed4, vec4(12.9898,78.233,45.164,94.673));
-	return fract(sin(dot_product) * 43758.5453);
+	float dot_product = dot( seed4, vec4( 12.9898, 78.233, 45.164, 94.673 ) );
+	return fract( sin( dot_product ) * 43758.5453 );
 }
 
 int mod( int a, int b ) {
 	return a - (a / b);
 }
 
-void main(){
+void main() {
+int shadowLevel = 0;	//let's just do soft shadows
 	// Light emission properties
-	vec3 LightColor = vec3(1,1,1);
+	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
 
 	// Material properties
-	vec3 MaterialDiffuseColor = texture2D( myTextureSampler, UV ).rgb;
+	vec3 MaterialDiffuseColor = texture( myTextureSampler, UV ).rgb;
 	vec3 MaterialAmbientColor = vec3( 0.1, 0.1, 0.1 ) * MaterialDiffuseColor;
 	vec3 MaterialSpecularColor = vec3( 0.3, 0.3, 0.3 );
 
@@ -188,40 +190,47 @@ void main(){
 	// dFragment to the light
 	float dFragment = ( ShadowCoord.z-bias ) / ShadowCoord.w;
 	float dBlocker = 0;
-	float penumbra = 0;
+	float penumbra = 1;
 	float wLight = 5.0;
 
-	// Sample the shadow map 8 times
-	float count = 0;
-	float temp;
-	float centerBlocker = texture2D( shadowMap, ShadowCoord.xy).r;
-	float scale = (wLight * (dFragment - centerBlocker)) / dFragment;
-	for( int i = 0; i < 4; i++ ) {    
-		temp = texture2D( shadowMap, ShadowCoord.xy + (poissonDisk( i ) / 50.0) ).r;
-		if( temp < dFragment ) {
-			dBlocker += temp;
-			count += 1;
+	if( shadowLevel == 3 ) {
+		// Sample the shadow map 8 times
+		float count = 0;
+		float temp;
+		float centerBlocker = texture( shadowMap, ShadowCoord.xy).r;
+		float scale = (wLight * (dFragment - centerBlocker)) / dFragment;
+		for( int i = 0; i < 8; i++ ) {    
+			temp = texture( shadowMap, ShadowCoord.xy + (scale * poissonDisk( i ) / 50.0) ).r;
+			if( temp < dFragment ) {
+				dBlocker += temp;
+				count += 1;
+			}
+		}
+
+		if( count > 0 ) {
+			dBlocker /= count;
+			penumbra = wLight * (dFragment - dBlocker) / dFragment;
 		}
 	}
 
-	if( count > 0 ) {
-		dBlocker /= count;
-		penumbra = wLight * (dFragment - dBlocker) / dFragment;
-	}
-
-	float iterations = 16;
-	float sub = 0.8f / iterations;
-	for( int i = 0; i < iterations; i++ ) {
-		int index = mod( int( 32.0 * random( gl_FragCoord.xyy, i ) ), 32 );
-		if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk( index ) / 250.0) ).r < dFragment ) {
-			visibility -= sub;
+	if( shadowLevel == 1 ) {
+		if( texture( shadowMap,  ShadowCoord.xy).r < dFragment ) {
+			visibility -= 0.8;
+		}
+	} else if( shadowLevel > 1 ) {
+		float iterations = 32;
+		float sub = 0.8f / iterations;
+		for( int i = 0; i < iterations; i++ ) {
+			int index = mod( int( 32.0 * random( gl_FragCoord.xyy, i ) ), 32 );
+			if( texture( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk( index ) / 250.0) ).r < dFragment ) {
+				visibility -= sub;
+			}
 		}
 	}
 
-	gl_FragColor.rgb = //MaterialAmbientColor +
+	gl_FragColor.rgb = MaterialAmbientColor +
 		visibility * MaterialDiffuseColor;// * LightColor * LightPower * cosTheta;// +
 		//visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
-	scale /= 6;
-	//gl_FragColor.rgb = vec3( scale, scale, scale );
+	gl_FragColor.rgb = vec3( cosTheta, cosTheta, cosTheta );
 }
