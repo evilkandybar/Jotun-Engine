@@ -198,14 +198,14 @@ void draw() {
 	// Bind our texture in Texture Unit 0
 	texture->bind( 0 );
 	// Set our "myTextureSampler" sampler to user Texture Unit 0
-	diffuse->setUniform1i( "myTextureSampler", 0 );
+	diffuse->setUniform1i( "diffuse", 0 );
 
 	glActiveTexture( GL_TEXTURE1 );
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
 	diffuse->setUniform1i( "shadowMap", 1 );
 
 	diffuse->setUniform1i( "shadowLevel", 3 );
-	std::cout << glewGetErrorString( glGetError() );
+	//std::cout << glewGetErrorString( glGetError() );
 
 	mesh->enable( diffuse->getAttribute( "vertexPosition_modelspace" ),
 		diffuse->getAttribute( "vertexUV" ),
@@ -243,8 +243,7 @@ int main( void ) {
 	// Depth texture. Slower than a depth buffer, but you can sample it later in your shader
 	glGenTextures( 1, &depthTexture );
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 
-		1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0 );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0 );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
@@ -275,8 +274,7 @@ int main( void ) {
 	vertexLit->genUniformMap( uniformNames, 1 );
 
 	uniformNames = new std::string[9];
-	uniformNames[0] = "texture";
-	uniformNames[1] = "myTextureSampler";
+	uniformNames[1] = "diffuse";
 	uniformNames[2] = "MVP";
 	uniformNames[3] = "V";
 	uniformNames[4] = "M";

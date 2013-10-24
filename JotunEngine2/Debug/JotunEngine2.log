@@ -1,37 +1,8 @@
-<<<<<<< HEAD
-﻿Build started 10/23/2013 10:41:26 PM.
-     1>Project "C:\Users\DAVID\Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W2 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mesh.cpp main.cpp
-         main.cpp
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\main.cpp(194): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\main.cpp(357): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         Mesh.cpp
-         Generating Code...
-     1>c:\users\david\documents\programs\jotunengine2\jotunengine2\main.cpp(69): warning C4715: 'init' : not all control paths return a value
-=======
-﻿Build started 10/23/2013 8:18:27 AM.
+﻿Build started 10/24/2013 1:33:21 PM.
      1>Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W2 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Input.cpp InputHandler.cpp Mesh.cpp Shader.cpp Texture.cpp Time.cpp Transformable.cpp main.cpp "stb_image-1.16.cpp" vboindexer.cpp
-         vboindexer.cpp
-         stb_image-1.16.cpp
-         main.cpp
-     1>d:\my documents\programs\jotunengine2\jotunengine2\main.cpp(192): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>d:\my documents\programs\jotunengine2\jotunengine2\main.cpp(364): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         Transformable.cpp
-         Time.cpp
+         D:\Programs Overflow\VC\bin\CL.exe /c /ZI /nologo /W2 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Texture.cpp
          Texture.cpp
-         Shader.cpp
-     1>d:\my documents\programs\jotunengine2\jotunengine2\shader.cpp(34): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
-         Mesh.cpp
-         InputHandler.cpp
-         Input.cpp
-         Camera.cpp
-     1>d:\my documents\programs\jotunengine2\jotunengine2\camera.cpp(19): warning C4305: '=' : truncation from 'double' to 'float'
-         Generating Code...
-     1>d:\my documents\programs\jotunengine2\jotunengine2\main.cpp(69): warning C4715: 'init' : not all control paths return a value
->>>>>>> 15e3a52dc5e6da4d8ce7acebe8a981054c946a85
        Link:
          D:\Programs Overflow\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe" /INCREMENTAL /NOLOGO assimp.lib glfw3.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.lib" /MACHINE:X86 Debug\Camera.obj
          Debug\Input.obj
@@ -45,15 +16,9 @@
          Debug\Time.obj
          Debug\Transformable.obj
          Debug\vboindexer.obj
-         LINK : D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe not found or not built by the last incremental link; performing full link
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          JotunEngine2.vcxproj -> D:\My Documents\Programs\JotunEngine2\Debug\JotunEngine2.exe
      1>Done Building Project "D:\My Documents\Programs\JotunEngine2\JotunEngine2\JotunEngine2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:05.41
-=======
-Time Elapsed 00:00:07.20
->>>>>>> 15e3a52dc5e6da4d8ce7acebe8a981054c946a85
+Time Elapsed 00:00:01.07

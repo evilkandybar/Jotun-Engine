@@ -13,6 +13,9 @@ Texture::~Texture() {
 void Texture::loadTexture() {
 	std::cout << "Loading texture " << sName << "...\n";
 	data = stbi_load( sName.c_str(), &width, &height, &comp, 0 );
+	if( data != NULL ) {
+		std::cout << "Texture load successful\n";
+	}
 }
 
 void Texture::makeGLTex() {
