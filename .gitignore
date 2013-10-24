@@ -1,0 +1,8 @@
+#exclude generated files so we only sync the source and the project file
+.exe
+.obj
+.idb
+.pdb
+.tlog
+.log
+.ilk
