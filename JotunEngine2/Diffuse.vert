@@ -1,4 +1,4 @@
-#version 130
+#version 120
 
 // Input vertex data, different for all executions of this shader.
 //it doesn't work, so we'll just get rid of it
@@ -22,8 +22,7 @@ uniform vec3 LightInvDirection_worldspace;
 uniform mat4 DepthBiasMVP;
 uniform sampler2D normalMap;
 
-void main(){
-
+void main() {
 	// Output position of the vertex, in clip space : MVP * position
 	gl_Position =  MVP * gl_Vertex;
 	
