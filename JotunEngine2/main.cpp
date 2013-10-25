@@ -81,6 +81,9 @@ void initOpenGL() {
 	// Cull triangles which normal is not towards the camera
 	glEnable( GL_CULL_FACE );
 	glCullFace( GL_BACK );
+
+	glEnable( GL_TEXTURE_2D );
+	//glEnable( GL_MULTITEXTURE );
 }
 
 void initData() {
