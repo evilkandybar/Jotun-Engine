@@ -197,27 +197,12 @@ void draw() {
 	diffuse->setUniform1i( "shadowMap", 2 );
 
 	diffuse->setUniform1i( "shadowLevel", 3 );
-<<<<<<< HEAD
-=======
-	//std::cout << glewGetErrorString( glGetError() );
->>>>>>> 22f605451ae9ce960efbe1050447492ae4b509e2
 
 	mesh->draw();
 #pragma endregion
 
 #pragma region debugRenders
-	normalMap->bind( 0 );
-	glUseProgram( 0 );
-	glBegin( GL_QUADS );
-	glTexCoord2i( 0, 0 );
-	glVertex3i( 0, 0, -1 );
-	glTexCoord2i( 1, 0 );
-	glVertex3i( 1, 0, -1 );
-	glTexCoord2i( 1, 1 );
-	glVertex3i( 1, 1, -1 );
-	glTexCoord2i( 0, 1 );
-	glVertex3i( 0, 1, -1 );
-	glEnd();
+
 #pragma endregion
 	glfwSwapBuffers( window );
 }
@@ -279,12 +264,8 @@ int main( void ) {
 	vertexLit->genUniformMap( uniformNames, 1 );
 
 	uniformNames = new std::string[9];
-<<<<<<< HEAD
 	uniformNames[0] = "normalMap";
-	uniformNames[1] = "myTextureSampler";
-=======
 	uniformNames[1] = "diffuse";
->>>>>>> 22f605451ae9ce960efbe1050447492ae4b509e2
 	uniformNames[2] = "MVP";
 	uniformNames[3] = "V";
 	uniformNames[4] = "M";

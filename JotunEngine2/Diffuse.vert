@@ -39,11 +39,9 @@ void main() {
 	LightDirection_cameraspace = ( V * vec4( LightInvDirection_worldspace, 0 ) ).xyz;
 	
 	// UV of the vertex. No special space for this one.
-	UV = gl_TexCoord[0].st;
+	UV = gl_MultiTexCoord0.st;
 	
 	// Normal of the the vertex, in camera space
 	// Only correct if ModelMatrix does not scale the model ! Use its inverse transpose if not.
 	Normal_cameraspace = ( V * M * vec4( gl_Normal.rgb, 0 ) ).xyz; 
-
 }
-

@@ -34,13 +34,13 @@ void Texture::makeGLTex() {
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR );
-	glGenerateMipmap( GL_TEXTURE_2D );
 
 	if( comp == 3 ) {	//which it might. Maybe. Once or twice...
 		glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data );
 	} else if( comp == 4 ) {	//Everything needs an alpha channel
 		glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data );
 	}
+	glGenerateMipmap( GL_TEXTURE_2D );
 }
 
 void Texture::bind( int unit ) {

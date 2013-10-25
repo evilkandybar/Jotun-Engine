@@ -13,7 +13,7 @@ uniform sampler2D diffuse;
 uniform mat4 MV;
 uniform vec3 LightPosition_worldspace;
 uniform sampler2D shadowMap;
-//uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
+uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
 
 vec2 poissonDisk( int ind ) {
    if( ind == 0 ) {
@@ -126,7 +126,7 @@ int mod( int a, int b ) {
 }
 
 void main() {
-int shadowLevel = 1;	//let's just do hard shadows
+//int shadowLevel = 1;	//let's just do hard shadows
 	// Light emission properties
 	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
@@ -198,11 +198,11 @@ int shadowLevel = 1;	//let's just do hard shadows
 		}
 	}
 	visibility = min( visibility, cosTheta );
-	MaterialDiffuseColor = vec3( 0.8, 0.8, 0.8 );
+	//MaterialDiffuseColor = vec3( 0.8, 0.8, 0.8 );
 	gl_FragColor.rgb = MaterialAmbientColor +
 		visibility * MaterialDiffuseColor * LightColor * LightPower +
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
-	//gl_FragColor.rgb = MaterialDiffuseColor;
+	//gl_FragColor.rgb = vec3( UV, 0 );
 	//gl_FragColor.rgb = vec3( visibility, visibility, visibility );
 }
