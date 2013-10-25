@@ -10,6 +10,8 @@
  * When you change mesh, call mesh.bind()
  * When you actually want to draw the mesh, call mesh.draw()
  * When you are done with the mesh, call mesh.disable()
+
+ Note theat this isn't necessary until I have VBOs working
  */
 class Mesh {
 public:

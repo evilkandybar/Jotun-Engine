@@ -15,12 +15,12 @@ Mesh::~Mesh() {
 
 void Mesh::drawShadowPass( GLuint verts ) {
 	// 1rst attribute buffer : vertices
-	glEnableVertexAttribArray( verts );
-	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
-	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 8, (void*) 0 );
+	//glEnableVertexAttribArray( verts );
+	//glBindBuffer( GL_ARRAY_BUFFER, glVertData );
+	//glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 8, (void*) 0 );
 
 	// Index buffer
-	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
+	//glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 
 	// Draw the triangles !
 	//glDrawElements( GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
@@ -30,7 +30,7 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	}
 	glEnd();
 
-	glDisableVertexAttribArray( verts );
+	//glDisableVertexAttribArray( verts );
 }
 
 void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms ) {
@@ -59,8 +59,8 @@ void Mesh::bind() {
 
 void Mesh::draw() {
 	// Draw the triangles !
-	glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
-	/*glBegin( GL_TRIANGLES );
+	//glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
+	glBegin( GL_TRIANGLES );
 	int ind;
 	for( int i = 0; i < indices.size(); i++ ) {
 		ind = indices[i] * 8;
@@ -68,7 +68,7 @@ void Mesh::draw() {
 		glNormal3fv( &meshData[ind + 3] );
 		glTexCoord2fv( &meshData[ind + 6] );
 	}
-	glEnd();*/
+	glEnd();
 }
 
 void Mesh::unbind() {
@@ -79,7 +79,7 @@ void Mesh::unbind() {
 
 void Mesh::loadMesh() {
 	std::cout << "Loading mesh " << sName << "...\n";
-	const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_Fast );
+	const aiScene *scene = aiImportFile( sName.c_str(), aiProcessPreset_TargetRealtime_MaxQuality );
 	const aiMesh *mesh = scene->mMeshes[0];
 	for( int i = 0; i < mesh->mNumVertices; i++ ) {
 		meshData.push_back( mesh->mVertices[i][0] );

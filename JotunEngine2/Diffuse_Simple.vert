@@ -17,11 +17,11 @@ uniform mat4 DepthBiasMVP;
 void main(){
 
 	// Output position of the vertex, in clip space : MVP * position
-	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
+	gl_Position =  MVP * gl_Vertex;
 	
-	ShadowCoord = DepthBiasMVP * vec4(vertexPosition_modelspace,1);
+	ShadowCoord = DepthBiasMVP * gl_Vertex;
 	
 	// UV of the vertex. No special space for this one.
-	UV = vertexUV;
+	UV = gl_TexCoord[0];
 }
 

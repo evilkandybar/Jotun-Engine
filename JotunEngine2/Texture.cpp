@@ -1,8 +1,13 @@
 #include "Texture.h"
 
 Texture::Texture( std::string sName ) {
+	width = 0;
 	this->sName = sName;
 	loadTexture();
+	if( width == 0 ) {
+		std::cout << "Texture load failed. Ignore all consecutive anythings\n";
+		return;
+	}
 	makeGLTex();
 }
 

@@ -17,146 +17,100 @@ uniform sampler2D shadowMap;
 
 vec2 poissonDisk( int ind ) {
    if( ind == 0 ) {
-	return vec2( -0.1094937f, -0.752005 );
+		return vec2( -0.1094937f, -0.752005 );
    } 
    if( ind == 1 ) {
-	return vec2( 0.5059697f, -0.7294227f );
+		return vec2( 0.5059697f, -0.7294227f );
    } 
    if( ind == 2 ) {
-	return vec2( -0.3904303f, 0.5678311f );
+		return vec2( -0.3904303f, 0.5678311f );
    }  
    if( ind == 3 ) {
-	return vec2( -0.3050305f, 0.7459931f );
+		return vec2( -0.3050305f, 0.7459931f );
    }  
    if( ind == 4 ) {
-	return vec2( 0.1725386f, -0.506364f );
+		return vec2( 0.1725386f, -0.506364f );
    }  
    if( ind == 5 ) {
-	return vec2( 0.1979104f, 0.7830779f );
+		return vec2( 0.1979104f, 0.7830779f );
    }  
    if( ind == 6 ) {
-	return vec2( 0.0663829f, 0.9336991f );
+		return vec2( 0.0663829f, 0.9336991f );
    }  
    if( ind == 7 ) {
-	return vec2( -0.163072f, -0.9741971f );
+		return vec2( -0.163072f, -0.9741971f );
    }  
    if( ind == 8 ) {
-	return vec2( 0.1710306f, 0.5527771f );
+		return vec2( 0.1710306f, 0.5527771f );
    }  
    if( ind == 9 ) {
-	return vec2( 0.02903906f, 0.3999698f );
+		return vec2( 0.02903906f, 0.3999698f );
    }  
    if( ind == 10 ) {
-	return vec2( -0.1748933f, 0.1948632f );
+		return vec2( -0.1748933f, 0.1948632f );
    }  
    if( ind == 11 ) {
-	return vec2( -0.3564819f, 0.2770886f );
+		return vec2( -0.3564819f, 0.2770886f );
    }  
    if( ind == 12 ) {
-	return vec2( -0.4994766f, -0.4100508f );
+		return vec2( -0.4994766f, -0.4100508f );
    }  
    if( ind == 13 ) {
-	return vec2( 0.6305282f, -0.5586912f );
+		return vec2( 0.6305282f, -0.5586912f );
    }  
    if( ind == 14 ) {
-	return vec2( -0.5874177f, -0.1295959f );
+		return vec2( -0.5874177f, -0.1295959f );
    }  
    if( ind == 15 ) {
-	return vec2( 0.4260757f, -0.02231212f );
+		return vec2( 0.4260757f, -0.02231212f );
    }  
    if( ind == 16 ) {
-	return vec2( -0.8381009f, -0.1279669f );
+		return vec2( -0.8381009f, -0.1279669f );
    }  
    if( ind == 17 ) {
-	return vec2( -0.8977778f, 0.1717084f );
+		return vec2( -0.8977778f, 0.1717084f );
    }  
    if( ind == 18 ) {
-	return vec2( 0.8211543f, 0.365194f );
+		return vec2( 0.8211543f, 0.365194f );
    }  
    if( ind == 19 ) {
-	return vec2( 0.6365152f, -0.229197f );
+		return vec2( 0.6365152f, -0.229197f );
    }  
    if( ind == 20 ) {
-	return vec2( -0.8206947f, -0.3301564f );
+		return vec2( -0.8206947f, -0.3301564f );
    }  
    if( ind == 21 ) {
-	return vec2( 0.08938109f, -0.005763604f );
+		return vec2( 0.08938109f, -0.005763604f );
    }  
    if( ind == 22 ) {
-	return vec2( -0.3123821f, 0.2344262f );
+		return vec2( -0.3123821f, 0.2344262f );
    }  
    if( ind == 23 ) {
-	return vec2( 0.1038207f, -0.2167438f );
+		return vec2( 0.1038207f, -0.2167438f );
    }  
    if( ind == 24 ) {
-	return vec2( 0.3256707f, 0.2347208f );
+		return vec2( 0.3256707f, 0.2347208f );
    }  
    if( ind == 25 ) {
-	return vec2( 0.3405131f, 0.4458854f );
+		return vec2( 0.3405131f, 0.4458854f );
    }  
-<<<<<<< HEAD
-   if( ind == 16 ) {
-	return vec2( -0.6740047f, -0.4649915f );
-   }  
-   if( ind == 17 ) {
-	return vec2( -0.6670403f, -0.658087f );
-   }  
-   if( ind == 18 ) {
-	return vec2( -0.4680224f, -0.4418066f );
-   }  
-   if( ind == 19 ) {
-	return vec2( 0.09780561f, -0.1236207f );
-   }  
-   if( ind == 20 ) {
-	return vec2( 0.030519f, -0.3487186f );
-   }  
-   if( ind == 21 ) {
-	return vec2( 0.4240496f, -0.1010172f );
-   }  
-   if( ind == 22 ) {
-	return vec2(  0.3915275f, -0.333679f );
-   }  
-   if( ind == 23 ) {
-	return vec2( 0.2238118f, 0.05503683f );
-   }  
-   if( ind == 24 ) {
-	return vec2( -0.1218127f, -0.1943101f );
-   }  
-   if( ind == 25 ) {
-	return vec2( -0.6776094f, 0.5458294f );
-   }  
-=======
->>>>>>> 15e3a52dc5e6da4d8ce7acebe8a981054c946a85
    if( ind == 26 ) {
-	return vec2( -0.6740047f, -0.4649915f );
+		return vec2( -0.6740047f, -0.4649915f );
    }  
    if( ind == 27 ) {
-<<<<<<< HEAD
-	return vec2( -0.4293563f, 0.626775f );
+		return vec2( -0.6670403f, 0.658087f );
    }  
    if( ind == 28 ) {
-	return vec2( 0.4987282f, -0.1368884f );
+		return vec2( -0.4680224f, -0.4418066f );
    }  
    if( ind == 29 ) {
-	return vec2( -0.4230149f, -0.8571401f );
+		return vec2( 0.09780561f, -0.1236207f );
    }  
    if( ind == 30 ) {
-	return vec2( 0.9180746f, -0.3412085f );
-=======
-	return vec2( -0.6670403f, 0.658087f );
-   }  
-   if( ind == 28 ) {
-	return vec2( -0.4680224f, -0.4418066f );
-   }  
-   if( ind == 29 ) {
-	return vec2( 0.09780561f, -0.1236207f );
-   }  
-   if( ind == 30 ) {
-	return vec2( -0.030519f, 0.3487186f );
->>>>>>> 15e3a52dc5e6da4d8ce7acebe8a981054c946a85
+		return vec2( -0.030519f, 0.3487186f );
    }  
    if( ind == 31 ) {
-	return vec2( 0.4240496f, -0.1010172f );
+		return vec2( 0.4240496f, -0.1010172f );
    }  
 }
 
@@ -172,7 +126,7 @@ int mod( int a, int b ) {
 }
 
 void main() {
-int shadowLevel = 0;	//let's just do soft shadows
+int shadowLevel = 1;	//let's just do hard shadows
 	// Light emission properties
 	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
@@ -245,8 +199,8 @@ int shadowLevel = 0;	//let's just do soft shadows
 	}
 
 	gl_FragColor.rgb = MaterialAmbientColor +
-		visibility * MaterialDiffuseColor;// * LightColor * LightPower * cosTheta;// +
-		//visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
+		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta +
+		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
-	gl_FragColor.rgb = vec3( cosTheta, cosTheta, cosTheta );
+	//gl_FragColor.rgb = MaterialDiffuseColor;
 }
