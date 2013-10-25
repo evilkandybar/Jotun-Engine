@@ -43,6 +43,7 @@ void main() {
 	
 	// Normal of the the vertex, in camera space
 	// Only correct if ModelMatrix does not scale the model ! Use its inverse transpose if not.
-	Normal_cameraspace = texture( normalMap, UV.st ).rgb;//( V * M * vec4( texture( normalMap, UV.st ).rgb, 0 ) ).xyz; 
+	Normal_cameraspace = ( V * M * vec4( gl_Normal.rgb, 0 ) ).xyz; 
+
 }
 

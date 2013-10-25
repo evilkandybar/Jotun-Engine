@@ -126,11 +126,7 @@ int mod( int a, int b ) {
 }
 
 void main() {
-<<<<<<< HEAD
 int shadowLevel = 1;	//let's just do hard shadows
-=======
-int shadowLevel = 3;	//let's just do soft shadows
->>>>>>> 22f605451ae9ce960efbe1050447492ae4b509e2
 	// Light emission properties
 	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
@@ -201,14 +197,12 @@ int shadowLevel = 3;	//let's just do soft shadows
 			}
 		}
 	}
-
+	visibility = min( visibility, cosTheta );
+	MaterialDiffuseColor = vec3( 0.8, 0.8, 0.8 );
 	gl_FragColor.rgb = MaterialAmbientColor +
-		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta +
+		visibility * MaterialDiffuseColor * LightColor * LightPower +
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
-<<<<<<< HEAD
 	//gl_FragColor.rgb = MaterialDiffuseColor;
-=======
 	//gl_FragColor.rgb = vec3( visibility, visibility, visibility );
->>>>>>> 22f605451ae9ce960efbe1050447492ae4b509e2
 }

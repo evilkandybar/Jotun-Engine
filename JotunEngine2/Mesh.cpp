@@ -1,6 +1,5 @@
 #include "Mesh.h"
 
-
 Mesh::Mesh( std::string name ) {
 	sName = name;
 	loadMesh();
@@ -64,9 +63,9 @@ void Mesh::draw() {
 	int ind;
 	for( int i = 0; i < indices.size(); i++ ) {
 		ind = indices[i] * 8;
-		glVertex3fv( &meshData[ind] );
 		glNormal3fv( &meshData[ind + 3] );
 		glTexCoord2fv( &meshData[ind + 6] );
+		glVertex3fv( &meshData[ind] );
 	}
 	glEnd();
 }
