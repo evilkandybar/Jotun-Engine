@@ -1,19 +1,21 @@
-#version 120
+#version 130
 
 // Interpolated values from the vertex shaders
-varying vec2 UV;
-varying vec3 Position_worldspace;
-varying vec3 Normal_cameraspace;
-varying vec3 EyeDirection_cameraspace;
-varying vec3 LightDirection_cameraspace;
-varying vec4 ShadowCoord;
+in vec2 UV;
+in vec3 Position_worldspace;
+in vec3 Normal_cameraspace;
+in vec3 EyeDirection_cameraspace;
+in vec3 LightDirection_cameraspace;
+in vec4 ShadowCoord;
+
+out vec4 fragColor;
 
 // Values that stay constant for the whole mesh.
 uniform sampler2D diffuse;
 uniform mat4 MV;
 uniform vec3 LightPosition_worldspace;
 uniform sampler2D shadowMap;
-uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
+//uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
 
 vec2 poissonDisk( int ind ) {
    if( ind == 0 ) {
@@ -126,13 +128,13 @@ int mod( int a, int b ) {
 }
 
 void main() {
-//int shadowLevel = 1;	//let's just do hard shadows
+int shadowLevel = 1;	//let's just do hard shadows
 	// Light emission properties
 	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
 
 	// Material properties
-	vec3 MaterialDiffuseColor = texture2D( diffuse, UV ).rgb;
+	vec3 MaterialDiffuseColor = texture( diffuse, UV ).rgb;
 	vec3 MaterialAmbientColor = vec3( 0.1, 0.1, 0.1 ) * MaterialDiffuseColor;
 	vec3 MaterialSpecularColor = vec3( 0.3, 0.3, 0.3 );
 
@@ -167,10 +169,10 @@ void main() {
 		// Sample the shadow map 8 times
 		float count = 0;
 		float temp;
-		float centerBlocker = texture2D( shadowMap, ShadowCoord.xy).r;
+		float centerBlocker = texture( shadowMap, ShadowCoord.xy).r;
 		float scale = (wLight * (dFragment - centerBlocker)) / dFragment;
 		for( int i = 0; i < 16; i++ ) {    
-			temp = texture2D( shadowMap, ShadowCoord.xy + (scale * poissonDisk( i ) / 50.0) ).r;
+			temp = texture( shadowMap, ShadowCoord.xy + (scale * poissonDisk( i ) / 50.0) ).r;
 			if( temp < dFragment ) {
 				dBlocker += temp;
 				count += 1;
@@ -184,7 +186,7 @@ void main() {
 	}
 
 	if( shadowLevel == 1 ) {
-		if( texture2D( shadowMap,  ShadowCoord.xy).r < dFragment ) {
+		if( texture( shadowMap,  ShadowCoord.xy).r < dFragment ) {
 			visibility -= 0.8;
 		}
 	} else if( shadowLevel > 1 ) {
@@ -192,17 +194,17 @@ void main() {
 		float sub = 0.8f / iterations;
 		for( int i = 0; i < iterations; i++ ) {
 			int index = mod( int( 32.0 * random( gl_FragCoord.xyy, i ) ), 32 );
-			if( texture2D( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk( index ) / 250.0) ).r < dFragment ) {
+			if( texture( shadowMap,  ShadowCoord.xy + (penumbra * poissonDisk( index ) / 250.0) ).r < dFragment ) {
 				visibility -= sub;
 			}
 		}
 	}
 	visibility = min( visibility, cosTheta );
 	//MaterialDiffuseColor = vec3( 0.8, 0.8, 0.8 );
-	gl_FragColor.rgb = MaterialAmbientColor +
+	fragColor.rgb = MaterialAmbientColor +
 		visibility * MaterialDiffuseColor * LightColor * LightPower +
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
-	//gl_FragColor.rgb = vec3( UV, 0 );
-	//gl_FragColor.rgb = vec3( visibility, visibility, visibility );
+	//fragColor.rgb = vec3( UV, 0 );
+	//fragColor.rgb = vec3( visibility, visibility, visibility );
 }

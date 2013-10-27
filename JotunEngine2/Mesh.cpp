@@ -25,43 +25,49 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	//glDrawElements( GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
 	glBegin( GL_TRIANGLES );
 	for( int i = 0; i < indices.size(); i++ ) {
-		glVertex3fv( &meshData[indices[i] * 8] );
+		glVertex3fv( &meshData[indices[i] * 12] );
 	}
 	glEnd();
 
 	//glDisableVertexAttribArray( verts );
 }
 
-void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms ) {
+void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms, GLuint bindTangents ) {
 	this->verts = bindVerts;
 	this->uvs = bindUvs;
 	this->norms = bindNorms;
+	this->tangents = bindTangents;
 	glEnableVertexAttribArray( verts );
 	glEnableVertexAttribArray( uvs );
 	glEnableVertexAttribArray( norms );
+	glEnableVertexAttribArray( tangents );
 }
 
 void Mesh::bind() {
 	// 1rst attribute buffer : vertices
 	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
-	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 8, (void*) 0 );
+	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 12, (void*) 0 );
 
 	// 2nd attribute buffer : normals
-	glVertexAttribPointer( norms, 3, GL_FLOAT, GL_FALSE, 8, (void*) 3 ); 
+	glVertexAttribPointer( norms, 3, GL_FLOAT, GL_FALSE, 12, (void*) 3 ); 
 
 	//3rd attribute buffer : UVs
-	glVertexAttribPointer( uvs, 2, GL_FLOAT, GL_FALSE, 8, (void*) 6 );
+	glVertexAttribPointer( uvs, 3, GL_FLOAT, GL_FALSE, 12, (void*) 6 );
+
+	//4th attribute buffer: tangents
+	glVertexAttribPointer( tangents, 3, GL_FLOAT, GL_FALSE, 12, (void*) 9 );
 
 	// Index buffer
 	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 }
 
 void Mesh::draw() {
-	//glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
+	//glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
+	glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
 	glBegin( GL_TRIANGLES );
 	int ind;
 	for( int i = 0; i < indices.size(); i++ ) {
-		ind = indices[i] * 8;
+		ind = indices[i] * 12;
 		glNormal3fv( &meshData[ind + 3] );
 		glTexCoord2fv( &meshData[ind + 6] );
 		glVertex3fv( &meshData[ind] );
@@ -73,6 +79,7 @@ void Mesh::unbind() {
 	glDisableVertexAttribArray( verts );
 	glDisableVertexAttribArray( uvs );
 	glDisableVertexAttribArray( norms );
+	glDisableVertexAttribArray( tangents );
 }
 
 void Mesh::loadMesh() {
@@ -91,6 +98,11 @@ void Mesh::loadMesh() {
 
 		meshData.push_back( mesh->mTextureCoords[0][i][0] );
 		meshData.push_back( mesh->mTextureCoords[0][i][1] );
+		meshData.push_back( 0 );
+
+		meshData.push_back( mesh->mTangents[i][0] );
+		meshData.push_back( mesh->mTangents[i][1] );
+		meshData.push_back( mesh->mTangents[i][2] );
 	}
 
 	for( int i = 0; i < mesh->mNumFaces; i++ ) {

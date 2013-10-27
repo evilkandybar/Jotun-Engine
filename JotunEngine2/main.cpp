@@ -84,7 +84,11 @@ void initOpenGL() {
 	glCullFace( GL_BACK );
 
 	glEnable( GL_TEXTURE_2D );
-	//glEnable( GL_MULTITEXTURE );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
 }
 
 void initData() {
@@ -198,6 +202,11 @@ void draw() {
 
 	diffuse->setUniform1i( "shadowLevel", 3 );
 
+	mesh->enable( diffuse->getAttribute( "vertexPosition_modelspace" ),
+		diffuse->getAttribute( "vertexUV" ),
+		diffuse->getAttribute( "vertexNormal_modelspace" ),
+		diffuse->getAttribute( "vertexTangent_modelspace" ) );
+	mesh->bind();
 	mesh->draw();
 #pragma endregion
 
@@ -248,7 +257,7 @@ int main( void ) {
 
 	// Always check that our framebuffer is ok
 	GLuint error = glCheckFramebufferStatus( GL_FRAMEBUFFER );
-	if( glCheckFramebufferStatus( GL_FRAMEBUFFER ) != GL_FRAMEBUFFER_COMPLETE ) {
+	if( error != GL_FRAMEBUFFER_COMPLETE ) {
 		return false;
 	}
 
