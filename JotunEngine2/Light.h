@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Camera.h"
+//********//********//********//********//********//********//********//********
 /*!\brief Defines light to be used in rendering
 
 This class contains a camera for shadowing, a position, a color, and in intensity
@@ -11,7 +12,8 @@ class Light {
 public:
 	/*!\brief Default constructor. Initializes every value to zero*/
 	Light();
-	/*!\brief Constructs a Light with the specified position, color, and intensiy
+	/*!\brief Constructs a Light with the specified position, color, and 
+		intensiy
 	
 	\param [in] color The desired color of this light
 	\param [in] intensity The intensity of this light, in lumens
@@ -37,7 +39,10 @@ public:
 	\param [in] screenCenter The place for the camera to look. This should be 
 	a little way in front the the main camera
 	\return The view matrix for the light's shadow camera*/
-	glm::mat4 &getMatrix( glm::vec3 &screenCenter );
+	glm::mat4 &getViewMatrix( glm::vec3 &screenCenter );
+	/*!\brief Returns a projection matrix for the light's camera, used for the
+	purposes of shadow mapping*/
+	glm::mat4 &getProjMatrix();
 	/*!\brief Returns the position of the light
 	
 	\return The position of the light*/
@@ -51,6 +56,6 @@ public:
 private:
 	glm::vec4 color;	//a is the light's intensity
 	glm::vec3 position;
-	Camera *camera;
+	Camera *shadowCam;
 };
 

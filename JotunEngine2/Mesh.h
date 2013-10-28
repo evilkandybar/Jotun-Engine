@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "vboindexer.h"
-
+//********//********//********//********//********//********//********//********
 /*!\brief Defines a 3D mesh.
 
 This class can load and render and static mesh. Animation support coming soon
@@ -32,7 +32,8 @@ public:
 	void		drawShadowPass( GLuint verts );
 	/*!\brief Tells the shader to use this mesh's data in rendering
 	
-	\param [in] bindVerts The location in the shader of the vertex position data
+	\param [in] bindVerts The location in the shader of the vertex position 
+		data
 	\param [in] bindUvs The location in the shader of the vertex UV data
 	\param [in] bindNorms The location in the shader of the vertex normal data
 	\param [in] bindTangents The location in the shader of the vertex tangent
