@@ -32,18 +32,12 @@ void Mesh::drawShadowPass( GLuint verts ) {
 	//glDisableVertexAttribArray( verts );
 }
 
-void Mesh::enable( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms, GLuint bindTangents ) {
+void Mesh::bind( GLuint bindVerts, GLuint bindUvs, GLuint bindNorms, GLuint bindTangents ) {
 	this->verts = bindVerts;
 	this->uvs = bindUvs;
 	this->norms = bindNorms;
 	this->tangents = bindTangents;
-	glEnableVertexAttribArray( verts );
-	glEnableVertexAttribArray( uvs );
-	glEnableVertexAttribArray( norms );
-	glEnableVertexAttribArray( tangents );
-}
 
-void Mesh::bind() {
 	// 1rst attribute buffer : vertices
 	glBindBuffer( GL_ARRAY_BUFFER, glVertData );
 	glVertexAttribPointer( verts, 3, GL_FLOAT, GL_FALSE, 12, (void*) 0 );
@@ -63,7 +57,7 @@ void Mesh::bind() {
 
 void Mesh::draw() {
 	//glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
-	glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
+	//glDrawElements( GL_LINES, indices.size(), GL_UNSIGNED_SHORT, (void*) 0 );
 	glBegin( GL_TRIANGLES );
 	int ind;
 	for( int i = 0; i < indices.size(); i++ ) {

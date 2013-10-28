@@ -202,11 +202,10 @@ void draw() {
 
 	diffuse->setUniform1i( "shadowLevel", 3 );
 
-	mesh->enable( diffuse->getAttribute( "vertexPosition_modelspace" ),
-		diffuse->getAttribute( "vertexUV" ),
-		diffuse->getAttribute( "vertexNormal_modelspace" ),
-		diffuse->getAttribute( "vertexTangent_modelspace" ) );
-	mesh->bind();
+	//mesh->bind( diffuse->getAttribute( "vertexPosition_modelspace" ),
+		//diffuse->getAttribute( "vertexUV" ),
+		//diffuse->getAttribute( "vertexNormal_modelspace" ),
+//		diffuse->getAttribute( "vertexTangent_modelspace" ) );
 	mesh->draw();
 #pragma endregion
 

@@ -48,6 +48,10 @@ void Shader::setUniformMat4x4( std::string name, float *value ) {
 
 void Shader::bind() {
 	glUseProgram( glName );
+	glEnableVertexAttribArray( getAttribute( "vertexPosition_modelspace" ) );	//verts
+	glEnableVertexAttribArray( getAttribute( "vertexPosition_modelspace" ) );	//norms
+	glEnableVertexAttribArray( getAttribute( "vertexPosition_modelspace" ) );	//uvs
+	glEnableVertexAttribArray( getAttribute( "vertexPosition_modelspace" ) );	//tangents
 }
 
 GLuint Shader::getAttribute( std::string attrib ) {

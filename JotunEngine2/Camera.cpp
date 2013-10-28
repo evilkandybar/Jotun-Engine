@@ -32,10 +32,6 @@ void Camera::setAspectRatio( float newAspectRatio ) {
 	projMatrix = glm::perspective( fov, aspectRatio, 0.1f, 100.0f );
 }
 
-void Camera::translate( glm::vec3 dir ) {
-	position += dir;
-}
-
 void Camera::rotate( float hRot, float vRot ) {
 	horizontalAngle += hRot;
 	verticalAngle += vRot;
@@ -133,22 +129,6 @@ void Camera::onMouseMove( int mouseX, int mouseY ) {
 
 float Camera::getFOV() {
 	return fov;
-}
-
-glm::vec3 Camera::getPosition() {
-	return position;
-}
-
-glm::vec3 Camera::getForward() {
-	return forward;
-}
-
-glm::vec3 Camera::getUp() {
-	return up;
-}
-
-glm::vec3 Camera::getRight() {
-	return right;
 }
 
 glm::mat4 Camera::getViewMatrix() {
