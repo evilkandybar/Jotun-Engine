@@ -156,7 +156,6 @@ void draw() {
 	glViewport( 0, 0, 1024, 768 );
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	
 	mainCamera->update();
 	glm::mat4 ProjectionMatrix = mainCamera->getProjMatrix();
 	glm::mat4 ViewMatrix = mainCamera->getViewMatrix();
@@ -185,8 +184,6 @@ void draw() {
 	//diffuse->setUniform3f( "LightPosition_worldspace",  )
 	diffuse->setUniform3f( "LightInvDirection_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z );
-	
-	glCullFace( GL_BACK );
 
 	// Bind our texture in Texture Unit 0
 	texture->bind( 0 );
@@ -202,10 +199,10 @@ void draw() {
 
 	diffuse->setUniform1i( "shadowLevel", 3 );
 
-	//mesh->bind( diffuse->getAttribute( "vertexPosition_modelspace" ),
-		//diffuse->getAttribute( "vertexUV" ),
-		//diffuse->getAttribute( "vertexNormal_modelspace" ),
-//		diffuse->getAttribute( "vertexTangent_modelspace" ) );
+	mesh->bind( diffuse->getAttribute( "vertexPosition_modelspace" ),
+		diffuse->getAttribute( "vertexUV" ),
+		diffuse->getAttribute( "vertexNormal_modelspace" ),
+		diffuse->getAttribute( "vertexTangent_modelspace" ) );
 	mesh->draw();
 #pragma endregion
 
@@ -282,13 +279,14 @@ int main( void ) {
 	uniformNames[7] = "LightInvDirection_worldspace";
 	uniformNames[8] = "shadowLevel";
 
-	attribNames = new std::string[3];
+	attribNames = new std::string[4];
 	attribNames[0] = "vertexPosition_modelspace";
 	attribNames[1] = "vertexUV";
 	attribNames[2] = "vertexNormal_modelspace";
+	attribNames[3] = "vertexTangent_modelspace";
 
-	diffuse->genAttribMap( attribNames, 3 );
-	diffuse->genUniformMap( uniformNames, 8 );
+	diffuse->genAttribMap( attribNames, 4 );
+	diffuse->genUniformMap( uniformNames, 9 );
 
 	while( !glfwWindowShouldClose( window ) ) {
 		Time::update();
