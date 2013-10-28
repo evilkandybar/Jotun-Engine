@@ -1,6 +1,6 @@
 #include "Settings.h"
 
-int Settings::shadowQuality = 1;
+int Settings::shadowQuality = 3;
 
 void Settings::setShadowQuality( int newQuality ) {
 	shadowQuality = newQuality;

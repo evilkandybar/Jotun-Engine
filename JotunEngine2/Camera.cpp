@@ -43,7 +43,7 @@ void Camera::setRotation( float hRot, float vRot ) {
 }
 
 void Camera::lookAt( glm::vec3 pos ) {
-	viewMatrix = glm::lookAt( position, pos, up );
+	viewMatrix = glm::lookAt( position, pos, glm::vec3( 0, 1, 0 ) );
 }
 
 void Camera::update() {

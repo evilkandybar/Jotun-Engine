@@ -17,7 +17,9 @@ std::vector<InputHandler*> inputHandlers;
 
 GLFWwindow *window;
 
-Camera *mainCamera, *lightCamera;
+Camera *mainCamera;
+
+Light *mainLight;
 
 Shader *diffuse;
 Shader *depth;
@@ -98,8 +100,8 @@ void initData() {
 	mainCamera = new Camera( glm::vec3( 7.48113, 6.50764, 5.34367 ) );
 
 	inputHandlers.push_back( mainCamera );
-
-	lightCamera = new Camera( glm::vec3( 0.5f, 2, 2 ) );
+	
+	mainLight = new Light( glm::vec3( 1, 1, 1 ), 1, glm::vec3( 0.5f, -10, 2 ) );
 
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
 	depth = new Shader( "Depth.vert", "Depth.frag" );
@@ -134,14 +136,14 @@ void draw() {
 #pragma region shadow
 	//Only render the shadow pass if we have shadows enabled
 	glm::mat4 depthMVP = glm::mat4( 1.0 );
-	glm::vec3 lightInvDir = glm::vec3( 0.5f, 2, 2 );
+	glm::vec3 lightInvDir = mainLight->getPos();
 	if( Settings::getShadowQuality() > 0 ) {
 		glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
 		glViewport( 0, 0, 1024, 1024 ); 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		depth->bind();
-		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
-		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
+		glm::mat4 depthProjectionMatrix = mainLight->getProjMatrix();
+		glm::mat4 depthViewMatrix = mainLight->getViewMatrix( glm::vec3( 0, 0, 0 ) );
 		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
 		depthMVP = depthProjectionMatrix * depthViewMatrix *
 			depthModelMatrix;
@@ -197,7 +199,7 @@ void draw() {
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
 	diffuse->setUniform1i( "shadowMap", 2 );
 
-	diffuse->setUniform1i( "shadowLevel", 3 );
+	diffuse->setUniform1i( "shadowLevel", Settings::getShadowQuality() );
 
 	mesh->bind( diffuse->getAttribute( "vertexPosition_modelspace" ),
 		diffuse->getAttribute( "vertexUV" ),
@@ -290,6 +292,8 @@ int main( void ) {
 
 	while( !glfwWindowShouldClose( window ) ) {
 		Time::update();
+		mainCamera->update();
+		mainLight->update();
 		draw();
 		glfwPollEvents();
 	}
@@ -300,7 +304,7 @@ int main( void ) {
 	glfwTerminate();
 
 	delete mainCamera;
-	delete lightCamera;
+	delete mainLight;
 	delete diffuse;
 	delete depth;
 	delete passthrough;
@@ -316,7 +320,7 @@ void destroy() {
 	glfwTerminate(); 
 
 	delete mainCamera;
-	delete lightCamera;
+	delete mainLight;
 	delete diffuse;
 	delete depth;
 	delete passthrough;

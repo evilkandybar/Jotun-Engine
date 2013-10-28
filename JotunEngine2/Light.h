@@ -21,6 +21,9 @@ public:
 	Light( glm::vec3 &newColor, GLfloat intensity, glm::vec3 &newPosition );
 	/*!\default destructor*/
 	~Light();
+
+	/*!\brief Updates the light, aligning the camera with the light*/
+	void update();
 	/*!\brief Sets the color of the light to a specified value
 	
 	\param [in] newColor The desired new color of the light*/

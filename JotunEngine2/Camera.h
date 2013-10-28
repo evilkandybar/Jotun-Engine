@@ -6,7 +6,7 @@
 
 The camera inherits from InputHandler so it can move in response to player input
 and inherits from Transformable so it has a position, rotation, and the like*/
-class Camera : public InputHandler, protected Transformable {
+class Camera : public InputHandler, public Transformable {
 public:
 	/*!\brief Default contructor
 	
