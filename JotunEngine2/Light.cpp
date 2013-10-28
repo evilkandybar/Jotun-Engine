@@ -7,6 +7,7 @@ Light::Light( glm::vec3 &newColor, GLfloat intensity, glm::vec3 &newPosition ) {
 	position = newPosition;
 	color = glm::vec4( newColor, intensity );
 	shadowCam = new Camera( position );
+	shadowCam->setAspectRatio( 1 );
 }
 
 Light::~Light() {

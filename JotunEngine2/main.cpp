@@ -42,7 +42,7 @@ int init() {
 		return -1;
 	}
 	
-	glfwWindowHint( GLFW_SAMPLES, 4 );
+	glfwWindowHint( GLFW_SAMPLES, Settings::getMultisamples() );
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 2 );
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
 
@@ -101,12 +101,62 @@ void initData() {
 
 	inputHandlers.push_back( mainCamera );
 	
-	mainLight = new Light( glm::vec3( 1, 1, 1 ), 1, glm::vec3( 0.5f, -10, 2 ) );
+	mainLight = new Light( glm::vec3( 1, 1, 1 ), 1, glm::vec3( 0.5f, 10, 2 ) );
 
+#pragma region diffuse
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
+
+	std::string *uniformNames = new std::string[9];
+	uniformNames[0] = "normalMap";
+	uniformNames[1] = "diffuse";
+	uniformNames[2] = "MVP";
+	uniformNames[3] = "V";
+	uniformNames[4] = "M";
+	uniformNames[5] = "DepthBiasMVP";
+	uniformNames[6] = "shadowMap";
+	uniformNames[7] = "LightInvDirection_worldspace";
+	uniformNames[8] = "shadowLevel";
+
+	std::string *attribNames = new std::string[4];
+	attribNames[0] = "vertexPosition_modelspace";
+	attribNames[1] = "vertexUV";
+	attribNames[2] = "vertexNormal_modelspace";
+	attribNames[3] = "vertexTangent_modelspace";
+
+	diffuse->genAttribMap( attribNames, 4 );
+	diffuse->genUniformMap( uniformNames, 9 );
+#pragma endregion
+
+#pragma region depth
 	depth = new Shader( "Depth.vert", "Depth.frag" );
+
+	uniformNames = new std::string[1];
+	uniformNames[0] = "depthMVP";
+	attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
+
+	depth->genUniformMap( uniformNames, 1 );
+	depth->genAttribMap( attribNames, 1 );
+#pragma endregion
+
+#pragma region passthrough
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
+
+	uniformNames = new std::string[1];
+	uniformNames[0] = "texture";
+	attribNames = new std::string[1];
+	attribNames[0] = "vertexPosition_modelspace";
+
+	passthrough->genAttribMap( attribNames, 1 );
+	passthrough->genUniformMap( uniformNames, 1 );
+#pragma endregion
+
+#pragma region vertexlit
 	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
+
+	uniformNames[0] = "MVP";
+	vertexLit->genUniformMap( uniformNames, 1 );
+#pragma endregion
 
 	texture = new Texture( "DiffuseTex.png" );
 	normalMap = new Texture( "NormalMap.png" );
@@ -142,8 +192,8 @@ void draw() {
 		glViewport( 0, 0, 1024, 1024 ); 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		depth->bind();
-		glm::mat4 depthProjectionMatrix = mainLight->getProjMatrix();
-		glm::mat4 depthViewMatrix = mainLight->getViewMatrix( glm::vec3( 0, 0, 0 ) );
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, 0, 20 );
+		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
 		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
 		depthMVP = depthProjectionMatrix * depthViewMatrix *
 			depthModelMatrix;
@@ -221,14 +271,6 @@ int main( void ) {
 	initOpenGL();
 	initData();
 
-	std::string *uniformNames = new std::string[1];
-	uniformNames[0] = "depthMVP";
-	std::string *attribNames = new std::string[1];
-	attribNames[0] = "vertexPosition_modelspace";
-
-	depth->genUniformMap( uniformNames, 1 );
-	depth->genAttribMap( attribNames, 1 );
-
 	// ---------------------------------------------
 	// Render to Texture - specific code begins here
 	// ---------------------------------------------
@@ -258,37 +300,6 @@ int main( void ) {
 	if( error != GL_FRAMEBUFFER_COMPLETE ) {
 		return false;
 	}
-
-	uniformNames = new std::string[1];
-	uniformNames[0] = "texture";
-	attribNames = new std::string[1];
-	attribNames[0] = "vertexPosition_modelspace";
-
-	passthrough->genAttribMap( attribNames, 1 );
-	passthrough->genUniformMap( uniformNames, 1 );
-
-	uniformNames[0] = "MVP";
-	vertexLit->genUniformMap( uniformNames, 1 );
-
-	uniformNames = new std::string[9];
-	uniformNames[0] = "normalMap";
-	uniformNames[1] = "diffuse";
-	uniformNames[2] = "MVP";
-	uniformNames[3] = "V";
-	uniformNames[4] = "M";
-	uniformNames[5] = "DepthBiasMVP";
-	uniformNames[6] = "shadowMap"; 
-	uniformNames[7] = "LightInvDirection_worldspace";
-	uniformNames[8] = "shadowLevel";
-
-	attribNames = new std::string[4];
-	attribNames[0] = "vertexPosition_modelspace";
-	attribNames[1] = "vertexUV";
-	attribNames[2] = "vertexNormal_modelspace";
-	attribNames[3] = "vertexTangent_modelspace";
-
-	diffuse->genAttribMap( attribNames, 4 );
-	diffuse->genUniformMap( uniformNames, 9 );
 
 	while( !glfwWindowShouldClose( window ) ) {
 		Time::update();

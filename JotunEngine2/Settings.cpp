@@ -1,6 +1,7 @@
 #include "Settings.h"
 
 int Settings::shadowQuality = 3;
+int Settings::multisamples = 4;
 
 void Settings::setShadowQuality( int newQuality ) {
 	shadowQuality = newQuality;
@@ -9,4 +10,12 @@ void Settings::setShadowQuality( int newQuality ) {
 
 int Settings::getShadowQuality() {
 	return shadowQuality;
+}
+
+void Settings::setMultisamples( int samples ) {
+	multisamples = samples;
+}
+
+int Settings::getMultisamples() {
+	return multisamples;
 }

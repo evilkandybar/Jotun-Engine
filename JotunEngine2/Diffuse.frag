@@ -207,5 +207,5 @@ void main() {
 
 	//fragColor.rgb = n;
 	//fragColor.rgb = vec3( visibility, visibility, visibility );
-	fragColor =  texture( shadowMap,  ShadowCoord.st );
+	//fragColor =  texture( shadowMap,  ShadowCoord.st );
 }
