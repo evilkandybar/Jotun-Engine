@@ -49,6 +49,13 @@ public:
 	\param [in] v2 The second integer to send
 	\param [in] v3 The third integer to send*/
 	void		setUniform3f( std::string name, int v1, int v2, int v3 );
+	/*!\brief Allows the user to send a collection of vec4's to the graphics card
+	
+	\param [in] name The name of the uniform to send the data to
+	\param [in] num The number of elemnts to send
+	\param [in] vs The array of vec4's to send. The program will yell at you if there
+		are fewer than num elements in vs*/
+	void		setUniformf4Array( std::string name, int num, glm::vec4 *vs );
 	/*!\brief Sends a single 4x4 matrix to the specified location
 
 	Rather than looking up the uniform location every time the data is changed, this function looks

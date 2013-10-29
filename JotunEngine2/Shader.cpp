@@ -42,6 +42,10 @@ void Shader::setUniform2i( std::string name, int v1, int v2 ) {
 	glUniform2i( uniforms[name], v1, v2 );
 }
 
+void Shader::setUniformf4Array( std::string name, int num, glm::vec4 *vs ) {
+	glUniform4fv( uniforms[name], num, &vs->x );
+}
+
 void Shader::setUniformMat4x4( std::string name, float *value ) {
 	glUniformMatrix4fv( uniforms[name], 1, GL_FALSE, value );
 }
@@ -174,10 +178,10 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 	glDeleteShader( fragmentShaderID );
 
 	glName = programID;
-	if( attribNames.size() > 0 ) {
+	/*if( attribNames.size() > 0 ) {
 		genAttribMap( &attribNames[0], attribNames.size() );
 	}
 	if( uniformNames.size() > 0 ) {
 		genUniformMap( &uniformNames[0], uniformNames.size() );
-	}
+	}*/
 }

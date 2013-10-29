@@ -192,7 +192,7 @@ void draw() {
 		glViewport( 0, 0, 1024, 1024 ); 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		depth->bind();
-		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, 0, 20 );
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 40 );
 		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
 		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
 		depthMVP = depthProjectionMatrix * depthViewMatrix *
@@ -233,7 +233,6 @@ void draw() {
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
 	diffuse->setUniformMat4x4( "DepthBiasMVP", &depthBiasMVP[0][0] );
 
-	//diffuse->setUniform3f( "LightPosition_worldspace",  )
 	diffuse->setUniform3f( "LightInvDirection_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z );
 

@@ -5,9 +5,7 @@ in vec2 UV;
 in vec3 Position_worldspace;
 in vec3 Normal_cameraspace;
 in vec3 EyeDirection_cameraspace;
-in vec3 LightDirections_cameraspace[8];
-in vec4 LightColors[8];
-in int numLights;
+in vec3 LightDirection_cameraspace;
 in vec4 ShadowCoord;
 
 out vec4 fragColor;
@@ -141,19 +139,18 @@ void main() {
 	vec3 MaterialSpecularColor = vec3( 0.3, 0.3, 0.3 );
 
 	vec3 n = normalize( Normal_cameraspace );
-	vec3 l = normalize( LightDirections_cameraspace[0].xyz );
-	float cosTheta = clamp( dot( n, l ), 0.2, 1 );
+	vec3 l = normalize( LightDirection_cameraspace );
+	float cosTheta = clamp( dot( n, l ), 0, 1 );
 	
 	// Eye vector (towards the camera)
-	vec3 E = normalize( EyeDirection_cameraspace );
+	vec3 E = normalize(EyeDirection_cameraspace);
 	// Direction in which the triangle reflects the light
 	vec3 R = reflect( -l, n );
 	// Cosine of the angle between the Eye vector and the Reflect vector,
 	// clamped to 0
-	//  - Looking into the reflection -> 1
+	//  - Looking into the reflection -> 1			//90
 	//  - Looking elsewhere -> < 1
-	float cosAlpha = clamp( dot( E, R ), 0, 1 );
-	
+	float cosAlpha = clamp( dot( E, R ), 0, 1 );	
 	
 	float visibility = 1.0;
 
@@ -169,8 +166,8 @@ void main() {
 
 	if( shadowLevel == 3 ) {
 		// Sample the shadow map 8 times
-		float count = 0;
 		float temp;
+		float count = 0;
 		float centerBlocker = texture( shadowMap, ShadowCoord.xy).r;
 		float scale = (wLight * (dFragment - centerBlocker)) / dFragment;
 		for( int i = 0; i < 16; i++ ) {    
@@ -209,5 +206,5 @@ void main() {
 
 	//fragColor.rgb = n;
 	//fragColor.rgb = vec3( visibility, visibility, visibility );
-	//fragColor =  texture( shadowMap,  ShadowCoord.st );
+	fragColor =  texture( shadowMap,  ShadowCoord.st );
 }
