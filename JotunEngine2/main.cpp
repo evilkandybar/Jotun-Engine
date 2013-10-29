@@ -135,8 +135,8 @@ void initData() {
 	attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
 
-	depth->genUniformMap( uniformNames, 1 );
-	depth->genAttribMap( attribNames, 1 );
+	//depth->genUniformMap( uniformNames, 1 );
+	//depth->genAttribMap( attribNames, 1 );
 #pragma endregion
 
 #pragma region passthrough
@@ -147,15 +147,15 @@ void initData() {
 	attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
 
-	passthrough->genAttribMap( attribNames, 1 );
-	passthrough->genUniformMap( uniformNames, 1 );
+	//passthrough->genAttribMap( attribNames, 1 );
+	//passthrough->genUniformMap( uniformNames, 1 );
 #pragma endregion
 
 #pragma region vertexlit
 	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
 
 	uniformNames[0] = "MVP";
-	vertexLit->genUniformMap( uniformNames, 1 );
+	//vertexLit->genUniformMap( uniformNames, 1 );
 #pragma endregion
 
 	texture = new Texture( "DiffuseTex.png" );

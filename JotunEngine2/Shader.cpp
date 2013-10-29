@@ -64,13 +64,35 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 	GLuint vertexShaderID = glCreateShader( GL_VERTEX_SHADER );
 	GLuint fragmentShaderID = glCreateShader( GL_FRAGMENT_SHADER );
 
+	std::vector<std::string> uniformNames;
+	std::vector<std::string> attribNames;
+	int pos;
+	int endPos;
+
 	// Read the Vertex Shader code from the file
 	std::string vertexShaderCode;
 	std::ifstream vertexShaderStream( vertFile, std::ios::in );
 	if( vertexShaderStream.is_open() ) {
 		std::string line = "";
-		while( getline( vertexShaderStream, line ) )
+		//parse each line, looking for "uniform" to generate a uniform map
+		//also look for "in" to generate the attribute map
+		while( getline( vertexShaderStream, line ) ) {
+			pos = line.find( "uniform" );
+			if( pos == 0 ) {
+				pos = line.find( ' ', pos + 9 ) + 1;
+				endPos = line.find( '[' ) - 1;
+				if( endPos == std::string::npos - 1 ) {
+					endPos = line.find( ';' ) - 1;
+				}
+				uniformNames.push_back( line.substr( pos, endPos ) );
+			}
+			pos = line.find( "in" );
+			if( pos == 0 ) {
+				pos = line.find( ' ', pos + 3 ) + 1;
+				attribNames.push_back( line.substr( pos, line.find( ';' ) - 1 ) );
+			}
 			vertexShaderCode += "\n" + line;
+		}
 		vertexShaderStream.close();
 	} else {
 		printf( "Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", vertFile );
@@ -83,8 +105,19 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 	std::ifstream fragmentShaderStream( fragFile, std::ios::in );
 	if( fragmentShaderStream.is_open() ) {
 		std::string line = "";
-		while( getline( fragmentShaderStream, line ) )
+		//parse each line, looking for "uniform" to generate a uniform map
+		while( getline( fragmentShaderStream, line ) ) {
+			pos = line.find( "uniform" );
+			if( pos == 0 ) {
+				pos = line.find( ' ', pos + 9 ) + 1;
+				endPos = line.find( '[' ) - 1;
+				if( endPos == std::string::npos - 1 ) {
+					endPos = line.find( ';' ) - 1;
+				}
+				uniformNames.push_back( line.substr( pos, endPos ) );
+			}
 			fragmentShaderCode += "\n" + line;
+		}
 		fragmentShaderStream.close();
 	}
 
@@ -106,8 +139,6 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		printf( "%s\n", &vertexShaderErrorMessage[0] );
 	}
 
-
-
 	// Compile Fragment Shader
 	printf( "Compiling shader : %s\n", fragFile );
 	char const * fragmentSourcePointer = fragmentShaderCode.c_str();
@@ -122,8 +153,6 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		glGetShaderInfoLog( fragmentShaderID, infoLogLength, NULL, &fragmentShaderErrorMessage[0] );
 		printf( "%s\n", &fragmentShaderErrorMessage[0] );
 	}
-
-
 
 	// Link the program
 	printf( "Linking program\n" );
@@ -145,4 +174,10 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 	glDeleteShader( fragmentShaderID );
 
 	glName = programID;
+	if( attribNames.size() > 0 ) {
+		genAttribMap( &attribNames[0], attribNames.size() );
+	}
+	if( uniformNames.size() > 0 ) {
+		genUniformMap( &uniformNames[0], uniformNames.size() );
+	}
 }
