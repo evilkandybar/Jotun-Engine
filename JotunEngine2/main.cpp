@@ -114,11 +114,11 @@ void initData() {
 	uniformNames[4] = "M";
 	uniformNames[5] = "DepthBiasMVP";
 	uniformNames[6] = "shadowMap";
-	uniformNames[7] = "LightInvDirection_worldspace";
+	uniformNames[7] = "lightPosition_worldspace";
 	uniformNames[8] = "shadowLevel";
 
 	std::string *attribNames = new std::string[4];
-	attribNames[0] = "vertexPosition_modelspace";
+	attribNames[0] = "vertexPosition_worldspace";
 	attribNames[1] = "vertexUV";
 	attribNames[2] = "vertexNormal_modelspace";
 	attribNames[3] = "vertexTangent_modelspace";
@@ -135,8 +135,8 @@ void initData() {
 	attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
 
-	//depth->genUniformMap( uniformNames, 1 );
-	//depth->genAttribMap( attribNames, 1 );
+	depth->genUniformMap( uniformNames, 1 );
+	depth->genAttribMap( attribNames, 1 );
 #pragma endregion
 
 #pragma region passthrough
@@ -147,15 +147,15 @@ void initData() {
 	attribNames = new std::string[1];
 	attribNames[0] = "vertexPosition_modelspace";
 
-	//passthrough->genAttribMap( attribNames, 1 );
-	//passthrough->genUniformMap( uniformNames, 1 );
+	passthrough->genAttribMap( attribNames, 1 );
+	passthrough->genUniformMap( uniformNames, 1 );
 #pragma endregion
 
 #pragma region vertexlit
 	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
 
 	uniformNames[0] = "MVP";
-	//vertexLit->genUniformMap( uniformNames, 1 );
+	vertexLit->genUniformMap( uniformNames, 1 );
 #pragma endregion
 
 	texture = new Texture( "DiffuseTex.png" );
@@ -192,7 +192,7 @@ void draw() {
 		glViewport( 0, 0, 1024, 1024 ); 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		depth->bind();
-		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 40 );
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
 		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
 		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
 		depthMVP = depthProjectionMatrix * depthViewMatrix *
@@ -233,7 +233,7 @@ void draw() {
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
 	diffuse->setUniformMat4x4( "DepthBiasMVP", &depthBiasMVP[0][0] );
 
-	diffuse->setUniform3f( "LightInvDirection_worldspace",
+	diffuse->setUniform3f( "lightPosition_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z );
 
 	// Bind our texture in Texture Unit 0
@@ -250,7 +250,7 @@ void draw() {
 
 	diffuse->setUniform1i( "shadowLevel", Settings::getShadowQuality() );
 
-	mesh->bind( diffuse->getAttribute( "vertexPosition_modelspace" ),
+	mesh->bind( diffuse->getAttribute( "vertexPosition_worldspace" ),
 		diffuse->getAttribute( "vertexUV" ),
 		diffuse->getAttribute( "vertexNormal_modelspace" ),
 		diffuse->getAttribute( "vertexTangent_modelspace" ) );

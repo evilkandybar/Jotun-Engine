@@ -3,9 +3,9 @@
 // Interpolated values from the vertex shaders
 in vec2 UV;
 in vec3 Position_worldspace;
-in vec3 Normal_cameraspace;
-in vec3 EyeDirection_cameraspace;
-in vec3 LightDirection_cameraspace;
+in vec3 eyeDirection_tangentspace;
+in vec3 lightDirection_tangentspace;
+in vec3 halfVector_tangentspace;
 in vec4 ShadowCoord;
 
 out vec4 fragColor;
@@ -13,9 +13,9 @@ out vec4 fragColor;
 // Values that stay constant for the whole mesh.
 uniform sampler2D diffuse;
 uniform sampler2D normalMap;
+uniform sampler2D shadowMap;
 uniform mat4 MV;
 uniform vec3 LightPosition_worldspace;
-uniform sampler2D shadowMap;
 uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
 
 vec2 poissonDisk( int ind ) {
@@ -129,7 +129,7 @@ int mod( int a, int b ) {
 }
 
 void main() {
-	// Light emission properties
+	/* Lighting calculations */
 	vec3 LightColor = vec3( 1, 1, 1 );
 	float LightPower = 1.0f;
 
@@ -138,20 +138,26 @@ void main() {
 	vec3 MaterialAmbientColor = vec3( 0.1, 0.1, 0.1 ) * MaterialDiffuseColor;
 	vec3 MaterialSpecularColor = vec3( 0.3, 0.3, 0.3 );
 
-	vec3 n = normalize( Normal_cameraspace );
-	vec3 l = normalize( LightDirection_cameraspace );
-	float cosTheta = clamp( dot( n, l ), 0, 1 );
+	vec3 normal = 2.0 * texture( normalMap, UV ).xyz - 1.0;
+	float cosTheta = clamp( dot( normal, lightDirection_tangentspace ), 0, 1 );
 	
-	// Eye vector (towards the camera)
-	vec3 E = normalize(EyeDirection_cameraspace);
-	// Direction in which the triangle reflects the light
-	vec3 R = reflect( -l, n );
-	// Cosine of the angle between the Eye vector and the Reflect vector,
-	// clamped to 0
-	//  - Looking into the reflection -> 1			//90
-	//  - Looking elsewhere -> < 1
-	float cosAlpha = clamp( dot( E, R ), 0, 1 );	
+	// check if the material is actually in not shadow. Don't calculate specularity
+	// if we can't see it. Shadowed specularity is bad.
+
+	float cosAlpha = 0.0;
+
+	//if( cosTheta > 0.0 ) {
+		// Direction in which the triangle reflects the light
+		vec3 R = reflect( -lightDirection_tangentspace, normal );
+
+		// Cosine of the angle between the Eye vector and the Reflect vector,
+		// clamped to 0
+		//  - Looking into the reflection -> 1
+		//  - Looking elsewhere -> < 1
+		cosAlpha = clamp( dot( halfVector_tangentspace, normal ), 0, 1 );	
+	//}
 	
+	/* Shadow calculations */
 	float visibility = 1.0;
 
 	 //variable bias
@@ -205,6 +211,6 @@ void main() {
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
 
 	//fragColor.rgb = n;
-	//fragColor.rgb = vec3( visibility, visibility, visibility );
-	fragColor =  texture( shadowMap,  ShadowCoord.st );
+	//fragColor.rgb = vec3( cosAlpha, cosAlpha, cosAlpha );
+	//fragColor.rgb = R;
 }
