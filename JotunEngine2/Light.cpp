@@ -39,10 +39,6 @@ glm::mat4 &Light::getProjMatrix() {
 	return shadowCam->getProjMatrix();
 }
 
-glm::vec3 &Light::getPos() {
-	return position;
-}
-
 glm::vec4 &Light::getColor() {
 	return color;
 }
