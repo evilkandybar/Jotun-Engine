@@ -71,6 +71,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -79,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,72 +107,249 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>bind()
+: <a class="el" href="class_mesh.html#a740e2f5b099d18e3a8ed35fcbcf8efaf">Mesh</a>
+, <a class="el" href="class_texture.html#ab13af2ee5ae56a8d74074fdf66100cd7">Texture</a>
+, <a class="el" href="class_shader.html#a6f6e280a343d6c7662909f7dfbc89ad9">Shader</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>Camera()
 : <a class="el" href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">Camera</a>
 </li>
+<li>clear()
+: <a class="el" href="class_input.html#a137d26e571405f42b63c955958fd7c92">Input</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>draw()
+: <a class="el" href="class_mesh.html#a996a8668fa2ca7d95d6d10744c833bc8">Mesh</a>
+</li>
+<li>drawShadowPass()
+: <a class="el" href="class_mesh.html#ac8f218c96e9f31e9c8b9b69d284244a4">Mesh</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>genAttribMap()
+: <a class="el" href="class_shader.html#a40290f101b363f252a15a9c76242ba38">Shader</a>
+</li>
+<li>genUniformMap()
+: <a class="el" href="class_shader.html#a08a774e014a5ad959c06378749bce856">Shader</a>
+</li>
+<li>getAttribute()
+: <a class="el" href="class_shader.html#a7dd239254890247f4fea33562321d5a4">Shader</a>
+</li>
+<li>getColor()
+: <a class="el" href="class_light.html#ab9718f63a12f2cb48401ef76987b21f9">Light</a>
+</li>
+<li>getDeltaTime()
+: <a class="el" href="class_time.html#a405c7642c4ba0ee719a8d0491099102a">Time</a>
+</li>
 <li>getForward()
-: <a class="el" href="class_camera.html#a8e94dcd032d92a96cfe8e13cab9c31a0">Camera</a>
+: <a class="el" href="class_transformable.html#ae985510704d40ebeb27b088438b3f779">Transformable</a>
 </li>
 <li>getFOV()
 : <a class="el" href="class_camera.html#a5ec1871e6f296d8528e64157c6371c09">Camera</a>
 </li>
+<li>getGLName()
+: <a class="el" href="class_shader.html#a4f02454610c65e719f06c3c62e2dafd6">Shader</a>
+, <a class="el" href="class_texture.html#ac00c7ad03134ffb35987891627ef8cff">Texture</a>
+</li>
+<li>getMultisamples()
+: <a class="el" href="class_settings.html#a25c0848d77676fcb8ad515d174fb8acc">Settings</a>
+</li>
+<li>getPos()
+: <a class="el" href="class_directional_light.html#a18fa03fd1936e590059980d0ffe0ef4d">DirectionalLight</a>
+, <a class="el" href="class_light.html#a22cfe8279c9acfc1eb5ae6bbb00c3a2c">Light</a>
+</li>
 <li>getPosition()
-: <a class="el" href="class_camera.html#a520c5a7413b3e704f2f442288db17bcf">Camera</a>
+: <a class="el" href="class_transformable.html#af3a1fdab3b62c089409a8079af370e98">Transformable</a>
 </li>
 <li>getProjMatrix()
 : <a class="el" href="class_camera.html#a4e4f082071bdf7da528ecf19e09f938d">Camera</a>
+, <a class="el" href="class_light.html#a3738e9ea95b61669369d7d1d33734259">Light</a>
 </li>
 <li>getRight()
-: <a class="el" href="class_camera.html#a21c35c617f5795382a7553bcbadee849">Camera</a>
+: <a class="el" href="class_transformable.html#ab888c267f448dab64e5fbf3438336d53">Transformable</a>
+</li>
+<li>getShadowQuality()
+: <a class="el" href="class_settings.html#ae23d0bd93caaf3fecb968991379836ba">Settings</a>
+</li>
+<li>getSName()
+: <a class="el" href="class_shader.html#a216d3749ecd7783aff7052c8c50eb65f">Shader</a>
+</li>
+<li>getTime()
+: <a class="el" href="class_time.html#ad6773c7a2339b463fc7ea14e31315c89">Time</a>
 </li>
 <li>getUp()
-: <a class="el" href="class_camera.html#ab467583121fc13126a24798d17090b4d">Camera</a>
+: <a class="el" href="class_transformable.html#a008dc55bda7fe6ed7020ceb9b2e887ea">Transformable</a>
 </li>
 <li>getViewMatrix()
 : <a class="el" href="class_camera.html#a5569ca5967e01d3344fbf6aba36d9820">Camera</a>
+, <a class="el" href="class_light.html#a4d68a3ba56cc6fc694b4bccde4d4dd25">Light</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>init()
+: <a class="el" href="class_time.html#ac626e60d7767728dca61c1095cb9678c">Time</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>Light()
+: <a class="el" href="class_light.html#aeb5df09a25a32f19fdffa761268ba24f">Light</a>
 </li>
 <li>lookAt()
 : <a class="el" href="class_camera.html#aae346bd34a4af9cab3da7e135417e32f">Camera</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>Mesh()
+: <a class="el" href="class_mesh.html#a9b496cb615ff94d1e7d247eb89810791">Mesh</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>onKeyPress()
 : <a class="el" href="class_camera.html#a10b868fe859868ce30c7b4523009e315">Camera</a>
+, <a class="el" href="class_input_handler.html#a2d99c4441c45f09a50b52e2a7465e77e">InputHandler</a>
 </li>
 <li>onKeyRelease()
-: <a class="el" href="class_camera.html#a5106fd522318a7d5bf588648b7afa996">Camera</a>
+: <a class="el" href="class_input_handler.html#a8ca5e25c5fb77079704bc1ebc74ccf04">InputHandler</a>
+, <a class="el" href="class_camera.html#a5106fd522318a7d5bf588648b7afa996">Camera</a>
 </li>
 <li>onMouseMove()
-: <a class="el" href="class_camera.html#ab2a7799db840c22322ab06ef968e4f3e">Camera</a>
+: <a class="el" href="class_input_handler.html#afce8da8c018d9055fd99608b7c7e769c">InputHandler</a>
+, <a class="el" href="class_camera.html#ab2a7799db840c22322ab06ef968e4f3e">Camera</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>rotate()
 : <a class="el" href="class_camera.html#ad28025de4feea3b56deb9c7758880c10">Camera</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>setAspectRatio()
 : <a class="el" href="class_camera.html#a2fd7432c0256ad790097b87c018c4b3f">Camera</a>
+</li>
+<li>setColor()
+: <a class="el" href="class_light.html#a32533dd404b4f87ef23cf3f2251a1044">Light</a>
 </li>
 <li>setFOV()
 : <a class="el" href="class_camera.html#a3cb5734686d002f2d2e225c5b3daa8bc">Camera</a>
 </li>
+<li>setIntensity()
+: <a class="el" href="class_light.html#ab36e113dc58dd1e8dcd1f0d46d1a35c4">Light</a>
+</li>
+<li>setMultisamples()
+: <a class="el" href="class_settings.html#a3d9a2ef3a0bdd775c7740f14d328e354">Settings</a>
+</li>
+<li>setPosition()
+: <a class="el" href="class_light.html#ab730704ad744e475b294678c6d78ac3e">Light</a>
+</li>
 <li>setRotation()
 : <a class="el" href="class_camera.html#a3205c652163c9b42ea3f5d0f3b21798f">Camera</a>
 </li>
+<li>setShadowQuality()
+: <a class="el" href="class_settings.html#a68abf3112059e840eb7f6f260f016f00">Settings</a>
+</li>
+<li>setUniform1i()
+: <a class="el" href="class_shader.html#a0d5c21c96edd9c67599d26131251c5d3">Shader</a>
+</li>
+<li>setUniform2i()
+: <a class="el" href="class_shader.html#a54c535a7b501c40c3ae2b7b1dad80000">Shader</a>
+</li>
+<li>setUniform3f()
+: <a class="el" href="class_shader.html#af73fceff123615dbc24b4b503515c974">Shader</a>
+</li>
+<li>setUniform4f()
+: <a class="el" href="class_shader.html#a3b3f44fd8e54baa497cd16bf7fc09982">Shader</a>
+</li>
+<li>setUniformf4Array()
+: <a class="el" href="class_shader.html#a9e717f21afd4f2473c6447fc2cfecaf1">Shader</a>
+</li>
+<li>setUniformMat3x3()
+: <a class="el" href="class_shader.html#a5fc56e81d8c383de3ce2662466d1ea37">Shader</a>
+</li>
+<li>setUniformMat4x4()
+: <a class="el" href="class_shader.html#a2737cc648540a20b1aae2bb9ee379b17">Shader</a>
+</li>
+<li>Shader()
+: <a class="el" href="class_shader.html#a5786f696ba39232cb732542aed798e82">Shader</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>Texture()
+: <a class="el" href="class_texture.html#a657517c71c4ca57cf8fdc992247a575c">Texture</a>
+</li>
 <li>translate()
-: <a class="el" href="class_camera.html#ab839e9d43668ba6ea13c72245ece7131">Camera</a>
+: <a class="el" href="class_transformable.html#a3a590cb8c06786ee522e0bfb60fb5ab0">Transformable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>unbind()
+: <a class="el" href="class_mesh.html#a2b8d5a5df0d13a63c984339539a3f376">Mesh</a>
 </li>
 <li>update()
 : <a class="el" href="class_camera.html#a42cda7239981a5618660d04bd5893556">Camera</a>
+, <a class="el" href="class_light.html#a9552078368990d2108729f55072091ec">Light</a>
+, <a class="el" href="class_time.html#a1463d5551f982b457d88b6bd4e077903">Time</a>
+, <a class="el" href="class_directional_light.html#a7060645b81f977cdc92a71c823cc9698">DirectionalLight</a>
+</li>
+<li>updateMouse()
+: <a class="el" href="class_input.html#af6bcab8c1b438b9148381e50ef60e924">Input</a>
 </li>
 <li>updateTrans()
 : <a class="el" href="class_camera.html#aa0ed3b899f6c58167501c2317d70c8f5">Camera</a>
+, <a class="el" href="class_transformable.html#a8c6ccb0dbe1f6ebc9136e5f6703b054c">Transformable</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
 <li>~Camera()
 : <a class="el" href="class_camera.html#ad1897942d0ccf91052386388a497349f">Camera</a>
+</li>
+<li>~Light()
+: <a class="el" href="class_light.html#ad0e59fad13bb6cfadc25b2c477e9ddc7">Light</a>
+</li>
+<li>~Mesh()
+: <a class="el" href="class_mesh.html#a5efe4da1a4c0971cfb037bd70304c303">Mesh</a>
+</li>
+<li>~Shader()
+: <a class="el" href="class_shader.html#aff01df87e8a102f270b5b135a295e59d">Shader</a>
+</li>
+<li>~Texture()
+: <a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">Texture</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:02 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:09 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

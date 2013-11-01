@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,17 +90,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_mesh.html">Mesh</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>bind</b>() (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>draw</b>() (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>drawShadowPass</b>(GLuint verts) (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>enable</b>(GLuint verts, GLuint uvs, GLuint norms, GLuint tangents) (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Mesh</b>(std::string &amp;name) (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>unbind</b>() (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Mesh</b>() (defined in <a class="el" href="class_mesh.html">Mesh</a>)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_mesh.html#a740e2f5b099d18e3a8ed35fcbcf8efaf">bind</a>(GLuint bindVerts, GLuint bindUvs, GLuint bindNorms, GLuint bindTangents)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_mesh.html#a996a8668fa2ca7d95d6d10744c833bc8">draw</a>()</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_mesh.html#ac8f218c96e9f31e9c8b9b69d284244a4">drawShadowPass</a>(GLuint verts)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_mesh.html#a9b496cb615ff94d1e7d247eb89810791">Mesh</a>(std::string name)</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_mesh.html#a2b8d5a5df0d13a63c984339539a3f376">unbind</a>()</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_mesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a>()</td><td class="entry"><a class="el" href="class_mesh.html">Mesh</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

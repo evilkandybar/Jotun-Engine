@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,19 +91,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This is the complete list of members for <a class="el" href="class_transformable.html">Transformable</a>, including all inherited members.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>forward</b> (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getForward</b>()=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPosition</b>()=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getRight</b>()=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getUp</b>()=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_transformable.html#ae985510704d40ebeb27b088438b3f779">getForward</a>()</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_transformable.html#af3a1fdab3b62c089409a8079af370e98">getPosition</a>()</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_transformable.html#ab888c267f448dab64e5fbf3438336d53">getRight</a>()</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_transformable.html#a008dc55bda7fe6ed7020ceb9b2e887ea">getUp</a>()</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>position</b> (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>right</b> (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>translate</b>(glm::vec3 dir)=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_transformable.html#a3a590cb8c06786ee522e0bfb60fb5ab0">translate</a>(glm::vec3 dir)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>up</b> (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>updateTrans</b>()=0 (defined in <a class="el" href="class_transformable.html">Transformable</a>)</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_transformable.html#a8c6ccb0dbe1f6ebc9136e5f6703b054c">updateTrans</a>()=0</td><td class="entry"><a class="el" href="class_transformable.html">Transformable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:02 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

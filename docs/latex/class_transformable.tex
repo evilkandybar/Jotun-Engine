@@ -3,7 +3,7 @@
 }
 
 
-Currently just handles movement. Will be expanded to rotations.  
+Defines an interface movable objects can inherit from.  
 
 
 
@@ -16,24 +16,18 @@ Inheritance diagram for Transformable\-:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_transformable_a8c6ccb0dbe1f6ebc9136e5f6703b054c}{virtual void {\bfseries update\-Trans} ()=0}\label{class_transformable_a8c6ccb0dbe1f6ebc9136e5f6703b054c}
-
-\item 
-\hypertarget{class_transformable_a8cbcc0d7da369b1c9b99a6a50abbbed1}{virtual void {\bfseries translate} (glm\-::vec3 dir)=0}\label{class_transformable_a8cbcc0d7da369b1c9b99a6a50abbbed1}
-
-\item 
-\hypertarget{class_transformable_a64982b71b3091ba82c24f709ba5dc3b2}{virtual glm\-::vec3 {\bfseries get\-Position} ()=0}\label{class_transformable_a64982b71b3091ba82c24f709ba5dc3b2}
-
-\item 
-\hypertarget{class_transformable_a12d8da28b3b27c3c6688f77da182451d}{virtual glm\-::vec3 {\bfseries get\-Forward} ()=0}\label{class_transformable_a12d8da28b3b27c3c6688f77da182451d}
-
-\item 
-\hypertarget{class_transformable_a1c2fb12f7b18483d17301c22efa836bb}{virtual glm\-::vec3 {\bfseries get\-Up} ()=0}\label{class_transformable_a1c2fb12f7b18483d17301c22efa836bb}
-
-\item 
-\hypertarget{class_transformable_a6e181023004dec38596c785e92c50e09}{virtual glm\-::vec3 {\bfseries get\-Right} ()=0}\label{class_transformable_a6e181023004dec38596c785e92c50e09}
-
-\end{DoxyCompactItemize}
+virtual void \hyperlink{class_transformable_a8c6ccb0dbe1f6ebc9136e5f6703b054c}{update\-Trans} ()=0
+\begin{DoxyCompactList}\small\item\em Updates the values inherited from \hyperlink{class_transformable}{Transformable}, calculating the forward, up, and right vectors. \end{DoxyCompactList}\item 
+void \hyperlink{class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0}{translate} (glm\-::vec3 dir)
+\begin{DoxyCompactList}\small\item\em Moves this \hyperlink{class_transformable}{Transformable} by the specified vector. \end{DoxyCompactList}\item 
+glm\-::vec3 \hyperlink{class_transformable_af3a1fdab3b62c089409a8079af370e98}{get\-Position} ()
+\begin{DoxyCompactList}\small\item\em Returns the current position of this \hyperlink{class_transformable}{Transformable}. \end{DoxyCompactList}\item 
+glm\-::vec3 \hyperlink{class_transformable_ae985510704d40ebeb27b088438b3f779}{get\-Forward} ()
+\begin{DoxyCompactList}\small\item\em Returns the forward vector of this \hyperlink{class_transformable}{Transformable}. \end{DoxyCompactList}\item 
+glm\-::vec3 \hyperlink{class_transformable_a008dc55bda7fe6ed7020ceb9b2e887ea}{get\-Up} ()
+\begin{DoxyCompactList}\small\item\em Returns the up vector of this \hyperlink{class_transformable}{Transformable}. \end{DoxyCompactList}\item 
+glm\-::vec3 \hyperlink{class_transformable_ab888c267f448dab64e5fbf3438336d53}{get\-Right} ()
+\begin{DoxyCompactList}\small\item\em Returns the right vector of this \hyperlink{class_transformable}{Transformable}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,7 +46,104 @@ Inheritance diagram for Transformable\-:
 
 
 \subsection{Detailed Description}
-Currently just handles movement. Will be expanded to rotations. 
+Defines an interface movable objects can inherit from. 
+
+Currently just handles movement. Will be expanded to rotations 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_transformable_ae985510704d40ebeb27b088438b3f779}{\index{Transformable@{Transformable}!get\-Forward@{get\-Forward}}
+\index{get\-Forward@{get\-Forward}!Transformable@{Transformable}}
+\subsubsection[{get\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Transformable\-::get\-Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_transformable_ae985510704d40ebeb27b088438b3f779}
+
+
+Returns the forward vector of this \hyperlink{class_transformable}{Transformable}. 
+
+\begin{DoxyReturn}{Returns}
+The forward vector of this transformable 
+\end{DoxyReturn}
+\hypertarget{class_transformable_af3a1fdab3b62c089409a8079af370e98}{\index{Transformable@{Transformable}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Transformable@{Transformable}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Transformable\-::get\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_transformable_af3a1fdab3b62c089409a8079af370e98}
+
+
+Returns the current position of this \hyperlink{class_transformable}{Transformable}. 
+
+\begin{DoxyReturn}{Returns}
+The current position of this \hyperlink{class_transformable}{Transformable} 
+\end{DoxyReturn}
+\hypertarget{class_transformable_ab888c267f448dab64e5fbf3438336d53}{\index{Transformable@{Transformable}!get\-Right@{get\-Right}}
+\index{get\-Right@{get\-Right}!Transformable@{Transformable}}
+\subsubsection[{get\-Right}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Transformable\-::get\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_transformable_ab888c267f448dab64e5fbf3438336d53}
+
+
+Returns the right vector of this \hyperlink{class_transformable}{Transformable}. 
+
+\begin{DoxyReturn}{Returns}
+The right vector of this \hyperlink{class_transformable}{Transformable} 
+\end{DoxyReturn}
+\hypertarget{class_transformable_a008dc55bda7fe6ed7020ceb9b2e887ea}{\index{Transformable@{Transformable}!get\-Up@{get\-Up}}
+\index{get\-Up@{get\-Up}!Transformable@{Transformable}}
+\subsubsection[{get\-Up}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Transformable\-::get\-Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_transformable_a008dc55bda7fe6ed7020ceb9b2e887ea}
+
+
+Returns the up vector of this \hyperlink{class_transformable}{Transformable}. 
+
+\begin{DoxyReturn}{Returns}
+The up vector of this \hyperlink{class_transformable}{Transformable} 
+\end{DoxyReturn}
+\hypertarget{class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0}{\index{Transformable@{Transformable}!translate@{translate}}
+\index{translate@{translate}!Transformable@{Transformable}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Transformable\-::translate (
+\begin{DoxyParamCaption}
+\item[{glm\-::vec3}]{dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0}
+
+
+Moves this \hyperlink{class_transformable}{Transformable} by the specified vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dir} & The amount to move this \hyperlink{class_transformable}{Transformable} by \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+
+
+\hypertarget{class_transformable_a8c6ccb0dbe1f6ebc9136e5f6703b054c}{\index{Transformable@{Transformable}!update\-Trans@{update\-Trans}}
+\index{update\-Trans@{update\-Trans}!Transformable@{Transformable}}
+\subsubsection[{update\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Transformable\-::update\-Trans (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_transformable_a8c6ccb0dbe1f6ebc9136e5f6703b054c}
+
+
+Updates the values inherited from \hyperlink{class_transformable}{Transformable}, calculating the forward, up, and right vectors. 
+
+This function is virtual so that the user may define a wat to calculate the forward, up, and right vectors 
+
+Implemented in \hyperlink{class_camera_aa0ed3b899f6c58167501c2317d70c8f5}{Camera}.
+
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 

@@ -1,18 +1,82 @@
 \hypertarget{class_texture}{\section{Texture Class Reference}
 \label{class_texture}\index{Texture@{Texture}}
 }
+
+
+Defines a 2\-D texture object for use in rendering or computation.  
+
+
+
+
+{\ttfamily \#include $<$Texture.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_texture_a84c7e18fd0fe150a112c0f91e9b643eb}{{\bfseries Texture} (std\-::string \&name)}\label{class_texture_a84c7e18fd0fe150a112c0f91e9b643eb}
+\hyperlink{class_texture_a657517c71c4ca57cf8fdc992247a575c}{Texture} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Constructs a texture, loading the data from the specified file. \end{DoxyCompactList}\item 
+\hypertarget{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{\hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{$\sim$\-Texture} ()}\label{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}
 
-\item 
-\hypertarget{class_texture_ab13af2ee5ae56a8d74074fdf66100cd7}{void {\bfseries bind} (int unit)}\label{class_texture_ab13af2ee5ae56a8d74074fdf66100cd7}
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \hyperlink{class_texture_ab13af2ee5ae56a8d74074fdf66100cd7}{bind} (int unit)
+\begin{DoxyCompactList}\small\item\em Binds this texture to the specified texture unit. \end{DoxyCompactList}\item 
+G\-Luint \hyperlink{class_texture_ac00c7ad03134ffb35987891627ef8cff}{get\-G\-L\-Name} ()
+\begin{DoxyCompactList}\small\item\em Returns the integer Open\-G\-L uses to refer to this texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_texture_ac00c7ad03134ffb35987891627ef8cff}{G\-Luint {\bfseries get\-G\-L\-Name} ()}\label{class_texture_ac00c7ad03134ffb35987891627ef8cff}
 
-\end{DoxyCompactItemize}
+\subsection{Detailed Description}
+Defines a 2\-D texture object for use in rendering or computation. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_texture_a657517c71c4ca57cf8fdc992247a575c}{\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\subsubsection[{Texture}]{\setlength{\rightskip}{0pt plus 5cm}Texture\-::\-Texture (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_texture_a657517c71c4ca57cf8fdc992247a575c}
+
+
+Constructs a texture, loading the data from the specified file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The filename of the texture to load \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_texture_ab13af2ee5ae56a8d74074fdf66100cd7}{\index{Texture@{Texture}!bind@{bind}}
+\index{bind@{bind}!Texture@{Texture}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}void Texture\-::bind (
+\begin{DoxyParamCaption}
+\item[{int}]{unit}
+\end{DoxyParamCaption}
+)}}\label{class_texture_ab13af2ee5ae56a8d74074fdf66100cd7}
+
+
+Binds this texture to the specified texture unit. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em unit} & The texture unit to bind this texture to. Must be between 0 and 7 inclusive \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_texture_ac00c7ad03134ffb35987891627ef8cff}{\index{Texture@{Texture}!get\-G\-L\-Name@{get\-G\-L\-Name}}
+\index{get\-G\-L\-Name@{get\-G\-L\-Name}!Texture@{Texture}}
+\subsubsection[{get\-G\-L\-Name}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint Texture\-::get\-G\-L\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_texture_ac00c7ad03134ffb35987891627ef8cff}
+
+
+Returns the integer Open\-G\-L uses to refer to this texture. 
+
+\begin{DoxyReturn}{Returns}
+The integer Open\-G\-L uses to refer to this texture 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

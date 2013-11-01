@@ -1,42 +1,339 @@
 \hypertarget{class_shader}{\section{Shader Class Reference}
 \label{class_shader}\index{Shader@{Shader}}
 }
+
+
+Holds data necessary for an Open\-G\-L Shading Language shader.  
+
+
+
+
+{\ttfamily \#include $<$Shader.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_shader_1_1float4}{float4}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_shader_a5786f696ba39232cb732542aed798e82}{{\bfseries Shader} (std\-::string vert\-Name, std\-::string frag\-Name)}\label{class_shader_a5786f696ba39232cb732542aed798e82}
+\hyperlink{class_shader_a5786f696ba39232cb732542aed798e82}{Shader} (std\-::string vert\-Name, std\-::string frag\-Name)
+\begin{DoxyCompactList}\small\item\em Constructor for a shader, allowing a user to specify the vertex and fragment program. \end{DoxyCompactList}\item 
+\hypertarget{class_shader_aff01df87e8a102f270b5b135a295e59d}{\hyperlink{class_shader_aff01df87e8a102f270b5b135a295e59d}{$\sim$\-Shader} ()}\label{class_shader_aff01df87e8a102f270b5b135a295e59d}
 
-\item 
-\hypertarget{class_shader_a0f03ffd9d463b2967b8db23006c73679}{void {\bfseries gen\-Attrib\-Map} (std\-::string var\-Names\mbox{[}$\,$\mbox{]}, int num\-Elems)}\label{class_shader_a0f03ffd9d463b2967b8db23006c73679}
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_shader_a40290f101b363f252a15a9c76242ba38}{void \hyperlink{class_shader_a40290f101b363f252a15a9c76242ba38}{gen\-Attrib\-Map} ()}\label{class_shader_a40290f101b363f252a15a9c76242ba38}
 
-\item 
-\hypertarget{class_shader_a08a774e014a5ad959c06378749bce856}{void {\bfseries gen\-Uniform\-Map} (std\-::string var\-Names\mbox{[}$\,$\mbox{]}, int num\-Elems)}\label{class_shader_a08a774e014a5ad959c06378749bce856}
+\begin{DoxyCompactList}\small\item\em Generates the Attribute Map based on the attribute names which were taken from the shader source code. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a0f03ffd9d463b2967b8db23006c73679}{gen\-Attrib\-Map} (std\-::string var\-Names\mbox{[}$\,$\mbox{]}, int num\-Elems)
+\begin{DoxyCompactList}\small\item\em Finds the locations for the specified attribute variables and stores them in a std\-::map. \end{DoxyCompactList}\item 
+\hypertarget{class_shader_ada815acb7d1612225939ed5d63da9b25}{void \hyperlink{class_shader_ada815acb7d1612225939ed5d63da9b25}{gen\-Uniform\-Map} ()}\label{class_shader_ada815acb7d1612225939ed5d63da9b25}
 
-\item 
-\hypertarget{class_shader_a0d5c21c96edd9c67599d26131251c5d3}{void {\bfseries set\-Uniform1i} (std\-::string name, int v1)}\label{class_shader_a0d5c21c96edd9c67599d26131251c5d3}
+\begin{DoxyCompactList}\small\item\em Generates the Uniform Map based on the attribute names which were taken from the shader source code. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a08a774e014a5ad959c06378749bce856}{gen\-Uniform\-Map} (std\-::string var\-Names\mbox{[}$\,$\mbox{]}, int num\-Elems)
+\begin{DoxyCompactList}\small\item\em Finds the locations for the specified uniform variables and stores them in a std\-::map. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a0d5c21c96edd9c67599d26131251c5d3}{set\-Uniform1i} (std\-::string name, int v1)
+\begin{DoxyCompactList}\small\item\em Sends a single integer to the specified location. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a54c535a7b501c40c3ae2b7b1dad80000}{set\-Uniform2i} (std\-::string name, int v1, int v2)
+\begin{DoxyCompactList}\small\item\em Sends two integers to the specified location. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_af73fceff123615dbc24b4b503515c974}{set\-Uniform3f} (std\-::string name, float v1, float v2, float v3)
+\begin{DoxyCompactList}\small\item\em Sends three floats to the specified location. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a3b3f44fd8e54baa497cd16bf7fc09982}{set\-Uniform4f} (std\-::string name, float v1, float v2, float v3, float v4)
+\begin{DoxyCompactList}\small\item\em Sends four floats to the specified location. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a9e717f21afd4f2473c6447fc2cfecaf1}{set\-Uniformf4\-Array} (std\-::string name, int num, \hyperlink{struct_shader_1_1float4}{float4} $\ast$vs)
+\begin{DoxyCompactList}\small\item\em Allows the user to send a collection of vec4's to the graphics card. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a5fc56e81d8c383de3ce2662466d1ea37}{set\-Uniform\-Mat3x3} (std\-::string name, float $\ast$value)
+\begin{DoxyCompactList}\small\item\em Sends a single 3x3 matrix to the specified location. \end{DoxyCompactList}\item 
+void \hyperlink{class_shader_a2737cc648540a20b1aae2bb9ee379b17}{set\-Uniform\-Mat4x4} (std\-::string name, float $\ast$value)
+\begin{DoxyCompactList}\small\item\em Sends a single 4x4 matrix to the specified location. \end{DoxyCompactList}\item 
+\hypertarget{class_shader_a6f6e280a343d6c7662909f7dfbc89ad9}{void \hyperlink{class_shader_a6f6e280a343d6c7662909f7dfbc89ad9}{bind} ()}\label{class_shader_a6f6e280a343d6c7662909f7dfbc89ad9}
 
-\item 
-\hypertarget{class_shader_a54c535a7b501c40c3ae2b7b1dad80000}{void {\bfseries set\-Uniform2i} (std\-::string name, int v1, int v2)}\label{class_shader_a54c535a7b501c40c3ae2b7b1dad80000}
+\begin{DoxyCompactList}\small\item\em Binds this shader object for use in rendering. \end{DoxyCompactList}\item 
+G\-Luint \hyperlink{class_shader_a7dd239254890247f4fea33562321d5a4}{get\-Attribute} (std\-::string attrib)
+\begin{DoxyCompactList}\small\item\em Returns the location of a specified attribute variable. \end{DoxyCompactList}\item 
+G\-Luint \hyperlink{class_shader_a4f02454610c65e719f06c3c62e2dafd6}{get\-G\-L\-Name} ()
+\begin{DoxyCompactList}\small\item\em Returns the integer Open\-G\-L uses to refer to this shader. \end{DoxyCompactList}\item 
+std\-::string \& \hyperlink{class_shader_a216d3749ecd7783aff7052c8c50eb65f}{get\-S\-Name} ()
+\begin{DoxyCompactList}\small\item\em Returns the string name of this shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_shader_ac989220e264c97a494ae66bb888eb60c}{void {\bfseries set\-Uniform3f} (std\-::string name, int v1, int v2, int v3)}\label{class_shader_ac989220e264c97a494ae66bb888eb60c}
 
-\item 
-\hypertarget{class_shader_a2737cc648540a20b1aae2bb9ee379b17}{void {\bfseries set\-Uniform\-Mat4x4} (std\-::string name, float $\ast$value)}\label{class_shader_a2737cc648540a20b1aae2bb9ee379b17}
+\subsection{Detailed Description}
+Holds data necessary for an Open\-G\-L Shading Language shader. 
 
-\item 
-\hypertarget{class_shader_a6f6e280a343d6c7662909f7dfbc89ad9}{void {\bfseries bind} ()}\label{class_shader_a6f6e280a343d6c7662909f7dfbc89ad9}
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_shader_a5786f696ba39232cb732542aed798e82}{\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\subsubsection[{Shader}]{\setlength{\rightskip}{0pt plus 5cm}Shader\-::\-Shader (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{vert\-Name, }
+\item[{std\-::string}]{frag\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a5786f696ba39232cb732542aed798e82}
 
-\item 
-\hypertarget{class_shader_a7dd239254890247f4fea33562321d5a4}{G\-Luint {\bfseries get\-Attribute} (std\-::string attrib)}\label{class_shader_a7dd239254890247f4fea33562321d5a4}
 
-\item 
-\hypertarget{class_shader_a4f02454610c65e719f06c3c62e2dafd6}{G\-Luint {\bfseries get\-G\-L\-Name} ()}\label{class_shader_a4f02454610c65e719f06c3c62e2dafd6}
+Constructor for a shader, allowing a user to specify the vertex and fragment program. 
 
-\item 
-\hypertarget{class_shader_a216d3749ecd7783aff7052c8c50eb65f}{std\-::string \& {\bfseries get\-S\-Name} ()}\label{class_shader_a216d3749ecd7783aff7052c8c50eb65f}
+The filenames are relative to the program's working directory
 
-\end{DoxyCompactItemize}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vert\-Name} & The filename of the vertex program \\
+\hline
+\mbox{\tt in}  & {\em frag\-Name} & The filename of the fragment program \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_shader_a0f03ffd9d463b2967b8db23006c73679}{\index{Shader@{Shader}!gen\-Attrib\-Map@{gen\-Attrib\-Map}}
+\index{gen\-Attrib\-Map@{gen\-Attrib\-Map}!Shader@{Shader}}
+\subsubsection[{gen\-Attrib\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::gen\-Attrib\-Map (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{var\-Names\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{num\-Elems}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a0f03ffd9d463b2967b8db23006c73679}
+
+
+Finds the locations for the specified attribute variables and stores them in a std\-::map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em var\-Names} & The array of attribute names to cache the locations of \\
+\hline
+\mbox{\tt in}  & {\em num\-Elems} & The number of attribute locations to cache \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a08a774e014a5ad959c06378749bce856}{\index{Shader@{Shader}!gen\-Uniform\-Map@{gen\-Uniform\-Map}}
+\index{gen\-Uniform\-Map@{gen\-Uniform\-Map}!Shader@{Shader}}
+\subsubsection[{gen\-Uniform\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::gen\-Uniform\-Map (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{var\-Names\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{num\-Elems}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a08a774e014a5ad959c06378749bce856}
+
+
+Finds the locations for the specified uniform variables and stores them in a std\-::map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em var\-Names} & The array of uniform names to cache the locations of \\
+\hline
+\mbox{\tt in}  & {\em num\-Elems} & The number of uniform locations to cache \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a7dd239254890247f4fea33562321d5a4}{\index{Shader@{Shader}!get\-Attribute@{get\-Attribute}}
+\index{get\-Attribute@{get\-Attribute}!Shader@{Shader}}
+\subsubsection[{get\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint Shader\-::get\-Attribute (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{attrib}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a7dd239254890247f4fea33562321d5a4}
+
+
+Returns the location of a specified attribute variable. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em attrib} & The name of the attribute to retrieve the location of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The location of the desired attribute, or -\/1 if the attribute doesn't exist 
+\end{DoxyReturn}
+\hypertarget{class_shader_a4f02454610c65e719f06c3c62e2dafd6}{\index{Shader@{Shader}!get\-G\-L\-Name@{get\-G\-L\-Name}}
+\index{get\-G\-L\-Name@{get\-G\-L\-Name}!Shader@{Shader}}
+\subsubsection[{get\-G\-L\-Name}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint Shader\-::get\-G\-L\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_shader_a4f02454610c65e719f06c3c62e2dafd6}
+
+
+Returns the integer Open\-G\-L uses to refer to this shader. 
+
+\begin{DoxyReturn}{Returns}
+The integer Open\-G\-L uses to refer to this shader 
+\end{DoxyReturn}
+\hypertarget{class_shader_a216d3749ecd7783aff7052c8c50eb65f}{\index{Shader@{Shader}!get\-S\-Name@{get\-S\-Name}}
+\index{get\-S\-Name@{get\-S\-Name}!Shader@{Shader}}
+\subsubsection[{get\-S\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string\& Shader\-::get\-S\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_shader_a216d3749ecd7783aff7052c8c50eb65f}
+
+
+Returns the string name of this shader. 
+
+The string name is the name of the fragment program minus the file extention. It is not garunteed to be unique \hypertarget{class_shader_a0d5c21c96edd9c67599d26131251c5d3}{\index{Shader@{Shader}!set\-Uniform1i@{set\-Uniform1i}}
+\index{set\-Uniform1i@{set\-Uniform1i}!Shader@{Shader}}
+\subsubsection[{set\-Uniform1i}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform1i (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{int}]{v1}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a0d5c21c96edd9c67599d26131251c5d3}
+
+
+Sends a single integer to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em v1} & The integer to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a54c535a7b501c40c3ae2b7b1dad80000}{\index{Shader@{Shader}!set\-Uniform2i@{set\-Uniform2i}}
+\index{set\-Uniform2i@{set\-Uniform2i}!Shader@{Shader}}
+\subsubsection[{set\-Uniform2i}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform2i (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{int}]{v1, }
+\item[{int}]{v2}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a54c535a7b501c40c3ae2b7b1dad80000}
+
+
+Sends two integers to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em v1} & The first integer to send \\
+\hline
+\mbox{\tt in}  & {\em v2} & The second integer to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_af73fceff123615dbc24b4b503515c974}{\index{Shader@{Shader}!set\-Uniform3f@{set\-Uniform3f}}
+\index{set\-Uniform3f@{set\-Uniform3f}!Shader@{Shader}}
+\subsubsection[{set\-Uniform3f}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform3f (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{float}]{v1, }
+\item[{float}]{v2, }
+\item[{float}]{v3}
+\end{DoxyParamCaption}
+)}}\label{class_shader_af73fceff123615dbc24b4b503515c974}
+
+
+Sends three floats to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em v1} & The fisrt float to send \\
+\hline
+\mbox{\tt in}  & {\em v2} & The second float to send \\
+\hline
+\mbox{\tt in}  & {\em v3} & The third float to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a3b3f44fd8e54baa497cd16bf7fc09982}{\index{Shader@{Shader}!set\-Uniform4f@{set\-Uniform4f}}
+\index{set\-Uniform4f@{set\-Uniform4f}!Shader@{Shader}}
+\subsubsection[{set\-Uniform4f}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform4f (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{float}]{v1, }
+\item[{float}]{v2, }
+\item[{float}]{v3, }
+\item[{float}]{v4}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a3b3f44fd8e54baa497cd16bf7fc09982}
+
+
+Sends four floats to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em v1} & The fisrt float to send \\
+\hline
+\mbox{\tt in}  & {\em v2} & The second float to send \\
+\hline
+\mbox{\tt in}  & {\em v3} & The third float to send \\
+\hline
+\mbox{\tt in}  & {\em v4} & The fourth float to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a9e717f21afd4f2473c6447fc2cfecaf1}{\index{Shader@{Shader}!set\-Uniformf4\-Array@{set\-Uniformf4\-Array}}
+\index{set\-Uniformf4\-Array@{set\-Uniformf4\-Array}!Shader@{Shader}}
+\subsubsection[{set\-Uniformf4\-Array}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniformf4\-Array (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{int}]{num, }
+\item[{{\bf float4} $\ast$}]{vs}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a9e717f21afd4f2473c6447fc2cfecaf1}
+
+
+Allows the user to send a collection of vec4's to the graphics card. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform to send the data to \\
+\hline
+\mbox{\tt in}  & {\em num} & The number of elemnts to send \\
+\hline
+\mbox{\tt in}  & {\em vs} & The array of vec4's to send. The program will yell at you if there are fewer than num elements in vs \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a5fc56e81d8c383de3ce2662466d1ea37}{\index{Shader@{Shader}!set\-Uniform\-Mat3x3@{set\-Uniform\-Mat3x3}}
+\index{set\-Uniform\-Mat3x3@{set\-Uniform\-Mat3x3}!Shader@{Shader}}
+\subsubsection[{set\-Uniform\-Mat3x3}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform\-Mat3x3 (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{float $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a5fc56e81d8c383de3ce2662466d1ea37}
+
+
+Sends a single 3x3 matrix to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em value} & The R\-A\-M location of the first element of the matrix to send \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shader_a2737cc648540a20b1aae2bb9ee379b17}{\index{Shader@{Shader}!set\-Uniform\-Mat4x4@{set\-Uniform\-Mat4x4}}
+\index{set\-Uniform\-Mat4x4@{set\-Uniform\-Mat4x4}!Shader@{Shader}}
+\subsubsection[{set\-Uniform\-Mat4x4}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\-::set\-Uniform\-Mat4x4 (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{float $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_shader_a2737cc648540a20b1aae2bb9ee379b17}
+
+
+Sends a single 4x4 matrix to the specified location. 
+
+Rather than looking up the uniform location every time the data is changed, this function looks at a std\-::map
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The name of the uniform variable to give the data to \\
+\hline
+\mbox{\tt in}  & {\em value} & The R\-A\-M location of the first element of the matrix to send \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

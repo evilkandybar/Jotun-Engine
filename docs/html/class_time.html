@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,22 +90,93 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Time Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the time for the engine.  
+ <a href="class_time.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_time_8h_source.html">Time.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac626e60d7767728dca61c1095cb9678c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac626e60d7767728dca61c1095cb9678c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_time.html#ac626e60d7767728dca61c1095cb9678c">init</a> ()</td></tr>
+<tr class="memdesc:ac626e60d7767728dca61c1095cb9678c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes the time with GLFW's time coutner. <br/></td></tr>
 <tr class="separator:ac626e60d7767728dca61c1095cb9678c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1463d5551f982b457d88b6bd4e077903"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1463d5551f982b457d88b6bd4e077903"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_time.html#a1463d5551f982b457d88b6bd4e077903">update</a> ()</td></tr>
+<tr class="memdesc:a1463d5551f982b457d88b6bd4e077903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the time and the timestep, using GLFW to gague the amount of time which has passed. <br/></td></tr>
 <tr class="separator:a1463d5551f982b457d88b6bd4e077903"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6773c7a2339b463fc7ea14e31315c89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6773c7a2339b463fc7ea14e31315c89"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> ()</td></tr>
+<tr class="memitem:ad6773c7a2339b463fc7ea14e31315c89"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_time.html#ad6773c7a2339b463fc7ea14e31315c89">getTime</a> ()</td></tr>
+<tr class="memdesc:ad6773c7a2339b463fc7ea14e31315c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current time.  <a href="#ad6773c7a2339b463fc7ea14e31315c89">More...</a><br/></td></tr>
 <tr class="separator:ad6773c7a2339b463fc7ea14e31315c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a405c7642c4ba0ee719a8d0491099102a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a405c7642c4ba0ee719a8d0491099102a"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>getDeltaTime</b> ()</td></tr>
+<tr class="memitem:a405c7642c4ba0ee719a8d0491099102a"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_time.html#a405c7642c4ba0ee719a8d0491099102a">getDeltaTime</a> ()</td></tr>
+<tr class="memdesc:a405c7642c4ba0ee719a8d0491099102a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the time it took to complete the last frame.  <a href="#a405c7642c4ba0ee719a8d0491099102a">More...</a><br/></td></tr>
 <tr class="separator:a405c7642c4ba0ee719a8d0491099102a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the time for the engine. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a405c7642c4ba0ee719a8d0491099102a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Time::getDeltaTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the time it took to complete the last frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of time ti took to complete the last frame </dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_time_a405c7642c4ba0ee719a8d0491099102a_icgraph.png" border="0" usemap="#class_time_a405c7642c4ba0ee719a8d0491099102a_icgraph" alt=""/></div>
+<map name="class_time_a405c7642c4ba0ee719a8d0491099102a_icgraph" id="class_time_a405c7642c4ba0ee719a8d0491099102a_icgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6773c7a2339b463fc7ea14e31315c89"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Time::getTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current time. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current time </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_time_8h_source.html">Time.h</a></li>
 <li>JotunEngine2/Time.cpp</li>
@@ -113,7 +184,7 @@ static float&#160;</td><td class="memItemRight" valign="bottom"><b>getDeltaTime<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:02 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

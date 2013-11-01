@@ -1,21 +1,67 @@
 \hypertarget{class_time}{\section{Time Class Reference}
 \label{class_time}\index{Time@{Time}}
 }
+
+
+Manages the time for the engine.  
+
+
+
+
+{\ttfamily \#include $<$Time.\-h$>$}
+
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_time_ac626e60d7767728dca61c1095cb9678c}{static void {\bfseries init} ()}\label{class_time_ac626e60d7767728dca61c1095cb9678c}
+\hypertarget{class_time_ac626e60d7767728dca61c1095cb9678c}{static void \hyperlink{class_time_ac626e60d7767728dca61c1095cb9678c}{init} ()}\label{class_time_ac626e60d7767728dca61c1095cb9678c}
 
-\item 
-\hypertarget{class_time_a1463d5551f982b457d88b6bd4e077903}{static void {\bfseries update} ()}\label{class_time_a1463d5551f982b457d88b6bd4e077903}
+\begin{DoxyCompactList}\small\item\em Synchronizes the time with G\-L\-F\-W's time coutner. \end{DoxyCompactList}\item 
+\hypertarget{class_time_a1463d5551f982b457d88b6bd4e077903}{static void \hyperlink{class_time_a1463d5551f982b457d88b6bd4e077903}{update} ()}\label{class_time_a1463d5551f982b457d88b6bd4e077903}
 
-\item 
-\hypertarget{class_time_ad6773c7a2339b463fc7ea14e31315c89}{static float {\bfseries get\-Time} ()}\label{class_time_ad6773c7a2339b463fc7ea14e31315c89}
+\begin{DoxyCompactList}\small\item\em Updates the time and the timestep, using G\-L\-F\-W to gague the amount of time which has passed. \end{DoxyCompactList}\item 
+static float \hyperlink{class_time_ad6773c7a2339b463fc7ea14e31315c89}{get\-Time} ()
+\begin{DoxyCompactList}\small\item\em Returns the current time. \end{DoxyCompactList}\item 
+static float \hyperlink{class_time_a405c7642c4ba0ee719a8d0491099102a}{get\-Delta\-Time} ()
+\begin{DoxyCompactList}\small\item\em Returns the time it took to complete the last frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_time_a405c7642c4ba0ee719a8d0491099102a}{static float {\bfseries get\-Delta\-Time} ()}\label{class_time_a405c7642c4ba0ee719a8d0491099102a}
 
-\end{DoxyCompactItemize}
+\subsection{Detailed Description}
+Manages the time for the engine. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_time_a405c7642c4ba0ee719a8d0491099102a}{\index{Time@{Time}!get\-Delta\-Time@{get\-Delta\-Time}}
+\index{get\-Delta\-Time@{get\-Delta\-Time}!Time@{Time}}
+\subsubsection[{get\-Delta\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Time\-::get\-Delta\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_time_a405c7642c4ba0ee719a8d0491099102a}
+
+
+Returns the time it took to complete the last frame. 
+
+\begin{DoxyReturn}{Returns}
+The amount of time ti took to complete the last frame 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+
+
+\hypertarget{class_time_ad6773c7a2339b463fc7ea14e31315c89}{\index{Time@{Time}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!Time@{Time}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Time\-::get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_time_ad6773c7a2339b463fc7ea14e31315c89}
+
+
+Returns the current time. 
+
+\begin{DoxyReturn}{Returns}
+The current time 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

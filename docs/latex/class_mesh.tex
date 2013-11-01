@@ -1,28 +1,130 @@
 \hypertarget{class_mesh}{\section{Mesh Class Reference}
 \label{class_mesh}\index{Mesh@{Mesh}}
 }
+
+
+Defines a 3\-D mesh.  
+
+
+
+
+{\ttfamily \#include $<$Mesh.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_mesh_a74ef69e992b8b973276731e447a66060}{{\bfseries Mesh} (std\-::string \&name)}\label{class_mesh_a74ef69e992b8b973276731e447a66060}
+\hyperlink{class_mesh_a9b496cb615ff94d1e7d247eb89810791}{Mesh} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Loads a mesh from the spceified file name. \end{DoxyCompactList}\item 
+\hypertarget{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}{\hyperlink{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}{$\sim$\-Mesh} ()}\label{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}
 
-\item 
-\hypertarget{class_mesh_ac8f218c96e9f31e9c8b9b69d284244a4}{void {\bfseries draw\-Shadow\-Pass} (G\-Luint verts)}\label{class_mesh_ac8f218c96e9f31e9c8b9b69d284244a4}
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \hyperlink{class_mesh_ac8f218c96e9f31e9c8b9b69d284244a4}{draw\-Shadow\-Pass} (G\-Luint verts)
+\begin{DoxyCompactList}\small\item\em Draws the mesh, specifying only vertexes. \end{DoxyCompactList}\item 
+void \hyperlink{class_mesh_a740e2f5b099d18e3a8ed35fcbcf8efaf}{bind} (G\-Luint bind\-Verts, G\-Luint bind\-Uvs, G\-Luint bind\-Norms, G\-Luint bind\-Tangents)
+\begin{DoxyCompactList}\small\item\em Tells the shader to use this mesh's data in rendering. \end{DoxyCompactList}\item 
+void \hyperlink{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}{draw} ()
+\begin{DoxyCompactList}\small\item\em Renders the mesh data. \end{DoxyCompactList}\item 
+void \hyperlink{class_mesh_a2b8d5a5df0d13a63c984339539a3f376}{unbind} ()
+\begin{DoxyCompactList}\small\item\em Tells the current shader to no longer use our data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_mesh_a9bd32211408be9e187d97435c3dd183b}{void {\bfseries enable} (G\-Luint verts, G\-Luint uvs, G\-Luint norms, G\-Luint tangents)}\label{class_mesh_a9bd32211408be9e187d97435c3dd183b}
 
-\item 
-\hypertarget{class_mesh_a5237bc1186c7ecaa1af79738e3d7db50}{void {\bfseries bind} ()}\label{class_mesh_a5237bc1186c7ecaa1af79738e3d7db50}
+\subsection{Detailed Description}
+Defines a 3\-D mesh. 
 
-\item 
-\hypertarget{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}{void {\bfseries draw} ()}\label{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}
+This class can load and render and static mesh. Animation support coming soon
 
-\item 
-\hypertarget{class_mesh_a2b8d5a5df0d13a63c984339539a3f376}{void {\bfseries unbind} ()}\label{class_mesh_a2b8d5a5df0d13a63c984339539a3f376}
+When you change mesh, call mesh.\-bind() When you actually want to draw the mesh, call mesh.\-draw() When you are done with the mesh, call mesh.\-disable()
 
-\end{DoxyCompactItemize}
+Note that this isn't necessary until I have V\-B\-Os working
 
+For now, just call \hyperlink{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}{draw()} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mesh_a9b496cb615ff94d1e7d247eb89810791}{\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh\-::\-Mesh (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_a9b496cb615ff94d1e7d247eb89810791}
+
+
+Loads a mesh from the spceified file name. 
+
+As this class uses Assimp, it is constrained by that library's capabilities. A list of supported meshes can be found at \href{http://assimp.sourceforge.net/lib_html/index.html}{\tt http\-://assimp.\-sourceforge.\-net/lib\-\_\-html/index.\-html}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & The filename of the mesh to load \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mesh_a740e2f5b099d18e3a8ed35fcbcf8efaf}{\index{Mesh@{Mesh}!bind@{bind}}
+\index{bind@{bind}!Mesh@{Mesh}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh\-::bind (
+\begin{DoxyParamCaption}
+\item[{G\-Luint}]{bind\-Verts, }
+\item[{G\-Luint}]{bind\-Uvs, }
+\item[{G\-Luint}]{bind\-Norms, }
+\item[{G\-Luint}]{bind\-Tangents}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_a740e2f5b099d18e3a8ed35fcbcf8efaf}
+
+
+Tells the shader to use this mesh's data in rendering. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em bind\-Verts} & The location in the shader of the vertex position data \\
+\hline
+\mbox{\tt in}  & {\em bind\-Uvs} & The location in the shader of the vertex U\-V data \\
+\hline
+\mbox{\tt in}  & {\em bind\-Norms} & The location in the shader of the vertex normal data \\
+\hline
+\mbox{\tt in}  & {\em bind\-Tangents} & The location in the shader of the vertex tangent data \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}{\index{Mesh@{Mesh}!draw@{draw}}
+\index{draw@{draw}!Mesh@{Mesh}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh\-::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_a996a8668fa2ca7d95d6d10744c833bc8}
+
+
+Renders the mesh data. 
+
+Currently, this function uses gl\-Vertex3fv, gl\-Normal3fv, and gl\-Tex\-Coord3fv to specify mesh data Rendering with gl\-Draw\-Elements will (hopefully) happen soon \hypertarget{class_mesh_ac8f218c96e9f31e9c8b9b69d284244a4}{\index{Mesh@{Mesh}!draw\-Shadow\-Pass@{draw\-Shadow\-Pass}}
+\index{draw\-Shadow\-Pass@{draw\-Shadow\-Pass}!Mesh@{Mesh}}
+\subsubsection[{draw\-Shadow\-Pass}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh\-::draw\-Shadow\-Pass (
+\begin{DoxyParamCaption}
+\item[{G\-Luint}]{verts}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_ac8f218c96e9f31e9c8b9b69d284244a4}
+
+
+Draws the mesh, specifying only vertexes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em verts} & The shader's location for vertex position data \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_mesh_a2b8d5a5df0d13a63c984339539a3f376}{\index{Mesh@{Mesh}!unbind@{unbind}}
+\index{unbind@{unbind}!Mesh@{Mesh}}
+\subsubsection[{unbind}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh\-::unbind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_a2b8d5a5df0d13a63c984339539a3f376}
+
+
+Tells the current shader to no longer use our data. 
+
+This is important when switching shaders or switching meshes (probably?) 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

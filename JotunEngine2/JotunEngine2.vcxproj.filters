@@ -41,6 +41,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DirectionalLight.cpp" />
+    <ClCompile Include="PointLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -86,6 +87,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="PointLight.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">

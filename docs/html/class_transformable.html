@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Currently just handles movement. Will be expanded to rotations.  
+<p>Defines an interface movable objects can inherit from.  
  <a href="class_transformable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_transformable_8h_source.html">Transformable.h</a>&gt;</code></p>
@@ -106,24 +106,24 @@ Inheritance diagram for Transformable:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8c6ccb0dbe1f6ebc9136e5f6703b054c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c6ccb0dbe1f6ebc9136e5f6703b054c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateTrans</b> ()=0</td></tr>
+<tr class="memitem:a8c6ccb0dbe1f6ebc9136e5f6703b054c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#a8c6ccb0dbe1f6ebc9136e5f6703b054c">updateTrans</a> ()=0</td></tr>
+<tr class="memdesc:a8c6ccb0dbe1f6ebc9136e5f6703b054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the values inherited from <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>, calculating the forward, up, and right vectors.  <a href="#a8c6ccb0dbe1f6ebc9136e5f6703b054c">More...</a><br/></td></tr>
 <tr class="separator:a8c6ccb0dbe1f6ebc9136e5f6703b054c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cbcc0d7da369b1c9b99a6a50abbbed1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cbcc0d7da369b1c9b99a6a50abbbed1"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>translate</b> (glm::vec3 dir)=0</td></tr>
-<tr class="separator:a8cbcc0d7da369b1c9b99a6a50abbbed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64982b71b3091ba82c24f709ba5dc3b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64982b71b3091ba82c24f709ba5dc3b2"></a>
-virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> ()=0</td></tr>
-<tr class="separator:a64982b71b3091ba82c24f709ba5dc3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12d8da28b3b27c3c6688f77da182451d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12d8da28b3b27c3c6688f77da182451d"></a>
-virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>getForward</b> ()=0</td></tr>
-<tr class="separator:a12d8da28b3b27c3c6688f77da182451d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c2fb12f7b18483d17301c22efa836bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c2fb12f7b18483d17301c22efa836bb"></a>
-virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>getUp</b> ()=0</td></tr>
-<tr class="separator:a1c2fb12f7b18483d17301c22efa836bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e181023004dec38596c785e92c50e09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e181023004dec38596c785e92c50e09"></a>
-virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>getRight</b> ()=0</td></tr>
-<tr class="separator:a6e181023004dec38596c785e92c50e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a590cb8c06786ee522e0bfb60fb5ab0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#a3a590cb8c06786ee522e0bfb60fb5ab0">translate</a> (glm::vec3 dir)</td></tr>
+<tr class="memdesc:a3a590cb8c06786ee522e0bfb60fb5ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> by the specified vector.  <a href="#a3a590cb8c06786ee522e0bfb60fb5ab0">More...</a><br/></td></tr>
+<tr class="separator:a3a590cb8c06786ee522e0bfb60fb5ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a1fdab3b62c089409a8079af370e98"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#af3a1fdab3b62c089409a8079af370e98">getPosition</a> ()</td></tr>
+<tr class="memdesc:af3a1fdab3b62c089409a8079af370e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current position of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#af3a1fdab3b62c089409a8079af370e98">More...</a><br/></td></tr>
+<tr class="separator:af3a1fdab3b62c089409a8079af370e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae985510704d40ebeb27b088438b3f779"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#ae985510704d40ebeb27b088438b3f779">getForward</a> ()</td></tr>
+<tr class="memdesc:ae985510704d40ebeb27b088438b3f779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the forward vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#ae985510704d40ebeb27b088438b3f779">More...</a><br/></td></tr>
+<tr class="separator:ae985510704d40ebeb27b088438b3f779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a008dc55bda7fe6ed7020ceb9b2e887ea"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#a008dc55bda7fe6ed7020ceb9b2e887ea">getUp</a> ()</td></tr>
+<tr class="memdesc:a008dc55bda7fe6ed7020ceb9b2e887ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the up vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#a008dc55bda7fe6ed7020ceb9b2e887ea">More...</a><br/></td></tr>
+<tr class="separator:a008dc55bda7fe6ed7020ceb9b2e887ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab888c267f448dab64e5fbf3438336d53"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#ab888c267f448dab64e5fbf3438336d53">getRight</a> ()</td></tr>
+<tr class="memdesc:ab888c267f448dab64e5fbf3438336d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#ab888c267f448dab64e5fbf3438336d53">More...</a><br/></td></tr>
+<tr class="separator:ab888c267f448dab64e5fbf3438336d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -141,14 +141,189 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 <tr class="separator:aed738f59a4968fe33c9b62ef74d77001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Currently just handles movement. Will be expanded to rotations. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>Defines an interface movable objects can inherit from. </p>
+<p>Currently just handles movement. Will be expanded to rotations </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae985510704d40ebeb27b088438b3f779"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Transformable::getForward </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the forward vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The forward vector of this transformable </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af3a1fdab3b62c089409a8079af370e98"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Transformable::getPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current position of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current position of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab888c267f448dab64e5fbf3438336d53"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Transformable::getRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the right vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The right vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a008dc55bda7fe6ed7020ceb9b2e887ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Transformable::getUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the up vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The up vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a590cb8c06786ee522e0bfb60fb5ab0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transformable::translate </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> by the specified vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dir</td><td>The amount to move this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> by </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0_icgraph.png" border="0" usemap="#class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0_icgraph" alt=""/></div>
+<map name="class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0_icgraph" id="class_transformable_a3a590cb8c06786ee522e0bfb60fb5ab0_icgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c6ccb0dbe1f6ebc9136e5f6703b054c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Transformable::updateTrans </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the values inherited from <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>, calculating the forward, up, and right vectors. </p>
+<p>This function is virtual so that the user may define a wat to calculate the forward, up, and right vectors </p>
+
+<p>Implemented in <a class="el" href="class_camera.html#aa0ed3b899f6c58167501c2317d70c8f5">Camera</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>JotunEngine2/<a class="el" href="_transformable_8h_source.html">Transformable.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:02 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

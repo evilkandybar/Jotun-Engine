@@ -3,19 +3,94 @@
 }
 
 
+Defines an interface which can be used by any object to capture and handle input.  
+
+
+
+
+{\ttfamily \#include $<$Input\-Handler.\-h$>$}
+
+
+
 Inheritance diagram for Input\-Handler\-:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}{virtual void {\bfseries on\-Key\-Press} (int key)=0}\label{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}
+virtual void \hyperlink{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}{on\-Key\-Press} (int key)=0
+\begin{DoxyCompactList}\small\item\em Allows an object to handle a key press. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}{on\-Key\-Release} (int key)=0
+\begin{DoxyCompactList}\small\item\em Allows an object to handle a key release. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}{on\-Mouse\-Move} (int delta\-X, int delta\-Y)=0
+\begin{DoxyCompactList}\small\item\em Alows an object to handle mouse movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}{virtual void {\bfseries on\-Key\-Release} (int key)=0}\label{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}
 
-\item 
-\hypertarget{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}{virtual void {\bfseries on\-Mouse\-Move} (int delta\-X, int delta\-Y)=0}\label{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}
+\subsection{Detailed Description}
+Defines an interface which can be used by any object to capture and handle input. 
 
-\end{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\hypertarget{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}{\index{Input\-Handler@{Input\-Handler}!on\-Key\-Press@{on\-Key\-Press}}
+\index{on\-Key\-Press@{on\-Key\-Press}!InputHandler@{Input\-Handler}}
+\subsubsection[{on\-Key\-Press}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\-Handler\-::on\-Key\-Press (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}
+
+
+Allows an object to handle a key press. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key} & The key which was pressed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_camera_a10b868fe859868ce30c7b4523009e315}{Camera}.
+
+\hypertarget{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}{\index{Input\-Handler@{Input\-Handler}!on\-Key\-Release@{on\-Key\-Release}}
+\index{on\-Key\-Release@{on\-Key\-Release}!InputHandler@{Input\-Handler}}
+\subsubsection[{on\-Key\-Release}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\-Handler\-::on\-Key\-Release (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}
+
+
+Allows an object to handle a key release. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key} & The key which was released \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_camera_a5106fd522318a7d5bf588648b7afa996}{Camera}.
+
+\hypertarget{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}{\index{Input\-Handler@{Input\-Handler}!on\-Mouse\-Move@{on\-Mouse\-Move}}
+\index{on\-Mouse\-Move@{on\-Mouse\-Move}!InputHandler@{Input\-Handler}}
+\subsubsection[{on\-Mouse\-Move}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\-Handler\-::on\-Mouse\-Move (
+\begin{DoxyParamCaption}
+\item[{int}]{delta\-X, }
+\item[{int}]{delta\-Y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}
+
+
+Alows an object to handle mouse movement. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delta\-X} & The amount that the mouse moved by in the x-\/direction \\
+\hline
+\mbox{\tt in}  & {\em delta\-Y} & The amount that the mouse moved by in the y-\/direction \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_camera_ab2a7799db840c22322ab06ef968e4f3e}{Camera}.
+
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

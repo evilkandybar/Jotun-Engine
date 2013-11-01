@@ -4,18 +4,16 @@
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_input_a137d26e571405f42b63c955958fd7c92}{static void {\bfseries clear} ()}\label{class_input_a137d26e571405f42b63c955958fd7c92}
+\hypertarget{class_input_a137d26e571405f42b63c955958fd7c92}{static void \hyperlink{class_input_a137d26e571405f42b63c955958fd7c92}{clear} ()}\label{class_input_a137d26e571405f42b63c955958fd7c92}
 
-\item 
-\hypertarget{class_input_af6bcab8c1b438b9148381e50ef60e924}{static void {\bfseries update\-Mouse} (double new\-Mouse\-X, double new\-Mouse\-Y)}\label{class_input_af6bcab8c1b438b9148381e50ef60e924}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clears the input buffers to prepare for writing. \end{DoxyCompactList}\item 
+static void \hyperlink{class_input_af6bcab8c1b438b9148381e50ef60e924}{update\-Mouse} (double new\-Mouse\-X, double new\-Mouse\-Y)
+\begin{DoxyCompactList}\small\item\em Sets the mouse position and change in mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_input_ae8198f96ea40f91fe9b910133a877959}{static bool {\bfseries keys} \mbox{[}349\mbox{]}}\label{class_input_ae8198f96ea40f91fe9b910133a877959}
-
-\item 
+static bool \hyperlink{class_input_ae8198f96ea40f91fe9b910133a877959}{keys} \mbox{[}349\mbox{]}
+\begin{DoxyCompactList}\small\item\em An array of boolean flags, one for each key defined by G\-L\-F\-W. \end{DoxyCompactList}\item 
 \hypertarget{class_input_ac037722a59886e511544f858a0b7b4ed}{static double {\bfseries mouse\-X} = 0}\label{class_input_ac037722a59886e511544f858a0b7b4ed}
 
 \item 
@@ -29,6 +27,38 @@
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_input_af6bcab8c1b438b9148381e50ef60e924}{\index{Input@{Input}!update\-Mouse@{update\-Mouse}}
+\index{update\-Mouse@{update\-Mouse}!Input@{Input}}
+\subsubsection[{update\-Mouse}]{\setlength{\rightskip}{0pt plus 5cm}void Input\-::update\-Mouse (
+\begin{DoxyParamCaption}
+\item[{double}]{new\-Mouse\-X, }
+\item[{double}]{new\-Mouse\-Y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_input_af6bcab8c1b438b9148381e50ef60e924}
+
+
+Sets the mouse position and change in mouse position. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\-Mouse\-X} & The current x-\/position of the mouse, in screen coordinates \\
+\hline
+\mbox{\tt in}  & {\em new\-Mouse\-Y} & The current y-\/position of the mouse, in screen coordinates \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_input_ae8198f96ea40f91fe9b910133a877959}{\index{Input@{Input}!keys@{keys}}
+\index{keys@{keys}!Input@{Input}}
+\subsubsection[{keys}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\-::keys\hspace{0.3cm}{\ttfamily [static]}}}\label{class_input_ae8198f96ea40f91fe9b910133a877959}
+
+
+An array of boolean flags, one for each key defined by G\-L\-F\-W. 
+
+See \href{http://www.glfw.org/docs/3.0/group__keys.html}{\tt http\-://www.\-glfw.\-org/docs/3.\-0/group\-\_\-\-\_\-keys.\-html} for a complete listing 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

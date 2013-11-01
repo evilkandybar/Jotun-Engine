@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,22 +91,150 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Settings Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Holds a number of quality settings for the traditional accuracy vs speed tradeoff.  
+ <a href="class_settings.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_settings_8h_source.html">Settings.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a68abf3112059e840eb7f6f260f016f00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68abf3112059e840eb7f6f260f016f00"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setShadowQuality</b> (int quality)</td></tr>
+<tr class="memitem:a68abf3112059e840eb7f6f260f016f00"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings.html#a68abf3112059e840eb7f6f260f016f00">setShadowQuality</a> (int quality)</td></tr>
+<tr class="memdesc:a68abf3112059e840eb7f6f260f016f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows the user to set shadow quality.  <a href="#a68abf3112059e840eb7f6f260f016f00">More...</a><br/></td></tr>
 <tr class="separator:a68abf3112059e840eb7f6f260f016f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae23d0bd93caaf3fecb968991379836ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae23d0bd93caaf3fecb968991379836ba"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>getShadowQuality</b> ()</td></tr>
+<tr class="memitem:ae23d0bd93caaf3fecb968991379836ba"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings.html#ae23d0bd93caaf3fecb968991379836ba">getShadowQuality</a> ()</td></tr>
+<tr class="memdesc:ae23d0bd93caaf3fecb968991379836ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current shadow quality.  <a href="#ae23d0bd93caaf3fecb968991379836ba">More...</a><br/></td></tr>
 <tr class="separator:ae23d0bd93caaf3fecb968991379836ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9a2ef3a0bdd775c7740f14d328e354"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings.html#a3d9a2ef3a0bdd775c7740f14d328e354">setMultisamples</a> (int samples)</td></tr>
+<tr class="memdesc:a3d9a2ef3a0bdd775c7740f14d328e354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows the user to set the number of multisamples to be rendered.  <a href="#a3d9a2ef3a0bdd775c7740f14d328e354">More...</a><br/></td></tr>
+<tr class="separator:a3d9a2ef3a0bdd775c7740f14d328e354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c0848d77676fcb8ad515d174fb8acc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings.html#a25c0848d77676fcb8ad515d174fb8acc">getMultisamples</a> ()</td></tr>
+<tr class="memdesc:a25c0848d77676fcb8ad515d174fb8acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current number of multisampels.  <a href="#a25c0848d77676fcb8ad515d174fb8acc">More...</a><br/></td></tr>
+<tr class="separator:a25c0848d77676fcb8ad515d174fb8acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:ab6ac3c9e85e7e97f134405239e81c474"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6ac3c9e85e7e97f134405239e81c474"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>shadowQuality</b> = 1</td></tr>
 <tr class="separator:ab6ac3c9e85e7e97f134405239e81c474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d696033379bbf723d606969e288bf7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7d696033379bbf723d606969e288bf7"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>multisamples</b> = 4</td></tr>
+<tr class="separator:ae7d696033379bbf723d606969e288bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Holds a number of quality settings for the traditional accuracy vs speed tradeoff. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a25c0848d77676fcb8ad515d174fb8acc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Settings::getMultisamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current number of multisampels. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current number of multisamples </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae23d0bd93caaf3fecb968991379836ba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Settings::getShadowQuality </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current shadow quality. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current shadow quality </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d9a2ef3a0bdd775c7740f14d328e354"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Settings::setMultisamples </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>samples</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows the user to set the number of multisamples to be rendered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">samples</td><td>The desired number of multisamples. this number must be a power of two between 0 and 16, inclusive </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a68abf3112059e840eb7f6f260f016f00"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Settings::setShadowQuality </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quality</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows the user to set shadow quality. </p>
+<p>/param [in] quality The desired quality of the shadows 0 = no shadows 1 = hard shadows 2 = soft shadows 3 = PCSS shadows (prettiest) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_settings_8h_source.html">Settings.h</a></li>
 <li>JotunEngine2/Settings.cpp</li>
@@ -114,7 +242,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>shadowQuality</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

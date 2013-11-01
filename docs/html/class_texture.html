@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,19 +90,106 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Texture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines a 2D texture object for use in rendering or computation.  
+ <a href="class_texture.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_texture_8h_source.html">Texture.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a84c7e18fd0fe150a112c0f91e9b643eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84c7e18fd0fe150a112c0f91e9b643eb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Texture</b> (std::string &amp;name)</td></tr>
-<tr class="separator:a84c7e18fd0fe150a112c0f91e9b643eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab13af2ee5ae56a8d74074fdf66100cd7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab13af2ee5ae56a8d74074fdf66100cd7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bind</b> (int unit)</td></tr>
+<tr class="memitem:a657517c71c4ca57cf8fdc992247a575c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a657517c71c4ca57cf8fdc992247a575c">Texture</a> (std::string name)</td></tr>
+<tr class="memdesc:a657517c71c4ca57cf8fdc992247a575c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a texture, loading the data from the specified file.  <a href="#a657517c71c4ca57cf8fdc992247a575c">More...</a><br/></td></tr>
+<tr class="separator:a657517c71c4ca57cf8fdc992247a575c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09c4bcb7462f64c1d20fa69dba3cee8a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a> ()</td></tr>
+<tr class="memdesc:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br/></td></tr>
+<tr class="separator:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13af2ee5ae56a8d74074fdf66100cd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ab13af2ee5ae56a8d74074fdf66100cd7">bind</a> (int unit)</td></tr>
+<tr class="memdesc:ab13af2ee5ae56a8d74074fdf66100cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this texture to the specified texture unit.  <a href="#ab13af2ee5ae56a8d74074fdf66100cd7">More...</a><br/></td></tr>
 <tr class="separator:ab13af2ee5ae56a8d74074fdf66100cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac00c7ad03134ffb35987891627ef8cff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac00c7ad03134ffb35987891627ef8cff"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getGLName</b> ()</td></tr>
+<tr class="memitem:ac00c7ad03134ffb35987891627ef8cff"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ac00c7ad03134ffb35987891627ef8cff">getGLName</a> ()</td></tr>
+<tr class="memdesc:ac00c7ad03134ffb35987891627ef8cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the integer OpenGL uses to refer to this texture.  <a href="#ac00c7ad03134ffb35987891627ef8cff">More...</a><br/></td></tr>
 <tr class="separator:ac00c7ad03134ffb35987891627ef8cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines a 2D texture object for use in rendering or computation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a657517c71c4ca57cf8fdc992247a575c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture::Texture </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a texture, loading the data from the specified file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The filename of the texture to load </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab13af2ee5ae56a8d74074fdf66100cd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Texture::bind </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>unit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds this texture to the specified texture unit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">unit</td><td>The texture unit to bind this texture to. Must be between 0 and 7 inclusive </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac00c7ad03134ffb35987891627ef8cff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Texture::getGLName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the integer OpenGL uses to refer to this texture. </p>
+<dl class="section return"><dt>Returns</dt><dd>The integer OpenGL uses to refer to this texture </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_texture_8h_source.html">Texture.h</a></li>
 <li>JotunEngine2/Texture.cpp</li>
@@ -110,7 +197,7 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getGLName</b> ()</t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

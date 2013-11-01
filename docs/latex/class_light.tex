@@ -1,30 +1,210 @@
 \hypertarget{class_light}{\section{Light Class Reference}
 \label{class_light}\index{Light@{Light}}
 }
+
+
+Defines light to be used in rendering.  
+
+
+
+
+{\ttfamily \#include $<$Light.\-h$>$}
+
+
+
+Inheritance diagram for Light\-:
+
+
+Collaboration diagram for Light\-:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_light_a3ee6cf0a394f4ff263046543584c148f}{{\bfseries Light} (glm\-::vec3 \&color, G\-Lfloat intensity, glm\-::vec3 \&position)}\label{class_light_a3ee6cf0a394f4ff263046543584c148f}
+\hypertarget{class_light_aeb5df09a25a32f19fdffa761268ba24f}{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light} ()}\label{class_light_aeb5df09a25a32f19fdffa761268ba24f}
+
+\begin{DoxyCompactList}\small\item\em Default constructor. Initializes every value to zero. \end{DoxyCompactList}\item 
+\hyperlink{class_light_a4159383707acc34304efac2d275dd287}{Light} (glm\-::vec3 \&new\-Color, G\-Lfloat intensity, glm\-::vec3 \&new\-Position)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{class_light}{Light} with the specified position, color, and intensiy. \end{DoxyCompactList}\item 
+\hyperlink{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}{$\sim$\-Light} ()
+\item 
+\hypertarget{class_light_a9552078368990d2108729f55072091ec}{virtual void \hyperlink{class_light_a9552078368990d2108729f55072091ec}{update} ()=0}\label{class_light_a9552078368990d2108729f55072091ec}
+
+\begin{DoxyCompactList}\small\item\em Updates the light, aligning the camera with the light. \end{DoxyCompactList}\item 
+void \hyperlink{class_light_a32533dd404b4f87ef23cf3f2251a1044}{set\-Color} (glm\-::vec3 \&new\-Color)
+\begin{DoxyCompactList}\small\item\em Sets the color of the light to a specified value. \end{DoxyCompactList}\item 
+void \hyperlink{class_light_ab36e113dc58dd1e8dcd1f0d46d1a35c4}{set\-Intensity} (G\-Lfloat intensity)
+\begin{DoxyCompactList}\small\item\em Sets the intensity of the light. \end{DoxyCompactList}\item 
+void \hyperlink{class_light_ab730704ad744e475b294678c6d78ac3e}{set\-Position} (glm\-::vec3 \&new\-Pos)
+\begin{DoxyCompactList}\small\item\em Sets the position of the light. \end{DoxyCompactList}\item 
+glm\-::mat4 \& \hyperlink{class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25}{get\-View\-Matrix} (glm\-::vec3 \&screen\-Center)
+\begin{DoxyCompactList}\small\item\em Returns a view matrix for a camera looking from the light to the specified position. \end{DoxyCompactList}\item 
+\hypertarget{class_light_a3738e9ea95b61669369d7d1d33734259}{glm\-::mat4 \& \hyperlink{class_light_a3738e9ea95b61669369d7d1d33734259}{get\-Proj\-Matrix} ()}\label{class_light_a3738e9ea95b61669369d7d1d33734259}
+
+\begin{DoxyCompactList}\small\item\em Returns a projection matrix for the light's camera, used for the purposes of shadow mapping. \end{DoxyCompactList}\item 
+virtual glm\-::vec4 \hyperlink{class_light_a22cfe8279c9acfc1eb5ae6bbb00c3a2c}{get\-Pos} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the position of the light. \end{DoxyCompactList}\item 
+glm\-::vec4 \& \hyperlink{class_light_ab9718f63a12f2cb48401ef76987b21f9}{get\-Color} ()
+\begin{DoxyCompactList}\small\item\em Returns the color and intensity of the light. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_light_a0e9cd78f107647268bbc24e75f5bddbe}{glm\-::vec4 {\bfseries color}}\label{class_light_a0e9cd78f107647268bbc24e75f5bddbe}
 
 \item 
-\hypertarget{class_light_a32533dd404b4f87ef23cf3f2251a1044}{void {\bfseries set\-Color} (glm\-::vec3 \&new\-Color)}\label{class_light_a32533dd404b4f87ef23cf3f2251a1044}
+\hypertarget{class_light_a89bffe071ec6431a21c5b54021fe08d6}{glm\-::vec3 {\bfseries position}}\label{class_light_a89bffe071ec6431a21c5b54021fe08d6}
 
 \item 
-\hypertarget{class_light_ab36e113dc58dd1e8dcd1f0d46d1a35c4}{void {\bfseries set\-Intensity} (G\-Lfloat intensity)}\label{class_light_ab36e113dc58dd1e8dcd1f0d46d1a35c4}
-
-\item 
-\hypertarget{class_light_ab730704ad744e475b294678c6d78ac3e}{void {\bfseries set\-Position} (glm\-::vec3 \&new\-Pos)}\label{class_light_ab730704ad744e475b294678c6d78ac3e}
-
-\item 
-\hypertarget{class_light_a4ecd02fffce9f2c1be9d79fdb90624ee}{glm\-::mat4 \& {\bfseries get\-Matrix} (glm\-::vec3 \&screen\-Center)}\label{class_light_a4ecd02fffce9f2c1be9d79fdb90624ee}
-
-\item 
-\hypertarget{class_light_ae7e48f654a0364732db94f4d4656b879}{glm\-::vec3 \& {\bfseries get\-Pos} ()}\label{class_light_ae7e48f654a0364732db94f4d4656b879}
-
-\item 
-\hypertarget{class_light_ab9718f63a12f2cb48401ef76987b21f9}{glm\-::vec4 \& {\bfseries get\-Color} ()}\label{class_light_ab9718f63a12f2cb48401ef76987b21f9}
+\hypertarget{class_light_a50889bb8a8882d66a6d837f92f5874a8}{\hyperlink{class_camera}{Camera} $\ast$ {\bfseries shadow\-Cam}}\label{class_light_a50889bb8a8882d66a6d837f92f5874a8}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines light to be used in rendering. 
+
+This class contains a camera for shadowing, a position, a color, and in intensity In shaders, these values are combined with the shader's color, and reflectivity This class contains n ospecularity information as that should bt handled per material 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_light_a4159383707acc34304efac2d275dd287}{\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\subsubsection[{Light}]{\setlength{\rightskip}{0pt plus 5cm}Light\-::\-Light (
+\begin{DoxyParamCaption}
+\item[{glm\-::vec3 \&}]{new\-Color, }
+\item[{G\-Lfloat}]{intensity, }
+\item[{glm\-::vec3 \&}]{new\-Position}
+\end{DoxyParamCaption}
+)}}\label{class_light_a4159383707acc34304efac2d275dd287}
+
+
+Constructs a \hyperlink{class_light}{Light} with the specified position, color, and intensiy. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em color} & The desired color of this light \\
+\hline
+\mbox{\tt in}  & {\em intensity} & The intensity of this light, in lumens \\
+\hline
+\mbox{\tt in}  & {\em position} & The initial position of this light \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}{\index{Light@{Light}!$\sim$\-Light@{$\sim$\-Light}}
+\index{$\sim$\-Light@{$\sim$\-Light}!Light@{Light}}
+\subsubsection[{$\sim$\-Light}]{\setlength{\rightskip}{0pt plus 5cm}Light\-::$\sim$\-Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}
+destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_light_ab9718f63a12f2cb48401ef76987b21f9}{\index{Light@{Light}!get\-Color@{get\-Color}}
+\index{get\-Color@{get\-Color}!Light@{Light}}
+\subsubsection[{get\-Color}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec4 \& Light\-::get\-Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_light_ab9718f63a12f2cb48401ef76987b21f9}
+
+
+Returns the color and intensity of the light. 
+
+\begin{DoxyReturn}{Returns}
+The color and intensity of the light. The R\-G\-B color is in the returned vector4's R\-G\-B, respectively. The intensity of the light is packed into the returned Vector4's alpha 
+\end{DoxyReturn}
+\hypertarget{class_light_a22cfe8279c9acfc1eb5ae6bbb00c3a2c}{\index{Light@{Light}!get\-Pos@{get\-Pos}}
+\index{get\-Pos@{get\-Pos}!Light@{Light}}
+\subsubsection[{get\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}virtual glm\-::vec4 Light\-::get\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_light_a22cfe8279c9acfc1eb5ae6bbb00c3a2c}
+
+
+Returns the position of the light. 
+
+\begin{DoxyReturn}{Returns}
+The position of the light, plus a number telling us what kind of light we have 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_directional_light_a18fa03fd1936e590059980d0ffe0ef4d}{Directional\-Light}.
+
+\hypertarget{class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25}{\index{Light@{Light}!get\-View\-Matrix@{get\-View\-Matrix}}
+\index{get\-View\-Matrix@{get\-View\-Matrix}!Light@{Light}}
+\subsubsection[{get\-View\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::mat4 \& Light\-::get\-View\-Matrix (
+\begin{DoxyParamCaption}
+\item[{glm\-::vec3 \&}]{screen\-Center}
+\end{DoxyParamCaption}
+)}}\label{class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25}
+
+
+Returns a view matrix for a camera looking from the light to the specified position. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen\-Center} & The place for the camera to look. This should be a little way in front the the main camera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The view matrix for the light's shadow camera 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{class_light_a32533dd404b4f87ef23cf3f2251a1044}{\index{Light@{Light}!set\-Color@{set\-Color}}
+\index{set\-Color@{set\-Color}!Light@{Light}}
+\subsubsection[{set\-Color}]{\setlength{\rightskip}{0pt plus 5cm}void Light\-::set\-Color (
+\begin{DoxyParamCaption}
+\item[{glm\-::vec3 \&}]{new\-Color}
+\end{DoxyParamCaption}
+)}}\label{class_light_a32533dd404b4f87ef23cf3f2251a1044}
+
+
+Sets the color of the light to a specified value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\-Color} & The desired new color of the light \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_light_ab36e113dc58dd1e8dcd1f0d46d1a35c4}{\index{Light@{Light}!set\-Intensity@{set\-Intensity}}
+\index{set\-Intensity@{set\-Intensity}!Light@{Light}}
+\subsubsection[{set\-Intensity}]{\setlength{\rightskip}{0pt plus 5cm}void Light\-::set\-Intensity (
+\begin{DoxyParamCaption}
+\item[{G\-Lfloat}]{intensity}
+\end{DoxyParamCaption}
+)}}\label{class_light_ab36e113dc58dd1e8dcd1f0d46d1a35c4}
+
+
+Sets the intensity of the light. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em intensity} & The desired intensity of the light \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_light_ab730704ad744e475b294678c6d78ac3e}{\index{Light@{Light}!set\-Position@{set\-Position}}
+\index{set\-Position@{set\-Position}!Light@{Light}}
+\subsubsection[{set\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Light\-::set\-Position (
+\begin{DoxyParamCaption}
+\item[{glm\-::vec3 \&}]{new\-Pos}
+\end{DoxyParamCaption}
+)}}\label{class_light_ab730704ad744e475b294678c6d78ac3e}
+
+
+Sets the position of the light. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\-Pos} & The desired position of this light \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

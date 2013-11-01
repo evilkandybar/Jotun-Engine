@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,16 +95,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a137d26e571405f42b63c955958fd7c92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a137d26e571405f42b63c955958fd7c92"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#a137d26e571405f42b63c955958fd7c92">clear</a> ()</td></tr>
+<tr class="memdesc:a137d26e571405f42b63c955958fd7c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the input buffers to prepare for writing. <br/></td></tr>
 <tr class="separator:a137d26e571405f42b63c955958fd7c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6bcab8c1b438b9148381e50ef60e924"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6bcab8c1b438b9148381e50ef60e924"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMouse</b> (double newMouseX, double newMouseY)</td></tr>
+<tr class="memitem:af6bcab8c1b438b9148381e50ef60e924"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#af6bcab8c1b438b9148381e50ef60e924">updateMouse</a> (double newMouseX, double newMouseY)</td></tr>
+<tr class="memdesc:af6bcab8c1b438b9148381e50ef60e924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mouse position and change in mouse position.  <a href="#af6bcab8c1b438b9148381e50ef60e924">More...</a><br/></td></tr>
 <tr class="separator:af6bcab8c1b438b9148381e50ef60e924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae8198f96ea40f91fe9b910133a877959"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8198f96ea40f91fe9b910133a877959"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>keys</b> [349]</td></tr>
+<tr class="memitem:ae8198f96ea40f91fe9b910133a877959"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#ae8198f96ea40f91fe9b910133a877959">keys</a> [349]</td></tr>
+<tr class="memdesc:ae8198f96ea40f91fe9b910133a877959"><td class="mdescLeft">&#160;</td><td class="mdescRight">An array of boolean flags, one for each key defined by GLFW.  <a href="#ae8198f96ea40f91fe9b910133a877959">More...</a><br/></td></tr>
 <tr class="separator:ae8198f96ea40f91fe9b910133a877959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac037722a59886e511544f858a0b7b4ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac037722a59886e511544f858a0b7b4ed"></a>
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>mouseX</b> = 0</td></tr>
@@ -119,6 +120,74 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>mouseDeltaX<
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>mouseDeltaY</b> = 0</td></tr>
 <tr class="separator:a17cf4626f1454c1ef6d8468983a2188d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af6bcab8c1b438b9148381e50ef60e924"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Input::updateMouse </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>newMouseX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>newMouseY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the mouse position and change in mouse position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">newMouseX</td><td>The current x-position of the mouse, in screen coordinates </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">newMouseY</td><td>The current y-position of the mouse, in screen coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae8198f96ea40f91fe9b910133a877959"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Input::keys</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>An array of boolean flags, one for each key defined by GLFW. </p>
+<p>See <a href="http://www.glfw.org/docs/3.0/group__keys.html">http://www.glfw.org/docs/3.0/group__keys.html</a> for a complete listing </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_input_8h_source.html">Input.h</a></li>
 <li>JotunEngine2/Input.cpp</li>
@@ -126,7 +195,7 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>mouseDeltaY<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:07 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

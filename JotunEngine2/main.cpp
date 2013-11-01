@@ -31,9 +31,6 @@ Mesh *mesh;
 Texture *texture;
 Texture *normalMap;
 
-GLuint depthTexture;
-GLuint FramebufferName = 0;
-
 int init() {
 	glfwSetErrorCallback( onGLFWError );
 	// Initialise GLFW
@@ -134,23 +131,14 @@ void drawAxis( glm::mat4 MVP ) {
 
 void draw() {
 #pragma region shadow
-	//Only render the shadow pass if we have shadows enabled
 	glm::mat4 depthMVP = glm::mat4( 1.0 );
 	glm::vec4 lightInvDir = mainLight->getPos();
+
+	//Only render the shadow pass if we have shadows enabled
 	if( Settings::getShadowQuality() > 0 ) {
-		glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
-		glViewport( 0, 0, 1024, 1024 ); 
-		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-		depth->bind();
-		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
-		glm::mat4 depthViewMatrix = glm::lookAt( glm::vec3( lightInvDir.x, lightInvDir.y, lightInvDir.z ), 
-										glm::vec3( 0, 0, 0 ), 
-										glm::vec3( 0, 1, 0 ) );
-		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
-		depthMVP = depthProjectionMatrix * depthViewMatrix *
-			depthModelMatrix;
-		depth->setUniformMat4x4( "depthMVP", &depthMVP[0][0] );
-		mesh->drawShadowPass( depth->getAttribute( "vertexPosition_modelspace" ) );
+		//We'll give the meshes and shaders and whatnot to the light so it can render them however
+		//the light returns the depthMVP
+		depthMVP = mainLight->renderShadow( mesh, 1, depth );
 	}
 #pragma endregion
 
@@ -201,7 +189,7 @@ void draw() {
 	diffuse->setUniform1i( "normalMap", 1 );
 
 	glActiveTexture( GL_TEXTURE2 );
-	glBindTexture( GL_TEXTURE_2D, depthTexture );
+	glBindTexture( GL_TEXTURE_2D, mainLight->getDepthTexture() );
 	diffuse->setUniform1i( "shadowMap", 2 );
 
 	diffuse->setUniform1i( "shadowLevel", Settings::getShadowQuality() );
@@ -214,8 +202,8 @@ void draw() {
 #pragma endregion
 
 #pragma region debugRenders
-
 #pragma endregion
+
 	glfwSwapBuffers( window );
 }
 
@@ -226,36 +214,6 @@ int main( void ) {
 	initOpenGL();
 	initData();
 
-	// ---------------------------------------------
-	// Render to Texture - specific code begins here
-	// ---------------------------------------------
-
-	// The framebuffer, which regroups 0, 1, or more textures, and 0 or 1 depth buffer.
-	glGenFramebuffers( 1, &FramebufferName );
-	glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
-
-	// Depth texture. Slower than a depth buffer, but you can sample it later in your shader
-	glGenTextures( 1, &depthTexture );
-	glBindTexture( GL_TEXTURE_2D, depthTexture );
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0 );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
-
-	glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, 
-		GL_TEXTURE_2D, depthTexture, 0 );
-
-	// No color output in the bound framebuffer, only depth.
-	glDrawBuffer( GL_NONE );
-	glReadBuffer( GL_NONE );
-
-	// Always check that our framebuffer is ok
-	GLuint error = glCheckFramebufferStatus( GL_FRAMEBUFFER );
-	if( error != GL_FRAMEBUFFER_COMPLETE ) {
-		return false;
-	}
-
 	while( !glfwWindowShouldClose( window ) ) {
 		Time::update();
 		mainCamera->update();
@@ -264,8 +222,6 @@ int main( void ) {
 		glfwPollEvents();
 	}
 
-	glDeleteFramebuffers( 1, &FramebufferName );
-	glDeleteTextures( 1, &depthTexture );
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 
@@ -280,8 +236,6 @@ int main( void ) {
 }
 
 void destroy() {
-	glDeleteFramebuffers( 1, &FramebufferName );
-	glDeleteTextures( 1, &depthTexture );
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate(); 
 

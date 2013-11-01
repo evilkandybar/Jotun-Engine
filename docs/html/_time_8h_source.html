@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,20 +90,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;stdafx.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_time.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_time.html">Time</a> {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> init();</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> getTime();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> getDeltaTime();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> lastTime, curTime, deltaTime;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="ttc" id="class_time_html"><div class="ttname"><a href="class_time.html">Time</a></div><div class="ttdef"><b>Definition:</b> Time.h:3</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_time.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_time.html">Time</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_time.html#ac626e60d7767728dca61c1095cb9678c">init</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_time.html#a1463d5551f982b457d88b6bd4e077903">update</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="class_time.html#ad6773c7a2339b463fc7ea14e31315c89">getTime</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="class_time.html#a405c7642c4ba0ee719a8d0491099102a">getDeltaTime</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> lastTime, curTime, deltaTime;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="ttc" id="class_time_html_ac626e60d7767728dca61c1095cb9678c"><div class="ttname"><a href="class_time.html#ac626e60d7767728dca61c1095cb9678c">Time::init</a></div><div class="ttdeci">static void init()</div><div class="ttdoc">Synchronizes the time with GLFW&amp;#39;s time coutner. </div><div class="ttdef"><b>Definition:</b> Time.cpp:7</div></div>
+<div class="ttc" id="class_time_html_a1463d5551f982b457d88b6bd4e077903"><div class="ttname"><a href="class_time.html#a1463d5551f982b457d88b6bd4e077903">Time::update</a></div><div class="ttdeci">static void update()</div><div class="ttdoc">Updates the time and the timestep, using GLFW to gague the amount of time which has passed...</div><div class="ttdef"><b>Definition:</b> Time.cpp:11</div></div>
+<div class="ttc" id="class_time_html"><div class="ttname"><a href="class_time.html">Time</a></div><div class="ttdoc">Manages the time for the engine. </div><div class="ttdef"><b>Definition:</b> Time.h:4</div></div>
+<div class="ttc" id="class_time_html_ad6773c7a2339b463fc7ea14e31315c89"><div class="ttname"><a href="class_time.html#ad6773c7a2339b463fc7ea14e31315c89">Time::getTime</a></div><div class="ttdeci">static float getTime()</div><div class="ttdoc">Returns the current time. </div><div class="ttdef"><b>Definition:</b> Time.cpp:17</div></div>
+<div class="ttc" id="class_time_html_a405c7642c4ba0ee719a8d0491099102a"><div class="ttname"><a href="class_time.html#a405c7642c4ba0ee719a8d0491099102a">Time::getDeltaTime</a></div><div class="ttdeci">static float getDeltaTime()</div><div class="ttdoc">Returns the time it took to complete the last frame. </div><div class="ttdef"><b>Definition:</b> Time.cpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:00 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:06 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

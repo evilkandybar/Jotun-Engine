@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,19 +89,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="class_input.html">    2</a></span>&#160;<span class="preprocessor"></span><span class="keyword">class </span><a class="code" href="class_input.html">Input</a> {</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updateMouse( <span class="keywordtype">double</span> newMouseX, <span class="keywordtype">double</span> newMouseY );</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> keys [349];</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> mouseX, mouseY, mouseDeltaX, mouseDeltaY;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;};</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="ttc" id="class_input_html"><div class="ttname"><a href="class_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> Input.h:2</div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*\brief A simple state machine to hold the current input buttons in a place</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">easily accessable from anywhere inside the program*/</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_input.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input.html">Input</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_input.html#a137d26e571405f42b63c955958fd7c92">clear</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_input.html#af6bcab8c1b438b9148381e50ef60e924">updateMouse</a>( <span class="keywordtype">double</span> newMouseX, <span class="keywordtype">double</span> newMouseY );</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_input.html#ae8198f96ea40f91fe9b910133a877959">   19</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_input.html#ae8198f96ea40f91fe9b910133a877959">keys</a> [349];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">/*\brief Variables for the x-position, y-position, x change, and y change</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">    of the mouse*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> mouseX, mouseY, mouseDeltaX, mouseDeltaY;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="ttc" id="class_input_html_a137d26e571405f42b63c955958fd7c92"><div class="ttname"><a href="class_input.html#a137d26e571405f42b63c955958fd7c92">Input::clear</a></div><div class="ttdeci">static void clear()</div><div class="ttdoc">Clears the input buffers to prepare for writing. </div><div class="ttdef"><b>Definition:</b> Input.cpp:9</div></div>
+<div class="ttc" id="class_input_html"><div class="ttname"><a href="class_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> Input.h:4</div></div>
+<div class="ttc" id="class_input_html_ae8198f96ea40f91fe9b910133a877959"><div class="ttname"><a href="class_input.html#ae8198f96ea40f91fe9b910133a877959">Input::keys</a></div><div class="ttdeci">static bool keys[349]</div><div class="ttdoc">An array of boolean flags, one for each key defined by GLFW. </div><div class="ttdef"><b>Definition:</b> Input.h:19</div></div>
+<div class="ttc" id="class_input_html_af6bcab8c1b438b9148381e50ef60e924"><div class="ttname"><a href="class_input.html#af6bcab8c1b438b9148381e50ef60e924">Input::updateMouse</a></div><div class="ttdeci">static void updateMouse(double newMouseX, double newMouseY)</div><div class="ttdoc">Sets the mouse position and change in mouse position. </div><div class="ttdef"><b>Definition:</b> Input.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:00 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:06 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

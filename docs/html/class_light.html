@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,36 +85,306 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_light-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Light Class Reference</div>  </div>
+<div class="title">Light Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines light to be used in rendering.  
+ <a href="class_light.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_light_8h_source.html">Light.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Light:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_light__inherit__graph.png" border="0" usemap="#_light_inherit__map" alt="Inheritance graph"/></div>
+<map name="_light_inherit__map" id="_light_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Light:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_light__coll__graph.png" border="0" usemap="#_light_coll__map" alt="Collaboration graph"/></div>
+<map name="_light_coll__map" id="_light_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ee6cf0a394f4ff263046543584c148f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ee6cf0a394f4ff263046543584c148f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Light</b> (glm::vec3 &amp;color, GLfloat intensity, glm::vec3 &amp;position)</td></tr>
-<tr class="separator:a3ee6cf0a394f4ff263046543584c148f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32533dd404b4f87ef23cf3f2251a1044"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32533dd404b4f87ef23cf3f2251a1044"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (glm::vec3 &amp;newColor)</td></tr>
+<tr class="memitem:aeb5df09a25a32f19fdffa761268ba24f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb5df09a25a32f19fdffa761268ba24f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#aeb5df09a25a32f19fdffa761268ba24f">Light</a> ()</td></tr>
+<tr class="memdesc:aeb5df09a25a32f19fdffa761268ba24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Initializes every value to zero. <br/></td></tr>
+<tr class="separator:aeb5df09a25a32f19fdffa761268ba24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4159383707acc34304efac2d275dd287"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a4159383707acc34304efac2d275dd287">Light</a> (glm::vec3 &amp;newColor, GLfloat intensity, glm::vec3 &amp;newPosition)</td></tr>
+<tr class="memdesc:a4159383707acc34304efac2d275dd287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_light.html" title="Defines light to be used in rendering. ">Light</a> with the specified position, color, and intensiy.  <a href="#a4159383707acc34304efac2d275dd287">More...</a><br/></td></tr>
+<tr class="separator:a4159383707acc34304efac2d275dd287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e59fad13bb6cfadc25b2c477e9ddc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ad0e59fad13bb6cfadc25b2c477e9ddc7">~Light</a> ()</td></tr>
+<tr class="separator:ad0e59fad13bb6cfadc25b2c477e9ddc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9552078368990d2108729f55072091ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9552078368990d2108729f55072091ec"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a9552078368990d2108729f55072091ec">update</a> ()=0</td></tr>
+<tr class="memdesc:a9552078368990d2108729f55072091ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the light, aligning the camera with the light. <br/></td></tr>
+<tr class="separator:a9552078368990d2108729f55072091ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32533dd404b4f87ef23cf3f2251a1044"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a32533dd404b4f87ef23cf3f2251a1044">setColor</a> (glm::vec3 &amp;newColor)</td></tr>
+<tr class="memdesc:a32533dd404b4f87ef23cf3f2251a1044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color of the light to a specified value.  <a href="#a32533dd404b4f87ef23cf3f2251a1044">More...</a><br/></td></tr>
 <tr class="separator:a32533dd404b4f87ef23cf3f2251a1044"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36e113dc58dd1e8dcd1f0d46d1a35c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab36e113dc58dd1e8dcd1f0d46d1a35c4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIntensity</b> (GLfloat intensity)</td></tr>
+<tr class="memitem:ab36e113dc58dd1e8dcd1f0d46d1a35c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ab36e113dc58dd1e8dcd1f0d46d1a35c4">setIntensity</a> (GLfloat intensity)</td></tr>
+<tr class="memdesc:ab36e113dc58dd1e8dcd1f0d46d1a35c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the intensity of the light.  <a href="#ab36e113dc58dd1e8dcd1f0d46d1a35c4">More...</a><br/></td></tr>
 <tr class="separator:ab36e113dc58dd1e8dcd1f0d46d1a35c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab730704ad744e475b294678c6d78ac3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab730704ad744e475b294678c6d78ac3e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (glm::vec3 &amp;newPos)</td></tr>
+<tr class="memitem:ab730704ad744e475b294678c6d78ac3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ab730704ad744e475b294678c6d78ac3e">setPosition</a> (glm::vec3 &amp;newPos)</td></tr>
+<tr class="memdesc:ab730704ad744e475b294678c6d78ac3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the light.  <a href="#ab730704ad744e475b294678c6d78ac3e">More...</a><br/></td></tr>
 <tr class="separator:ab730704ad744e475b294678c6d78ac3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ecd02fffce9f2c1be9d79fdb90624ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ecd02fffce9f2c1be9d79fdb90624ee"></a>
-glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMatrix</b> (glm::vec3 &amp;screenCenter)</td></tr>
-<tr class="separator:a4ecd02fffce9f2c1be9d79fdb90624ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7e48f654a0364732db94f4d4656b879"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7e48f654a0364732db94f4d4656b879"></a>
-glm::vec3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPos</b> ()</td></tr>
-<tr class="separator:ae7e48f654a0364732db94f4d4656b879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9718f63a12f2cb48401ef76987b21f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9718f63a12f2cb48401ef76987b21f9"></a>
-glm::vec4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</b> ()</td></tr>
+<tr class="memitem:a4d68a3ba56cc6fc694b4bccde4d4dd25"><td class="memItemLeft" align="right" valign="top">glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a4d68a3ba56cc6fc694b4bccde4d4dd25">getViewMatrix</a> (glm::vec3 &amp;screenCenter)</td></tr>
+<tr class="memdesc:a4d68a3ba56cc6fc694b4bccde4d4dd25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a view matrix for a camera looking from the light to the specified position.  <a href="#a4d68a3ba56cc6fc694b4bccde4d4dd25">More...</a><br/></td></tr>
+<tr class="separator:a4d68a3ba56cc6fc694b4bccde4d4dd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3738e9ea95b61669369d7d1d33734259"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3738e9ea95b61669369d7d1d33734259"></a>
+glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a3738e9ea95b61669369d7d1d33734259">getProjMatrix</a> ()</td></tr>
+<tr class="memdesc:a3738e9ea95b61669369d7d1d33734259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a projection matrix for the light's camera, used for the purposes of shadow mapping. <br/></td></tr>
+<tr class="separator:a3738e9ea95b61669369d7d1d33734259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22cfe8279c9acfc1eb5ae6bbb00c3a2c"><td class="memItemLeft" align="right" valign="top">virtual glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a22cfe8279c9acfc1eb5ae6bbb00c3a2c">getPos</a> ()=0</td></tr>
+<tr class="memdesc:a22cfe8279c9acfc1eb5ae6bbb00c3a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of the light.  <a href="#a22cfe8279c9acfc1eb5ae6bbb00c3a2c">More...</a><br/></td></tr>
+<tr class="separator:a22cfe8279c9acfc1eb5ae6bbb00c3a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9718f63a12f2cb48401ef76987b21f9"><td class="memItemLeft" align="right" valign="top">glm::vec4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ab9718f63a12f2cb48401ef76987b21f9">getColor</a> ()</td></tr>
+<tr class="memdesc:ab9718f63a12f2cb48401ef76987b21f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the color and intensity of the light.  <a href="#ab9718f63a12f2cb48401ef76987b21f9">More...</a><br/></td></tr>
 <tr class="separator:ab9718f63a12f2cb48401ef76987b21f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0e9cd78f107647268bbc24e75f5bddbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e9cd78f107647268bbc24e75f5bddbe"></a>
+glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
+<tr class="separator:a0e9cd78f107647268bbc24e75f5bddbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89bffe071ec6431a21c5b54021fe08d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89bffe071ec6431a21c5b54021fe08d6"></a>
+glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
+<tr class="separator:a89bffe071ec6431a21c5b54021fe08d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50889bb8a8882d66a6d837f92f5874a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50889bb8a8882d66a6d837f92f5874a8"></a>
+<a class="el" href="class_camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>shadowCam</b></td></tr>
+<tr class="separator:a50889bb8a8882d66a6d837f92f5874a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines light to be used in rendering. </p>
+<p>This class contains a camera for shadowing, a position, a color, and in intensity In shaders, these values are combined with the shader's color, and reflectivity This class contains n ospecularity information as that should bt handled per material </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4159383707acc34304efac2d275dd287"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Light::Light </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>newColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLfloat&#160;</td>
+          <td class="paramname"><em>intensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>newPosition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_light.html" title="Defines light to be used in rendering. ">Light</a> with the specified position, color, and intensiy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>The desired color of this light </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">intensity</td><td>The intensity of this light, in lumens </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>The initial position of this light </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_light_a4159383707acc34304efac2d275dd287_cgraph.png" border="0" usemap="#class_light_a4159383707acc34304efac2d275dd287_cgraph" alt=""/></div>
+<map name="class_light_a4159383707acc34304efac2d275dd287_cgraph" id="class_light_a4159383707acc34304efac2d275dd287_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0e59fad13bb6cfadc25b2c477e9ddc7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Light::~Light </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab9718f63a12f2cb48401ef76987b21f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec4 &amp; Light::getColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the color and intensity of the light. </p>
+<dl class="section return"><dt>Returns</dt><dd>The color and intensity of the light. The RGB color is in the returned vector4's RGB, respectively. The intensity of the light is packed into the returned Vector4's alpha </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22cfe8279c9acfc1eb5ae6bbb00c3a2c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual glm::vec4 Light::getPos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the position of the light. </p>
+<dl class="section return"><dt>Returns</dt><dd>The position of the light, plus a number telling us what kind of light we have </dd></dl>
+
+<p>Implemented in <a class="el" href="class_directional_light.html#a18fa03fd1936e590059980d0ffe0ef4d">DirectionalLight</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d68a3ba56cc6fc694b4bccde4d4dd25"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 &amp; Light::getViewMatrix </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>screenCenter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a view matrix for a camera looking from the light to the specified position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">screenCenter</td><td>The place for the camera to look. This should be a little way in front the the main camera </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The view matrix for the light's shadow camera </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25_cgraph.png" border="0" usemap="#class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25_cgraph" alt=""/></div>
+<map name="class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25_cgraph" id="class_light_a4d68a3ba56cc6fc694b4bccde4d4dd25_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a32533dd404b4f87ef23cf3f2251a1044"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Light::setColor </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>newColor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the color of the light to a specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">newColor</td><td>The desired new color of the light </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab36e113dc58dd1e8dcd1f0d46d1a35c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Light::setIntensity </td>
+          <td>(</td>
+          <td class="paramtype">GLfloat&#160;</td>
+          <td class="paramname"><em>intensity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the intensity of the light. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">intensity</td><td>The desired intensity of the light </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab730704ad744e475b294678c6d78ac3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Light::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>newPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the position of the light. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">newPos</td><td>The desired position of this light </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_light_8h_source.html">Light.h</a></li>
 <li>JotunEngine2/Light.cpp</li>
@@ -122,7 +392,7 @@ glm::vec4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

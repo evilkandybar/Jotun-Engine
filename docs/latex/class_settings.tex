@@ -1,22 +1,97 @@
 \hypertarget{class_settings}{\section{Settings Class Reference}
 \label{class_settings}\index{Settings@{Settings}}
 }
+
+
+Holds a number of quality settings for the traditional accuracy vs speed tradeoff.  
+
+
+
+
+{\ttfamily \#include $<$Settings.\-h$>$}
+
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_settings_a68abf3112059e840eb7f6f260f016f00}{static void {\bfseries set\-Shadow\-Quality} (int quality)}\label{class_settings_a68abf3112059e840eb7f6f260f016f00}
-
-\item 
-\hypertarget{class_settings_ae23d0bd93caaf3fecb968991379836ba}{static int {\bfseries get\-Shadow\-Quality} ()}\label{class_settings_ae23d0bd93caaf3fecb968991379836ba}
-
-\end{DoxyCompactItemize}
+static void \hyperlink{class_settings_a68abf3112059e840eb7f6f260f016f00}{set\-Shadow\-Quality} (int quality)
+\begin{DoxyCompactList}\small\item\em Allows the user to set shadow quality. \end{DoxyCompactList}\item 
+static int \hyperlink{class_settings_ae23d0bd93caaf3fecb968991379836ba}{get\-Shadow\-Quality} ()
+\begin{DoxyCompactList}\small\item\em Returns the current shadow quality. \end{DoxyCompactList}\item 
+static void \hyperlink{class_settings_a3d9a2ef3a0bdd775c7740f14d328e354}{set\-Multisamples} (int samples)
+\begin{DoxyCompactList}\small\item\em Allows the user to set the number of multisamples to be rendered. \end{DoxyCompactList}\item 
+static int \hyperlink{class_settings_a25c0848d77676fcb8ad515d174fb8acc}{get\-Multisamples} ()
+\begin{DoxyCompactList}\small\item\em Returns the current number of multisampels. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_settings_ab6ac3c9e85e7e97f134405239e81c474}{static int {\bfseries shadow\-Quality} = 1}\label{class_settings_ab6ac3c9e85e7e97f134405239e81c474}
 
+\item 
+\hypertarget{class_settings_ae7d696033379bbf723d606969e288bf7}{static int {\bfseries multisamples} = 4}\label{class_settings_ae7d696033379bbf723d606969e288bf7}
+
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Holds a number of quality settings for the traditional accuracy vs speed tradeoff. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_settings_a25c0848d77676fcb8ad515d174fb8acc}{\index{Settings@{Settings}!get\-Multisamples@{get\-Multisamples}}
+\index{get\-Multisamples@{get\-Multisamples}!Settings@{Settings}}
+\subsubsection[{get\-Multisamples}]{\setlength{\rightskip}{0pt plus 5cm}int Settings\-::get\-Multisamples (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_settings_a25c0848d77676fcb8ad515d174fb8acc}
+
+
+Returns the current number of multisampels. 
+
+\begin{DoxyReturn}{Returns}
+The current number of multisamples 
+\end{DoxyReturn}
+\hypertarget{class_settings_ae23d0bd93caaf3fecb968991379836ba}{\index{Settings@{Settings}!get\-Shadow\-Quality@{get\-Shadow\-Quality}}
+\index{get\-Shadow\-Quality@{get\-Shadow\-Quality}!Settings@{Settings}}
+\subsubsection[{get\-Shadow\-Quality}]{\setlength{\rightskip}{0pt plus 5cm}int Settings\-::get\-Shadow\-Quality (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_settings_ae23d0bd93caaf3fecb968991379836ba}
+
+
+Returns the current shadow quality. 
+
+\begin{DoxyReturn}{Returns}
+The current shadow quality 
+\end{DoxyReturn}
+\hypertarget{class_settings_a3d9a2ef3a0bdd775c7740f14d328e354}{\index{Settings@{Settings}!set\-Multisamples@{set\-Multisamples}}
+\index{set\-Multisamples@{set\-Multisamples}!Settings@{Settings}}
+\subsubsection[{set\-Multisamples}]{\setlength{\rightskip}{0pt plus 5cm}void Settings\-::set\-Multisamples (
+\begin{DoxyParamCaption}
+\item[{int}]{samples}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_settings_a3d9a2ef3a0bdd775c7740f14d328e354}
+
+
+Allows the user to set the number of multisamples to be rendered. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em samples} & The desired number of multisamples. this number must be a power of two between 0 and 16, inclusive \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_settings_a68abf3112059e840eb7f6f260f016f00}{\index{Settings@{Settings}!set\-Shadow\-Quality@{set\-Shadow\-Quality}}
+\index{set\-Shadow\-Quality@{set\-Shadow\-Quality}!Settings@{Settings}}
+\subsubsection[{set\-Shadow\-Quality}]{\setlength{\rightskip}{0pt plus 5cm}void Settings\-::set\-Shadow\-Quality (
+\begin{DoxyParamCaption}
+\item[{int}]{quality}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_settings_a68abf3112059e840eb7f6f260f016f00}
+
+
+Allows the user to set shadow quality. 
+
+/param \mbox{[}in\mbox{]} quality The desired quality of the shadows 0 = no shadows 1 = hard shadows 2 = soft shadows 3 = P\-C\-S\-S shadows (prettiest) 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

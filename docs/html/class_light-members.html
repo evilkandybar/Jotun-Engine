@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,19 +90,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_light.html">Light</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getColor</b>() (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getMatrix</b>(glm::vec3 &amp;screenCenter) (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPos</b>() (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Light</b>() (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Light</b>(glm::vec3 &amp;color, GLfloat intensity, glm::vec3 &amp;position) (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setColor</b>(glm::vec3 &amp;newColor) (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setIntensity</b>(GLfloat intensity) (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setPosition</b>(glm::vec3 &amp;newPos) (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Light</b>() (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>color</b> (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_light.html#ab9718f63a12f2cb48401ef76987b21f9">getColor</a>()</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#a22cfe8279c9acfc1eb5ae6bbb00c3a2c">getPos</a>()=0</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_light.html#a3738e9ea95b61669369d7d1d33734259">getProjMatrix</a>()</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#a4d68a3ba56cc6fc694b4bccde4d4dd25">getViewMatrix</a>(glm::vec3 &amp;screenCenter)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_light.html#aeb5df09a25a32f19fdffa761268ba24f">Light</a>()</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#a4159383707acc34304efac2d275dd287">Light</a>(glm::vec3 &amp;newColor, GLfloat intensity, glm::vec3 &amp;newPosition)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>position</b> (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#a32533dd404b4f87ef23cf3f2251a1044">setColor</a>(glm::vec3 &amp;newColor)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_light.html#ab36e113dc58dd1e8dcd1f0d46d1a35c4">setIntensity</a>(GLfloat intensity)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#ab730704ad744e475b294678c6d78ac3e">setPosition</a>(glm::vec3 &amp;newPos)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>shadowCam</b> (defined in <a class="el" href="class_light.html">Light</a>)</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_light.html#a9552078368990d2108729f55072091ec">update</a>()=0</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_light.html#ad0e59fad13bb6cfadc25b2c477e9ddc7">~Light</a>()</td><td class="entry"><a class="el" href="class_light.html">Light</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

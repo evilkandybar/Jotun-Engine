@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -142,23 +142,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a3205c652163c9b42ea3f5d0f3b21798f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ed3b899f6c58167501c2317d70c8f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0ed3b899f6c58167501c2317d70c8f5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#aa0ed3b899f6c58167501c2317d70c8f5">updateTrans</a> ()</td></tr>
-<tr class="memdesc:aa0ed3b899f6c58167501c2317d70c8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates values inherited from <a class="el" href="class_transformable.html" title="Currently just handles movement. Will be expanded to rotations. ">Transformable</a>, calculating the forward, up, and right direction. <br/></td></tr>
+<tr class="memdesc:aa0ed3b899f6c58167501c2317d70c8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates values inherited from <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>, calculating the forward, up, and right direction. <br/></td></tr>
 <tr class="separator:aa0ed3b899f6c58167501c2317d70c8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab839e9d43668ba6ea13c72245ece7131"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ab839e9d43668ba6ea13c72245ece7131">translate</a> (glm::vec3 dir)</td></tr>
-<tr class="memdesc:ab839e9d43668ba6ea13c72245ece7131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the camera by the specified vector.  <a href="#ab839e9d43668ba6ea13c72245ece7131">More...</a><br/></td></tr>
-<tr class="separator:ab839e9d43668ba6ea13c72245ece7131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a520c5a7413b3e704f2f442288db17bcf"><td class="memItemLeft" align="right" valign="top">virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a520c5a7413b3e704f2f442288db17bcf">getPosition</a> ()</td></tr>
-<tr class="memdesc:a520c5a7413b3e704f2f442288db17bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current position of the camera.  <a href="#a520c5a7413b3e704f2f442288db17bcf">More...</a><br/></td></tr>
-<tr class="separator:a520c5a7413b3e704f2f442288db17bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e94dcd032d92a96cfe8e13cab9c31a0"><td class="memItemLeft" align="right" valign="top">virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a8e94dcd032d92a96cfe8e13cab9c31a0">getForward</a> ()</td></tr>
-<tr class="memdesc:a8e94dcd032d92a96cfe8e13cab9c31a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the camera's forward direction.  <a href="#a8e94dcd032d92a96cfe8e13cab9c31a0">More...</a><br/></td></tr>
-<tr class="separator:a8e94dcd032d92a96cfe8e13cab9c31a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab467583121fc13126a24798d17090b4d"><td class="memItemLeft" align="right" valign="top">virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ab467583121fc13126a24798d17090b4d">getUp</a> ()</td></tr>
-<tr class="memdesc:ab467583121fc13126a24798d17090b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the camera's up direction.  <a href="#ab467583121fc13126a24798d17090b4d">More...</a><br/></td></tr>
-<tr class="separator:ab467583121fc13126a24798d17090b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c35c617f5795382a7553bcbadee849"><td class="memItemLeft" align="right" valign="top">virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a21c35c617f5795382a7553bcbadee849">getRight</a> ()</td></tr>
-<tr class="memdesc:a21c35c617f5795382a7553bcbadee849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the camera's up direction.  <a href="#a21c35c617f5795382a7553bcbadee849">More...</a><br/></td></tr>
-<tr class="separator:a21c35c617f5795382a7553bcbadee849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10b868fe859868ce30c7b4523009e315"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a10b868fe859868ce30c7b4523009e315">onKeyPress</a> (int key)</td></tr>
 <tr class="memdesc:a10b868fe859868ce30c7b4523009e315"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles a key press for a camera  <a href="#a10b868fe859868ce30c7b4523009e315">More...</a><br/></td></tr>
 <tr class="separator:a10b868fe859868ce30c7b4523009e315"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +162,22 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a4e4f082071bdf7da528ecf19e09f938d"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a4e4f082071bdf7da528ecf19e09f938d">getProjMatrix</a> ()</td></tr>
 <tr class="memdesc:a4e4f082071bdf7da528ecf19e09f938d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the camera's projection matrix, calculated from the field of view, aspect ratio, and default values for the near and far clipping planes  <a href="#a4e4f082071bdf7da528ecf19e09f938d">More...</a><br/></td></tr>
 <tr class="separator:a4e4f082071bdf7da528ecf19e09f938d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_transformable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_transformable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_transformable.html">Transformable</a></td></tr>
+<tr class="memitem:a3a590cb8c06786ee522e0bfb60fb5ab0 inherit pub_methods_class_transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#a3a590cb8c06786ee522e0bfb60fb5ab0">translate</a> (glm::vec3 dir)</td></tr>
+<tr class="memdesc:a3a590cb8c06786ee522e0bfb60fb5ab0 inherit pub_methods_class_transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> by the specified vector.  <a href="#a3a590cb8c06786ee522e0bfb60fb5ab0">More...</a><br/></td></tr>
+<tr class="separator:a3a590cb8c06786ee522e0bfb60fb5ab0 inherit pub_methods_class_transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a1fdab3b62c089409a8079af370e98 inherit pub_methods_class_transformable"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#af3a1fdab3b62c089409a8079af370e98">getPosition</a> ()</td></tr>
+<tr class="memdesc:af3a1fdab3b62c089409a8079af370e98 inherit pub_methods_class_transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current position of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#af3a1fdab3b62c089409a8079af370e98">More...</a><br/></td></tr>
+<tr class="separator:af3a1fdab3b62c089409a8079af370e98 inherit pub_methods_class_transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae985510704d40ebeb27b088438b3f779 inherit pub_methods_class_transformable"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#ae985510704d40ebeb27b088438b3f779">getForward</a> ()</td></tr>
+<tr class="memdesc:ae985510704d40ebeb27b088438b3f779 inherit pub_methods_class_transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the forward vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#ae985510704d40ebeb27b088438b3f779">More...</a><br/></td></tr>
+<tr class="separator:ae985510704d40ebeb27b088438b3f779 inherit pub_methods_class_transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a008dc55bda7fe6ed7020ceb9b2e887ea inherit pub_methods_class_transformable"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#a008dc55bda7fe6ed7020ceb9b2e887ea">getUp</a> ()</td></tr>
+<tr class="memdesc:a008dc55bda7fe6ed7020ceb9b2e887ea inherit pub_methods_class_transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the up vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#a008dc55bda7fe6ed7020ceb9b2e887ea">More...</a><br/></td></tr>
+<tr class="separator:a008dc55bda7fe6ed7020ceb9b2e887ea inherit pub_methods_class_transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab888c267f448dab64e5fbf3438336d53 inherit pub_methods_class_transformable"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transformable.html#ab888c267f448dab64e5fbf3438336d53">getRight</a> ()</td></tr>
+<tr class="memdesc:ab888c267f448dab64e5fbf3438336d53 inherit pub_methods_class_transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right vector of this <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a>.  <a href="#ab888c267f448dab64e5fbf3438336d53">More...</a><br/></td></tr>
+<tr class="separator:ab888c267f448dab64e5fbf3438336d53 inherit pub_methods_class_transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -196,7 +197,7 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines a camera for use in rendering. </p>
-<p>The camera inherits from <a class="el" href="class_input_handler.html">InputHandler</a> so it can move in response to player input and inherits from <a class="el" href="class_transformable.html" title="Currently just handles movement. Will be expanded to rotations. ">Transformable</a> so it has a position, rotation, and the like </p>
+<p>The camera inherits from <a class="el" href="class_input_handler.html" title="Defines an interface which can be used by any object to capture and handle input. ...">InputHandler</a> so it can move in response to player input and inherits from <a class="el" href="class_transformable.html" title="Defines an interface movable objects can inherit from. ">Transformable</a> so it has a position, rotation, and the like </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a01f94c3543f56ede7af49dc778f19331"></a>
 <div class="memitem">
@@ -241,34 +242,6 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a8e94dcd032d92a96cfe8e13cab9c31a0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 Camera::getForward </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the camera's forward direction. </p>
-<dl class="section return"><dt>Returns</dt><dd>The camera's forward direction </dd></dl>
-
-<p>Implements <a class="el" href="class_transformable.html">Transformable</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a5ec1871e6f296d8528e64157c6371c09"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,34 +257,6 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 
 <p>Returns the current field of view for the camera. </p>
 <dl class="section return"><dt>Returns</dt><dd>The camera's current vield of view </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a520c5a7413b3e704f2f442288db17bcf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 Camera::getPosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the current position of the camera. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current position of the camera </dd></dl>
-
-<p>Implements <a class="el" href="class_transformable.html">Transformable</a>.</p>
 
 </div>
 </div>
@@ -331,61 +276,14 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 <p>returns the camera's projection matrix, calculated from the field of view, aspect ratio, and default values for the near and far clipping planes </p>
 <dl class="section return"><dt>Returns</dt><dd>The camera's projection matrix </dd></dl>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_a4e4f082071bdf7da528ecf19e09f938d_icgraph.png" border="0" usemap="#class_camera_a4e4f082071bdf7da528ecf19e09f938d_icgraph" alt=""/></div>
+<map name="class_camera_a4e4f082071bdf7da528ecf19e09f938d_icgraph" id="class_camera_a4e4f082071bdf7da528ecf19e09f938d_icgraph">
+</map>
 </div>
-</div>
-<a class="anchor" id="a21c35c617f5795382a7553bcbadee849"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 Camera::getRight </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the camera's up direction. </p>
-<dl class="section return"><dt>Returns</dt><dd>The camera's up direction </dd></dl>
-
-<p>Implements <a class="el" href="class_transformable.html">Transformable</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab467583121fc13126a24798d17090b4d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 Camera::getUp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the camera's up direction. </p>
-<dl class="section return"><dt>Returns</dt><dd>The camera's up direction </dd></dl>
-
-<p>Implements <a class="el" href="class_transformable.html">Transformable</a>.</p>
+</p>
 
 </div>
 </div>
@@ -404,6 +302,15 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
 
 <p>Returns the camera's view matrix, calculated from the camera's position and forward direction. </p>
 <dl class="section return"><dt>Returns</dt><dd>The camera's view matrix </dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_a5569ca5967e01d3344fbf6aba36d9820_icgraph.png" border="0" usemap="#class_camera_a5569ca5967e01d3344fbf6aba36d9820_icgraph" alt=""/></div>
+<map name="class_camera_a5569ca5967e01d3344fbf6aba36d9820_icgraph" id="class_camera_a5569ca5967e01d3344fbf6aba36d9820_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -428,6 +335,15 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_aae346bd34a4af9cab3da7e135417e32f_icgraph.png" border="0" usemap="#class_camera_aae346bd34a4af9cab3da7e135417e32f_icgraph" alt=""/></div>
+<map name="class_camera_aae346bd34a4af9cab3da7e135417e32f_icgraph" id="class_camera_aae346bd34a4af9cab3da7e135417e32f_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -464,7 +380,7 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_input_handler.html">InputHandler</a>.</p>
+<p>Implements <a class="el" href="class_input_handler.html#a2d99c4441c45f09a50b52e2a7465e77e">InputHandler</a>.</p>
 
 </div>
 </div>
@@ -501,7 +417,7 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_input_handler.html">InputHandler</a>.</p>
+<p>Implements <a class="el" href="class_input_handler.html#a8ca5e25c5fb77079704bc1ebc74ccf04">InputHandler</a>.</p>
 
 </div>
 </div>
@@ -547,7 +463,7 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b></td>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_input_handler.html">InputHandler</a>.</p>
+<p>Implements <a class="el" href="class_input_handler.html#afce8da8c018d9055fd99608b7c7e769c">InputHandler</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -616,6 +532,15 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_a2fd7432c0256ad790097b87c018c4b3f_icgraph.png" border="0" usemap="#class_camera_a2fd7432c0256ad790097b87c018c4b3f_icgraph" alt=""/></div>
+<map name="class_camera_a2fd7432c0256ad790097b87c018c4b3f_icgraph" id="class_camera_a2fd7432c0256ad790097b87c018c4b3f_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -687,49 +612,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ab839e9d43668ba6ea13c72245ece7131"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Camera::translate </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>dir</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moves the camera by the specified vector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dir</td><td>The vector to move the camera by </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_transformable.html">Transformable</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_camera_ab839e9d43668ba6ea13c72245ece7131_icgraph.png" border="0" usemap="#class_camera_ab839e9d43668ba6ea13c72245ece7131_icgraph" alt=""/></div>
-<map name="class_camera_ab839e9d43668ba6ea13c72245ece7131_icgraph" id="class_camera_ab839e9d43668ba6ea13c72245ece7131_icgraph">
-</map>
-</div>
-</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
 <li>JotunEngine2/Camera.cpp</li>
@@ -737,7 +619,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:07 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

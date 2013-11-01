@@ -1,6 +1,19 @@
 var searchData=
 [
   ['setaspectratio',['setAspectRatio',['../class_camera.html#a2fd7432c0256ad790097b87c018c4b3f',1,'Camera']]],
+  ['setcolor',['setColor',['../class_light.html#a32533dd404b4f87ef23cf3f2251a1044',1,'Light']]],
   ['setfov',['setFOV',['../class_camera.html#a3cb5734686d002f2d2e225c5b3daa8bc',1,'Camera']]],
-  ['setrotation',['setRotation',['../class_camera.html#a3205c652163c9b42ea3f5d0f3b21798f',1,'Camera']]]
+  ['setintensity',['setIntensity',['../class_light.html#ab36e113dc58dd1e8dcd1f0d46d1a35c4',1,'Light']]],
+  ['setmultisamples',['setMultisamples',['../class_settings.html#a3d9a2ef3a0bdd775c7740f14d328e354',1,'Settings']]],
+  ['setposition',['setPosition',['../class_light.html#ab730704ad744e475b294678c6d78ac3e',1,'Light']]],
+  ['setrotation',['setRotation',['../class_camera.html#a3205c652163c9b42ea3f5d0f3b21798f',1,'Camera']]],
+  ['setshadowquality',['setShadowQuality',['../class_settings.html#a68abf3112059e840eb7f6f260f016f00',1,'Settings']]],
+  ['setuniform1i',['setUniform1i',['../class_shader.html#a0d5c21c96edd9c67599d26131251c5d3',1,'Shader']]],
+  ['setuniform2i',['setUniform2i',['../class_shader.html#a54c535a7b501c40c3ae2b7b1dad80000',1,'Shader']]],
+  ['setuniform3f',['setUniform3f',['../class_shader.html#af73fceff123615dbc24b4b503515c974',1,'Shader']]],
+  ['setuniform4f',['setUniform4f',['../class_shader.html#a3b3f44fd8e54baa497cd16bf7fc09982',1,'Shader']]],
+  ['setuniformf4array',['setUniformf4Array',['../class_shader.html#a9e717f21afd4f2473c6447fc2cfecaf1',1,'Shader']]],
+  ['setuniformmat3x3',['setUniformMat3x3',['../class_shader.html#a5fc56e81d8c383de3ce2662466d1ea37',1,'Shader']]],
+  ['setuniformmat4x4',['setUniformMat4x4',['../class_shader.html#a2737cc648540a20b1aae2bb9ee379b17',1,'Shader']]],
+  ['shader',['Shader',['../class_shader.html#a5786f696ba39232cb732542aed798e82',1,'Shader']]]
 ];

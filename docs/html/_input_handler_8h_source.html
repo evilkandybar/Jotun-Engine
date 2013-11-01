@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,18 +89,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="class_input_handler.html">    2</a></span>&#160;<span class="preprocessor"></span><span class="keyword">class </span><a class="code" href="class_input_handler.html">InputHandler</a> {</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onKeyPress( <span class="keywordtype">int</span> key ) = 0;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onKeyRelease( <span class="keywordtype">int</span> key ) = 0;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onMouseMove( <span class="keywordtype">int</span> deltaX, <span class="keywordtype">int</span> deltaY ) = 0;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;};</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="ttc" id="class_input_handler_html"><div class="ttname"><a href="class_input_handler.html">InputHandler</a></div><div class="ttdef"><b>Definition:</b> InputHandler.h:2</div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_input_handler.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_handler.html">InputHandler</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_input_handler.html#a2d99c4441c45f09a50b52e2a7465e77e">onKeyPress</a>( <span class="keywordtype">int</span> key ) = 0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_input_handler.html#a8ca5e25c5fb77079704bc1ebc74ccf04">onKeyRelease</a>( <span class="keywordtype">int</span> key ) = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_input_handler.html#afce8da8c018d9055fd99608b7c7e769c">onMouseMove</a>( <span class="keywordtype">int</span> deltaX, <span class="keywordtype">int</span> deltaY ) = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="ttc" id="class_input_handler_html"><div class="ttname"><a href="class_input_handler.html">InputHandler</a></div><div class="ttdoc">Defines an interface which can be used by any object to capture and handle input. ...</div><div class="ttdef"><b>Definition:</b> InputHandler.h:4</div></div>
+<div class="ttc" id="class_input_handler_html_a2d99c4441c45f09a50b52e2a7465e77e"><div class="ttname"><a href="class_input_handler.html#a2d99c4441c45f09a50b52e2a7465e77e">InputHandler::onKeyPress</a></div><div class="ttdeci">virtual void onKeyPress(int key)=0</div><div class="ttdoc">Allows an object to handle a key press. </div></div>
+<div class="ttc" id="class_input_handler_html_a8ca5e25c5fb77079704bc1ebc74ccf04"><div class="ttname"><a href="class_input_handler.html#a8ca5e25c5fb77079704bc1ebc74ccf04">InputHandler::onKeyRelease</a></div><div class="ttdeci">virtual void onKeyRelease(int key)=0</div><div class="ttdoc">Allows an object to handle a key release. </div></div>
+<div class="ttc" id="class_input_handler_html_afce8da8c018d9055fd99608b7c7e769c"><div class="ttname"><a href="class_input_handler.html#afce8da8c018d9055fd99608b7c7e769c">InputHandler::onMouseMove</a></div><div class="ttdeci">virtual void onMouseMove(int deltaX, int deltaY)=0</div><div class="ttdoc">Alows an object to handle mouse movement. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:00 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:06 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

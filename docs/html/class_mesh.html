@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,28 +90,176 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Mesh Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines a 3D mesh.  
+ <a href="class_mesh.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mesh_8h_source.html">Mesh.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a74ef69e992b8b973276731e447a66060"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74ef69e992b8b973276731e447a66060"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mesh</b> (std::string &amp;name)</td></tr>
-<tr class="separator:a74ef69e992b8b973276731e447a66060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f218c96e9f31e9c8b9b69d284244a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8f218c96e9f31e9c8b9b69d284244a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawShadowPass</b> (GLuint verts)</td></tr>
+<tr class="memitem:a9b496cb615ff94d1e7d247eb89810791"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a9b496cb615ff94d1e7d247eb89810791">Mesh</a> (std::string name)</td></tr>
+<tr class="memdesc:a9b496cb615ff94d1e7d247eb89810791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh from the spceified file name.  <a href="#a9b496cb615ff94d1e7d247eb89810791">More...</a><br/></td></tr>
+<tr class="separator:a9b496cb615ff94d1e7d247eb89810791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5efe4da1a4c0971cfb037bd70304c303"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5efe4da1a4c0971cfb037bd70304c303"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a> ()</td></tr>
+<tr class="memdesc:a5efe4da1a4c0971cfb037bd70304c303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br/></td></tr>
+<tr class="separator:a5efe4da1a4c0971cfb037bd70304c303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f218c96e9f31e9c8b9b69d284244a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac8f218c96e9f31e9c8b9b69d284244a4">drawShadowPass</a> (GLuint verts)</td></tr>
+<tr class="memdesc:ac8f218c96e9f31e9c8b9b69d284244a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the mesh, specifying only vertexes.  <a href="#ac8f218c96e9f31e9c8b9b69d284244a4">More...</a><br/></td></tr>
 <tr class="separator:ac8f218c96e9f31e9c8b9b69d284244a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd32211408be9e187d97435c3dd183b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bd32211408be9e187d97435c3dd183b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enable</b> (GLuint verts, GLuint uvs, GLuint norms, GLuint tangents)</td></tr>
-<tr class="separator:a9bd32211408be9e187d97435c3dd183b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5237bc1186c7ecaa1af79738e3d7db50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5237bc1186c7ecaa1af79738e3d7db50"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bind</b> ()</td></tr>
-<tr class="separator:a5237bc1186c7ecaa1af79738e3d7db50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a996a8668fa2ca7d95d6d10744c833bc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a996a8668fa2ca7d95d6d10744c833bc8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
+<tr class="memitem:a740e2f5b099d18e3a8ed35fcbcf8efaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a740e2f5b099d18e3a8ed35fcbcf8efaf">bind</a> (GLuint bindVerts, GLuint bindUvs, GLuint bindNorms, GLuint bindTangents)</td></tr>
+<tr class="memdesc:a740e2f5b099d18e3a8ed35fcbcf8efaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells the shader to use this mesh's data in rendering.  <a href="#a740e2f5b099d18e3a8ed35fcbcf8efaf">More...</a><br/></td></tr>
+<tr class="separator:a740e2f5b099d18e3a8ed35fcbcf8efaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996a8668fa2ca7d95d6d10744c833bc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a996a8668fa2ca7d95d6d10744c833bc8">draw</a> ()</td></tr>
+<tr class="memdesc:a996a8668fa2ca7d95d6d10744c833bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the mesh data.  <a href="#a996a8668fa2ca7d95d6d10744c833bc8">More...</a><br/></td></tr>
 <tr class="separator:a996a8668fa2ca7d95d6d10744c833bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8d5a5df0d13a63c984339539a3f376"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b8d5a5df0d13a63c984339539a3f376"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> ()</td></tr>
+<tr class="memitem:a2b8d5a5df0d13a63c984339539a3f376"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2b8d5a5df0d13a63c984339539a3f376">unbind</a> ()</td></tr>
+<tr class="memdesc:a2b8d5a5df0d13a63c984339539a3f376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells the current shader to no longer use our data.  <a href="#a2b8d5a5df0d13a63c984339539a3f376">More...</a><br/></td></tr>
 <tr class="separator:a2b8d5a5df0d13a63c984339539a3f376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines a 3D mesh. </p>
+<p>This class can load and render and static mesh. Animation support coming soon</p>
+<p>When you change mesh, call mesh.bind() When you actually want to draw the mesh, call mesh.draw() When you are done with the mesh, call mesh.disable()</p>
+<p>Note that this isn't necessary until I have VBOs working</p>
+<p>For now, just call <a class="el" href="class_mesh.html#a996a8668fa2ca7d95d6d10744c833bc8" title="Renders the mesh data. ">draw()</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9b496cb615ff94d1e7d247eb89810791"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh::Mesh </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads a mesh from the spceified file name. </p>
+<p>As this class uses Assimp, it is constrained by that library's capabilities. A list of supported meshes can be found at <a href="http://assimp.sourceforge.net/lib_html/index.html">http://assimp.sourceforge.net/lib_html/index.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The filename of the mesh to load </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a740e2f5b099d18e3a8ed35fcbcf8efaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::bind </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>bindVerts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>bindUvs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>bindNorms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>bindTangents</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells the shader to use this mesh's data in rendering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bindVerts</td><td>The location in the shader of the vertex position data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bindUvs</td><td>The location in the shader of the vertex UV data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bindNorms</td><td>The location in the shader of the vertex normal data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bindTangents</td><td>The location in the shader of the vertex tangent data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a996a8668fa2ca7d95d6d10744c833bc8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the mesh data. </p>
+<p>Currently, this function uses glVertex3fv, glNormal3fv, and glTexCoord3fv to specify mesh data Rendering with glDrawElements will (hopefully) happen soon </p>
+
+</div>
+</div>
+<a class="anchor" id="ac8f218c96e9f31e9c8b9b69d284244a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::drawShadowPass </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>verts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the mesh, specifying only vertexes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">verts</td><td>The shader's location for vertex position data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2b8d5a5df0d13a63c984339539a3f376"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::unbind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells the current shader to no longer use our data. </p>
+<p>This is important when switching shaders or switching meshes (probably?) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>JotunEngine2/<a class="el" href="_mesh_8h_source.html">Mesh.h</a></li>
 <li>JotunEngine2/Mesh.cpp</li>
@@ -119,7 +267,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> ()</td></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 27 2013 17:13:01 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 1 2013 00:15:08 for Jotun Engine 2 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

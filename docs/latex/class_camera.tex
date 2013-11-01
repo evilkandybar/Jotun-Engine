@@ -42,16 +42,6 @@ void \hyperlink{class_camera_a3205c652163c9b42ea3f5d0f3b21798f}{set\-Rotation} (
 \hypertarget{class_camera_aa0ed3b899f6c58167501c2317d70c8f5}{virtual void \hyperlink{class_camera_aa0ed3b899f6c58167501c2317d70c8f5}{update\-Trans} ()}\label{class_camera_aa0ed3b899f6c58167501c2317d70c8f5}
 
 \begin{DoxyCompactList}\small\item\em Updates values inherited from \hyperlink{class_transformable}{Transformable}, calculating the forward, up, and right direction. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_camera_ab839e9d43668ba6ea13c72245ece7131}{translate} (glm\-::vec3 dir)
-\begin{DoxyCompactList}\small\item\em Moves the camera by the specified vector. \end{DoxyCompactList}\item 
-virtual glm\-::vec3 \hyperlink{class_camera_a520c5a7413b3e704f2f442288db17bcf}{get\-Position} ()
-\begin{DoxyCompactList}\small\item\em Returns the current position of the camera. \end{DoxyCompactList}\item 
-virtual glm\-::vec3 \hyperlink{class_camera_a8e94dcd032d92a96cfe8e13cab9c31a0}{get\-Forward} ()
-\begin{DoxyCompactList}\small\item\em Returns the camera's forward direction. \end{DoxyCompactList}\item 
-virtual glm\-::vec3 \hyperlink{class_camera_ab467583121fc13126a24798d17090b4d}{get\-Up} ()
-\begin{DoxyCompactList}\small\item\em Returns the camera's up direction. \end{DoxyCompactList}\item 
-virtual glm\-::vec3 \hyperlink{class_camera_a21c35c617f5795382a7553bcbadee849}{get\-Right} ()
-\begin{DoxyCompactList}\small\item\em Returns the camera's up direction. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_camera_a10b868fe859868ce30c7b4523009e315}{on\-Key\-Press} (int key)
 \begin{DoxyCompactList}\small\item\em handles a key press for a camera \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_camera_a5106fd522318a7d5bf588648b7afa996}{on\-Key\-Release} (int key)
@@ -103,24 +93,6 @@ Values are initialized as follows\-: Field of view\-: 60 Aspect ratio\-: 4\-:3 V
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_camera_a8e94dcd032d92a96cfe8e13cab9c31a0}{\index{Camera@{Camera}!get\-Forward@{get\-Forward}}
-\index{get\-Forward@{get\-Forward}!Camera@{Camera}}
-\subsubsection[{get\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Camera\-::get\-Forward (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_camera_a8e94dcd032d92a96cfe8e13cab9c31a0}
-
-
-Returns the camera's forward direction. 
-
-\begin{DoxyReturn}{Returns}
-The camera's forward direction 
-\end{DoxyReturn}
-
-
-Implements \hyperlink{class_transformable}{Transformable}.
-
 \hypertarget{class_camera_a5ec1871e6f296d8528e64157c6371c09}{\index{Camera@{Camera}!get\-F\-O\-V@{get\-F\-O\-V}}
 \index{get\-F\-O\-V@{get\-F\-O\-V}!Camera@{Camera}}
 \subsubsection[{get\-F\-O\-V}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\-::get\-F\-O\-V (
@@ -135,24 +107,6 @@ Returns the current field of view for the camera.
 \begin{DoxyReturn}{Returns}
 The camera's current vield of view 
 \end{DoxyReturn}
-\hypertarget{class_camera_a520c5a7413b3e704f2f442288db17bcf}{\index{Camera@{Camera}!get\-Position@{get\-Position}}
-\index{get\-Position@{get\-Position}!Camera@{Camera}}
-\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Camera\-::get\-Position (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_camera_a520c5a7413b3e704f2f442288db17bcf}
-
-
-Returns the current position of the camera. 
-
-\begin{DoxyReturn}{Returns}
-The current position of the camera 
-\end{DoxyReturn}
-
-
-Implements \hyperlink{class_transformable}{Transformable}.
-
 \hypertarget{class_camera_a4e4f082071bdf7da528ecf19e09f938d}{\index{Camera@{Camera}!get\-Proj\-Matrix@{get\-Proj\-Matrix}}
 \index{get\-Proj\-Matrix@{get\-Proj\-Matrix}!Camera@{Camera}}
 \subsubsection[{get\-Proj\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::mat4 Camera\-::get\-Proj\-Matrix (
@@ -167,41 +121,10 @@ returns the camera's projection matrix, calculated from the field of view, aspec
 \begin{DoxyReturn}{Returns}
 The camera's projection matrix 
 \end{DoxyReturn}
-\hypertarget{class_camera_a21c35c617f5795382a7553bcbadee849}{\index{Camera@{Camera}!get\-Right@{get\-Right}}
-\index{get\-Right@{get\-Right}!Camera@{Camera}}
-\subsubsection[{get\-Right}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Camera\-::get\-Right (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_camera_a21c35c617f5795382a7553bcbadee849}
 
 
-Returns the camera's up direction. 
+Here is the caller graph for this function\-:
 
-\begin{DoxyReturn}{Returns}
-The camera's up direction 
-\end{DoxyReturn}
-
-
-Implements \hyperlink{class_transformable}{Transformable}.
-
-\hypertarget{class_camera_ab467583121fc13126a24798d17090b4d}{\index{Camera@{Camera}!get\-Up@{get\-Up}}
-\index{get\-Up@{get\-Up}!Camera@{Camera}}
-\subsubsection[{get\-Up}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Camera\-::get\-Up (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_camera_ab467583121fc13126a24798d17090b4d}
-
-
-Returns the camera's up direction. 
-
-\begin{DoxyReturn}{Returns}
-The camera's up direction 
-\end{DoxyReturn}
-
-
-Implements \hyperlink{class_transformable}{Transformable}.
 
 \hypertarget{class_camera_a5569ca5967e01d3344fbf6aba36d9820}{\index{Camera@{Camera}!get\-View\-Matrix@{get\-View\-Matrix}}
 \index{get\-View\-Matrix@{get\-View\-Matrix}!Camera@{Camera}}
@@ -217,6 +140,11 @@ Returns the camera's view matrix, calculated from the camera's position and forw
 \begin{DoxyReturn}{Returns}
 The camera's view matrix 
 \end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_camera_aae346bd34a4af9cab3da7e135417e32f}{\index{Camera@{Camera}!look\-At@{look\-At}}
 \index{look\-At@{look\-At}!Camera@{Camera}}
 \subsubsection[{look\-At}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::look\-At (
@@ -233,6 +161,11 @@ Computes the horozontal and vertical rotation of the camera so that it is lookin
 \mbox{\tt in}  & {\em pos} & The position that the camera should look at \\
 \hline
 \end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_camera_a10b868fe859868ce30c7b4523009e315}{\index{Camera@{Camera}!on\-Key\-Press@{on\-Key\-Press}}
 \index{on\-Key\-Press@{on\-Key\-Press}!Camera@{Camera}}
 \subsubsection[{on\-Key\-Press}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::on\-Key\-Press (
@@ -257,7 +190,7 @@ This function is called from the key callback specified in main.\-cpp
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_input_handler}{Input\-Handler}.
+Implements \hyperlink{class_input_handler_a2d99c4441c45f09a50b52e2a7465e77e}{Input\-Handler}.
 
 \hypertarget{class_camera_a5106fd522318a7d5bf588648b7afa996}{\index{Camera@{Camera}!on\-Key\-Release@{on\-Key\-Release}}
 \index{on\-Key\-Release@{on\-Key\-Release}!Camera@{Camera}}
@@ -283,7 +216,7 @@ This function is called from the key callback specified in main.\-cpp
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_input_handler}{Input\-Handler}.
+Implements \hyperlink{class_input_handler_a8ca5e25c5fb77079704bc1ebc74ccf04}{Input\-Handler}.
 
 \hypertarget{class_camera_ab2a7799db840c22322ab06ef968e4f3e}{\index{Camera@{Camera}!on\-Mouse\-Move@{on\-Mouse\-Move}}
 \index{on\-Mouse\-Move@{on\-Mouse\-Move}!Camera@{Camera}}
@@ -308,7 +241,7 @@ The camera turns to follow the mouse as it moves around the screen
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_input_handler}{Input\-Handler}.
+Implements \hyperlink{class_input_handler_afce8da8c018d9055fd99608b7c7e769c}{Input\-Handler}.
 
 
 
@@ -350,6 +283,11 @@ Sets the camera's aspect ratio to the specified value.
 \mbox{\tt in}  & {\em new\-Aspect\-Ratio} & The desired aspect ratio for the camera \\
 \hline
 \end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_camera_a3cb5734686d002f2d2e225c5b3daa8bc}{\index{Camera@{Camera}!set\-F\-O\-V@{set\-F\-O\-V}}
 \index{set\-F\-O\-V@{set\-F\-O\-V}!Camera@{Camera}}
 \subsubsection[{set\-F\-O\-V}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::set\-F\-O\-V (
@@ -385,31 +323,6 @@ Sets the camera's rotation to the specified value.
 \mbox{\tt in}  & {\em v\-Rot} & the desired vertical rotation of the camera \\
 \hline
 \end{DoxyParams}
-
-
-Here is the caller graph for this function\-:
-
-
-\hypertarget{class_camera_ab839e9d43668ba6ea13c72245ece7131}{\index{Camera@{Camera}!translate@{translate}}
-\index{translate@{translate}!Camera@{Camera}}
-\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::translate (
-\begin{DoxyParamCaption}
-\item[{glm\-::vec3}]{dir}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_camera_ab839e9d43668ba6ea13c72245ece7131}
-
-
-Moves the camera by the specified vector. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em dir} & The vector to move the camera by \\
-\hline
-\end{DoxyParams}
-
-
-Implements \hyperlink{class_transformable}{Transformable}.
-
 
 
 Here is the caller graph for this function\-:
