@@ -48,7 +48,7 @@ public:
 	glm::mat4 &getProjMatrix();
 	/*!\brief Returns the position of the light
 	
-	\return The position of the light*/
+	\return The position of the light, plus a number telling us what kind of light we have*/
 	virtual glm::vec4 getPos() = 0;
 	/*!\brief Returns the color and intensity of the light
 	
