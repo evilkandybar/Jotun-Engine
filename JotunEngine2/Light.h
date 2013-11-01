@@ -23,7 +23,7 @@ public:
 	~Light();
 
 	/*!\brief Updates the light, aligning the camera with the light*/
-	void update();
+	virtual void update() = 0;
 	/*!\brief Sets the color of the light to a specified value
 	
 	\param [in] newColor The desired new color of the light*/
@@ -49,14 +49,14 @@ public:
 	/*!\brief Returns the position of the light
 	
 	\return The position of the light*/
-	glm::vec3 &getPos();
+	virtual glm::vec4 getPos() = 0;
 	/*!\brief Returns the color and intensity of the light
 	
 	\return The color and intensity of the light. The RGB color is in the
 	returned vector4's RGB, respectively. The intensity of the light is packed 
 	into the returned Vector4's alpha*/
 	glm::vec4 &getColor();
-private:
+protected:
 	glm::vec4 color;	//a is the light's intensity
 	glm::vec3 position;
 	Camera *shadowCam;

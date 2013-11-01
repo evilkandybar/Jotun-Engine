@@ -10,13 +10,30 @@ Shader::~Shader() {
 	glDeleteProgram( glName );
 }
 
+void Shader::genAttribMap() {
+	std::map<std::string, int>::iterator it = attribs.begin();
+	int attrib;
+	for( int i = 0; i < attribNames.size(); i++ ) {
+		attrib = glGetAttribLocation( glName, attribNames[i].c_str() );
+		attribs.insert( it, std::pair<std::string, int>( attribNames[i], attrib ) );
+	}
+}
+
 void Shader::genAttribMap( std::string *varNames, int numElems ) {
 	std::map<std::string, int>::iterator it = attribs.begin();
 	int attrib;
 	for( int i = 0; i < numElems; i++ ) {
 		attrib = glGetAttribLocation( glName, varNames[i].c_str() );
-		attribs.insert( it, 
-			std::pair<std::string, int>( varNames[i], attrib ) );
+		attribs.insert( it, std::pair<std::string, int>( varNames[i], attrib ) );
+	}
+}
+
+void Shader::genUniformMap() {
+	std::map<std::string, int>::iterator it = uniforms.begin();
+	int unif;
+	for( int i = 0; i < uniformNames.size(); i++ ) {
+		unif = glGetUniformLocation( glName, uniformNames[i].c_str() );
+		uniforms.insert( it, std::pair<std::string, int>( uniformNames[i], unif ) );
 	}
 }
 
@@ -25,13 +42,16 @@ void Shader::genUniformMap( std::string *varNames, int numElems ) {
 	int unif;
 	for( int i = 0; i < numElems; i++ ) {
 		unif = glGetUniformLocation( glName, varNames[i].c_str() );
-		uniforms.insert( it,
-			std::pair<std::string, int>( varNames[i], unif ) );
+		uniforms.insert( it, std::pair<std::string, int>( varNames[i], unif ) );
 	}
 }
 
-void Shader::setUniform3f( std::string name, int v1, int v2, int v3 ) {
+void Shader::setUniform3f( std::string name, float v1, float v2, float v3 ) {
 	glUniform3f( uniforms[name], v1, v2, v3 );
+}
+
+void Shader::setUniform4f( std::string name, float v1, float v2, float v3, float v4 ) {
+	glUniform4f( uniforms[name], v1, v2, v3, v4 );
 }
 
 void Shader::setUniform1i( std::string name, int v1 ) {
@@ -42,8 +62,12 @@ void Shader::setUniform2i( std::string name, int v1, int v2 ) {
 	glUniform2i( uniforms[name], v1, v2 );
 }
 
-void Shader::setUniformf4Array( std::string name, int num, glm::vec4 *vs ) {
+void Shader::setUniformf4Array( std::string name, int num, float4 *vs ) {
 	glUniform4fv( uniforms[name], num, &vs->x );
+}
+
+void Shader::setUniformMat3x3( std::string name, float *value ) {
+	glUniformMatrix3fv( uniforms[name], 1, GL_FALSE, value );
 }
 
 void Shader::setUniformMat4x4( std::string name, float *value ) {
@@ -68,11 +92,10 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 	GLuint vertexShaderID = glCreateShader( GL_VERTEX_SHADER );
 	GLuint fragmentShaderID = glCreateShader( GL_FRAGMENT_SHADER );
 
-	std::vector<std::string> uniformNames;
-	std::vector<std::string> attribNames;
 	int pos;
 	int endPos;
 
+#pragma region LoadVertexShader
 	// Read the Vertex Shader code from the file
 	std::string vertexShaderCode;
 	std::ifstream vertexShaderStream( vertFile, std::ios::in );
@@ -86,14 +109,15 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 				pos = line.find( ' ', pos + 9 ) + 1;
 				endPos = line.find( '[' ) - 1;
 				if( endPos == std::string::npos - 1 ) {
-					endPos = line.find( ';' ) - 1;
+					endPos = line.find( ';' );
 				}
-				uniformNames.push_back( line.substr( pos, endPos ) );
+				uniformNames.push_back( line.substr( pos, endPos - pos ) );
 			}
 			pos = line.find( "in" );
 			if( pos == 0 ) {
 				pos = line.find( ' ', pos + 3 ) + 1;
-				attribNames.push_back( line.substr( pos, line.find( ';' ) - 1 ) );
+				endPos = line.find( ';' );
+				attribNames.push_back( line.substr( pos, endPos - pos ) );
 			}
 			vertexShaderCode += "\n" + line;
 		}
@@ -103,7 +127,8 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		glName = 0;
 		return;
 	}
-
+#pragma endregion
+#pragma region LoadFragmentShader
 	// Read the Fragment Shader code from the file
 	std::string fragmentShaderCode;
 	std::ifstream fragmentShaderStream( fragFile, std::ios::in );
@@ -116,18 +141,20 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 				pos = line.find( ' ', pos + 9 ) + 1;
 				endPos = line.find( '[' ) - 1;
 				if( endPos == std::string::npos - 1 ) {
-					endPos = line.find( ';' ) - 1;
+					endPos = line.find( ';' );
 				}
-				uniformNames.push_back( line.substr( pos, endPos ) );
+				uniformNames.push_back( line.substr( pos, endPos - pos ) );
 			}
 			fragmentShaderCode += "\n" + line;
 		}
 		fragmentShaderStream.close();
 	}
+#pragma endregion
 
 	GLint result = GL_FALSE;
 	int infoLogLength;
 
+#pragma region CompileVertexShader
 	// Compile Vertex Shader
 	printf( "Compiling shader : %s\n", vertFile );
 	char const * vertexSourcePointer = vertexShaderCode.c_str();
@@ -142,7 +169,8 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		glGetShaderInfoLog( vertexShaderID, infoLogLength, NULL, &vertexShaderErrorMessage[0] );
 		printf( "%s\n", &vertexShaderErrorMessage[0] );
 	}
-
+#pragma endregion
+#pragma region CompileFragmentShader
 	// Compile Fragment Shader
 	printf( "Compiling shader : %s\n", fragFile );
 	char const * fragmentSourcePointer = fragmentShaderCode.c_str();
@@ -157,7 +185,8 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		glGetShaderInfoLog( fragmentShaderID, infoLogLength, NULL, &fragmentShaderErrorMessage[0] );
 		printf( "%s\n", &fragmentShaderErrorMessage[0] );
 	}
-
+#pragma endregion
+#pragma region LinkProgram
 	// Link the program
 	printf( "Linking program\n" );
 	GLuint programID = glCreateProgram();
@@ -173,15 +202,12 @@ void Shader::loadShader( const char * vertFile, const char * fragFile ) {
 		glGetProgramInfoLog( programID, infoLogLength, NULL, &programErrorMessage[0] );
 		printf( "%s\n", &programErrorMessage[0] );
 	}
+#pragma endregion
 
 	glDeleteShader( vertexShaderID );
 	glDeleteShader( fragmentShaderID );
 
 	glName = programID;
-	/*if( attribNames.size() > 0 ) {
-		genAttribMap( &attribNames[0], attribNames.size() );
-	}
-	if( uniformNames.size() > 0 ) {
-		genUniformMap( &uniformNames[0], uniformNames.size() );
-	}*/
+	genAttribMap();
+	genUniformMap();
 }

@@ -14,10 +14,6 @@ Light::~Light() {
 	delete shadowCam;
 }
 
-void Light::update() {
-	shadowCam->update();
-}
-
 void Light::setColor( glm::vec3 &newColor ) {
 	color = glm::vec4( newColor, color.a );
 }
@@ -37,10 +33,6 @@ glm::mat4 &Light::getViewMatrix( glm::vec3 &screenCenter ) {
 
 glm::mat4 &Light::getProjMatrix() {
 	return shadowCam->getProjMatrix();
-}
-
-glm::vec3 &Light::getPos() {
-	return position;
 }
 
 glm::vec4 &Light::getColor() {

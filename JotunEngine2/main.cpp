@@ -19,7 +19,7 @@ GLFWwindow *window;
 
 Camera *mainCamera;
 
-Light *mainLight;
+DirectionalLight *mainLight;
 
 Shader *diffuse;
 Shader *depth;
@@ -101,62 +101,12 @@ void initData() {
 
 	inputHandlers.push_back( mainCamera );
 	
-	mainLight = new Light( glm::vec3( 1, 1, 1 ), 1, glm::vec3( 0.5f, 10, 2 ) );
+	mainLight = new DirectionalLight( glm::vec3( 1, 1, 0 ), 1, glm::vec3( 7.5f, 2, 2 ) );
 
-#pragma region diffuse
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
-
-	std::string *uniformNames = new std::string[9];
-	uniformNames[0] = "normalMap";
-	uniformNames[1] = "diffuse";
-	uniformNames[2] = "MVP";
-	uniformNames[3] = "V";
-	uniformNames[4] = "M";
-	uniformNames[5] = "DepthBiasMVP";
-	uniformNames[6] = "shadowMap";
-	uniformNames[7] = "lightPosition_worldspace";
-	uniformNames[8] = "shadowLevel";
-
-	std::string *attribNames = new std::string[4];
-	attribNames[0] = "vertexPosition_worldspace";
-	attribNames[1] = "vertexUV";
-	attribNames[2] = "vertexNormal_modelspace";
-	attribNames[3] = "vertexTangent_modelspace";
-
-	diffuse->genAttribMap( attribNames, 4 );
-	diffuse->genUniformMap( uniformNames, 9 );
-#pragma endregion
-
-#pragma region depth
 	depth = new Shader( "Depth.vert", "Depth.frag" );
-
-	uniformNames = new std::string[1];
-	uniformNames[0] = "depthMVP";
-	attribNames = new std::string[1];
-	attribNames[0] = "vertexPosition_modelspace";
-
-	depth->genUniformMap( uniformNames, 1 );
-	depth->genAttribMap( attribNames, 1 );
-#pragma endregion
-
-#pragma region passthrough
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
-
-	uniformNames = new std::string[1];
-	uniformNames[0] = "texture";
-	attribNames = new std::string[1];
-	attribNames[0] = "vertexPosition_modelspace";
-
-	passthrough->genAttribMap( attribNames, 1 );
-	passthrough->genUniformMap( uniformNames, 1 );
-#pragma endregion
-
-#pragma region vertexlit
 	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
-
-	uniformNames[0] = "MVP";
-	vertexLit->genUniformMap( uniformNames, 1 );
-#pragma endregion
 
 	texture = new Texture( "DiffuseTex.png" );
 	normalMap = new Texture( "NormalMap.png" );
@@ -186,14 +136,16 @@ void draw() {
 #pragma region shadow
 	//Only render the shadow pass if we have shadows enabled
 	glm::mat4 depthMVP = glm::mat4( 1.0 );
-	glm::vec3 lightInvDir = mainLight->getPos();
+	glm::vec4 lightInvDir = mainLight->getPos();
 	if( Settings::getShadowQuality() > 0 ) {
 		glBindFramebuffer( GL_FRAMEBUFFER, FramebufferName );
 		glViewport( 0, 0, 1024, 1024 ); 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		depth->bind();
 		glm::mat4 depthProjectionMatrix = glm::ortho<float>( -10, 10, -10, 10, -10, 20 );
-		glm::mat4 depthViewMatrix = glm::lookAt( lightInvDir, glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ) );
+		glm::mat4 depthViewMatrix = glm::lookAt( glm::vec3( lightInvDir.x, lightInvDir.y, lightInvDir.z ), 
+										glm::vec3( 0, 0, 0 ), 
+										glm::vec3( 0, 1, 0 ) );
 		glm::mat4 depthModelMatrix = glm::mat4( 1.0 );
 		depthMVP = depthProjectionMatrix * depthViewMatrix *
 			depthModelMatrix;
@@ -222,22 +174,26 @@ void draw() {
 		);
 
 	glm::mat4 depthBiasMVP = biasMatrix * depthMVP;
+	glm::mat3 normalMatrix = glm::mat3( MVP );
 
 	// Use our shader
 	diffuse->bind();
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
+	diffuse->setUniformMat3x3( "normalMatrix", &normalMatrix[0][0] );
 	diffuse->setUniformMat4x4( "MVP", &MVP[0][0] );
 	diffuse->setUniformMat4x4( "M", &ModelMatrix[0][0] );
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
 	diffuse->setUniformMat4x4( "DepthBiasMVP", &depthBiasMVP[0][0] );
 
-	diffuse->setUniform3f( "lightPosition_worldspace",
-		lightInvDir.x, lightInvDir.y, lightInvDir.z );
+	diffuse->setUniform4f( "lightPosition_worldspace",
+		lightInvDir.x, lightInvDir.y, lightInvDir.z, lightInvDir.w );
+
+	diffuse->setUniform4f( "lightColor", mainLight->getColor().r, mainLight->getColor().g, mainLight->getColor().b, mainLight->getColor().a );
 
 	// Bind our texture in Texture Unit 0
-	texture->bind( 0 );
+	normalMap->bind( 0 );
 	// Set our "myTextureSampler" sampler to user Texture Unit 0
 	diffuse->setUniform1i( "diffuse", 0 );
 

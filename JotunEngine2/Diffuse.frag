@@ -3,10 +3,10 @@
 // Interpolated values from the vertex shaders
 in vec2 UV;
 in vec3 Position_worldspace;
-in vec3 eyeDirection_tangentspace;
 in vec3 lightDirection_tangentspace;
-in vec3 halfVector_tangentspace;
+in vec3 eyeDirection_tangentspace;
 in vec4 ShadowCoord;
+in float lightType;
 
 out vec4 fragColor;
 
@@ -16,6 +16,7 @@ uniform sampler2D normalMap;
 uniform sampler2D shadowMap;
 uniform mat4 MV;
 uniform vec3 LightPosition_worldspace;
+uniform vec4 lightColor;
 uniform int shadowLevel;	//0 is no shadow, 1 is hard shadows, 2 is soft shadows, 3 is PCSS
 
 vec2 poissonDisk( int ind ) {
@@ -130,8 +131,6 @@ int mod( int a, int b ) {
 
 void main() {
 	/* Lighting calculations */
-	vec3 LightColor = vec3( 1, 1, 1 );
-	float LightPower = 1.0f;
 
 	// Material properties
 	vec3 MaterialDiffuseColor = texture( diffuse, UV ).rgb;
@@ -140,22 +139,6 @@ void main() {
 
 	vec3 normal = 2.0 * texture( normalMap, UV ).xyz - 1.0;
 	float cosTheta = clamp( dot( normal, lightDirection_tangentspace ), 0, 1 );
-	
-	// check if the material is actually in not shadow. Don't calculate specularity
-	// if we can't see it. Shadowed specularity is bad.
-
-	float cosAlpha = 0.0;
-
-	//if( cosTheta > 0.0 ) {
-		// Direction in which the triangle reflects the light
-		vec3 R = reflect( -lightDirection_tangentspace, normal );
-
-		// Cosine of the angle between the Eye vector and the Reflect vector,
-		// clamped to 0
-		//  - Looking into the reflection -> 1
-		//  - Looking elsewhere -> < 1
-		cosAlpha = clamp( dot( halfVector_tangentspace, normal ), 0, 1 );	
-	//}
 	
 	/* Shadow calculations */
 	float visibility = 1.0;
@@ -204,13 +187,25 @@ void main() {
 			}
 		}
 	}
-	visibility = min( visibility, cosTheta );
+	
+	float cosAlpha = 0.0;
+
+	if( visibility > 0.3 ) {
+		vec3 E = normalize( eyeDirection_tangentspace );
+		vec3 R = reflect( -lightDirection_tangentspace, normal );
+
+		// Cosine of the angle between the Eye vector and the Reflect vector,
+		// clamped to 0
+		//  - Looking into the reflection -> 1
+		//  - Looking elsewhere -> < 1
+		cosAlpha = clamp( dot( E, R ), 0, 1 );	
+	}
+
 	//MaterialDiffuseColor = vec3( 0.8, 0.8, 0.8 );
 	fragColor.rgb = MaterialAmbientColor +
-		visibility * MaterialDiffuseColor * LightColor * LightPower +
-		visibility * MaterialSpecularColor * LightColor * LightPower * pow( cosAlpha, 5 );
+		visibility * MaterialDiffuseColor * lightColor.rgb * lightColor.a * cosTheta +
+		visibility * MaterialSpecularColor * lightColor.rgb * lightColor.a * pow( cosAlpha, 10 );
 
-	//fragColor.rgb = n;
 	//fragColor.rgb = vec3( cosAlpha, cosAlpha, cosAlpha );
-	//fragColor.rgb = R;
+	//fragColor.rgb = lightDirection_tangentspace;
 }
