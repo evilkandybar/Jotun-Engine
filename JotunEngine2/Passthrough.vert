@@ -7,7 +7,7 @@ attribute vec3 vertexPosition_modelspace;
 varying vec2 UV;
 
 void main(){
-	gl_Position = gl_Vertex;
+	gl_Position = vertexPosition_modelspace;
 	UV = ( gl_Vertex.xy + vec2( 1, 1 ) ) / 2.0;
 }
 

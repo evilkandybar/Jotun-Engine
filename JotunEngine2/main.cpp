@@ -10,8 +10,10 @@ void	draw();
 void	destroy();
 void	onGLFWError( int error, const char *description );
 void	onGLFWKey( GLFWwindow *curWindow, int key, int scancode, 
-	int action, int mods );
+			int action, int mods );
 void	onGLFWMouse( GLFWwindow *window, double xPos, double yPos );
+
+int width, height;
 
 std::vector<InputHandler*> inputHandlers;
 
@@ -21,8 +23,13 @@ Camera *mainCamera;
 
 DirectionalLight *mainLight;
 
+Framebuffer **lastEightFrames;
+char curFrame;	//from 0 to 7
+
 Shader *diffuse;
+Shader *internalLighting;
 Shader *depth;
+Shader *motionBlur;
 Shader *passthrough;
 Shader *vertexLit;
 
@@ -32,6 +39,8 @@ Texture *texture;
 Texture *normalMap;
 
 int init() {
+	width = 1024;
+	height = 786;
 	glfwSetErrorCallback( onGLFWError );
 	// Initialise GLFW
 	if( !glfwInit() ) {
@@ -44,7 +53,7 @@ int init() {
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow( 1024, 786, "Jotun Engine 2", NULL, NULL );
+	window = glfwCreateWindow( width, height, "Jotun Engine 2", NULL, NULL );
 	if( !window ) {
 		fprintf( stderr, "Failed to open GLFW window.\n" );
 		glfwTerminate();
@@ -65,7 +74,7 @@ int init() {
 
 	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode( window, GLFW_STICKY_KEYS, GL_TRUE );
-	glfwSetCursorPos( window, 1024 / 2, 768 / 2 );
+	glfwSetCursorPos( window, width / 2, height / 2 );
 }
 
 void initOpenGL() {
@@ -91,6 +100,12 @@ void initOpenGL() {
 }
 
 void initData() {
+	//initialize eight framebuffers for use in motion blur
+	for( int i = 0; i < 8; i++ ) {
+		lastEightFrames[8] = new Framebuffer( width, height );
+	}
+	curFrame = 0;
+
 	// Read our .obj file
 	mesh = new Mesh( "room_thickwalls.obj" );
 
@@ -102,31 +117,14 @@ void initData() {
 
 	diffuse = new Shader( "Diffuse.vert", "Diffuse.frag" );
 	depth = new Shader( "Depth.vert", "Depth.frag" );
+	motionBlur = new Shader( "Passthrough.vert", "MotionBLur.frag" );
 	passthrough = new Shader( "Passthrough.vert", "Texture.frag" );
 	vertexLit = new Shader( "VertexLit.vert", "VertexLit.frag" );
+	internalLighting = new Shader( "InternalLighting.vert", "InternalLighting.frag" );
 
 	texture = new Texture( "DiffuseTex.png" );
 	normalMap = new Texture( "NormalMap.png" );
 	Time::init();
-}
-
-void drawAxis( glm::mat4 MVP ) {
-	vertexLit->bind();
-	vertexLit->setUniformMat4x4( "MVP", &MVP[0][0] );
-
-	glBegin( GL_LINES );
-	glColor3f( 1, 0, 0 );
-	glVertex3f( 100, 0, 0 );
-	glVertex3f( -100, 0, 0 );
-
-	glColor3f( 0, 1, 0 );
-	glVertex3f( 0, 100, 0 );
-	glVertex3f( 0, -100, 0 );
-
-	glColor3f( 0, 0, 1 );
-	glVertex3f( 0, 0, 100 );
-	glVertex3f( 0, 0, -100 );
-	glEnd();
 }
 
 void draw() {
@@ -144,8 +142,12 @@ void draw() {
 
 #pragma region main_render
 	// Render to the screen
-	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
-	glViewport( 0, 0, 1024, 768 );
+	lastEightFrames[curFrame]->bind();
+	curFrame++;
+	if( curFrame > 7 ) {
+		curFrame = 0;
+	}
+	glViewport( 0, 0, width, height );
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	mainCamera->update();
@@ -162,14 +164,12 @@ void draw() {
 		);
 
 	glm::mat4 depthBiasMVP = biasMatrix * depthMVP;
-	glm::mat3 normalMatrix = glm::mat3( MVP );
 
 	// Use our shader
 	diffuse->bind();
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
-	diffuse->setUniformMat3x3( "normalMatrix", &normalMatrix[0][0] );
 	diffuse->setUniformMat4x4( "MVP", &MVP[0][0] );
 	diffuse->setUniformMat4x4( "M", &ModelMatrix[0][0] );
 	diffuse->setUniformMat4x4( "V", &ViewMatrix[0][0] );
@@ -178,7 +178,9 @@ void draw() {
 	diffuse->setUniform4f( "lightPosition_worldspace",
 		lightInvDir.x, lightInvDir.y, lightInvDir.z, lightInvDir.w );
 
-	diffuse->setUniform4f( "lightColor", mainLight->getColor().r, mainLight->getColor().g, mainLight->getColor().b, mainLight->getColor().a );
+	diffuse->setUniform4f( "lightColor", 
+		mainLight->getColor().r, mainLight->getColor().g, 
+		mainLight->getColor().b, mainLight->getColor().a );
 
 	// Bind our texture in Texture Unit 0
 	normalMap->bind( 0 );
@@ -194,10 +196,15 @@ void draw() {
 
 	diffuse->setUniform1i( "shadowLevel", Settings::getShadowQuality() );
 
-	mesh->bind( diffuse->getAttribute( "vertexPosition_worldspace" ),
-		diffuse->getAttribute( "vertexUV" ),
-		diffuse->getAttribute( "vertexNormal_modelspace" ),
-		diffuse->getAttribute( "vertexTangent_modelspace" ) );
+	internalLighting->bind();
+	internalLighting->setUniformMat4x4( "MVP", &MVP[0][0] );
+	internalLighting->setUniformMat4x4( "M", &ModelMatrix[0][0] );
+	internalLighting->setUniformMat4x4( "V", &ViewMatrix[0][0] );
+
+	mesh->bind( internalLighting->getAttribute( "vertexPosition_worldspace" ),
+		internalLighting->getAttribute( "vertexUV" ),
+		internalLighting->getAttribute( "vertexNormal_modelspace" ),
+		internalLighting->getAttribute( "vertexTangent_modelspace" ) );
 	mesh->draw();
 #pragma endregion
 
@@ -232,6 +239,9 @@ int main( void ) {
 	delete passthrough;
 	delete mesh;
 	delete texture;
+
+	MeshLoader::clearAll();
+
 	return EXIT_SUCCESS;
 }
 

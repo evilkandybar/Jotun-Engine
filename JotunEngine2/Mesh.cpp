@@ -92,3 +92,7 @@ void Mesh::makeGLMesh() {
 	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, glIndexes );
 	glBufferData( GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0], GL_STATIC_DRAW );
 }
+
+std::string Mesh::getName() {
+	return sName;
+}

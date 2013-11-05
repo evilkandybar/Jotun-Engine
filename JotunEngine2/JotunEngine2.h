@@ -2,8 +2,10 @@
 
 #include "Camera.h"
 #include "DirectionalLight.h"
+#include "Framebuffer.h"
 #include "Light.h"
 #include "Mesh.h"
+#include "MeshLoader.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Time.h"

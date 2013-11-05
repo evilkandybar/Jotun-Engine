@@ -8,11 +8,7 @@ This class can load and render and static mesh. Animation support coming soon
 
  * When you change mesh, call mesh.bind()
  * When you actually want to draw the mesh, call mesh.draw()
- * When you are done with the mesh, call mesh.disable()
-
- Note that this isn't necessary until I have VBOs working
-
- For now, just call draw()
+ * When you are done with the mesh, call mesh.unbind()
  */
 class Mesh {
 public:
@@ -51,6 +47,8 @@ public:
 	
 	This is important when switching shaders or switching meshes (probably?)*/
 	void		unbind(); 
+
+	std::string	getName();
 private:
 	void		loadMesh();
 	void		makeGLMesh();
